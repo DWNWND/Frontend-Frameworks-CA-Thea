@@ -4,7 +4,7 @@ import BackArrowIcon from "../../images/back.svg";
 import Searchbar from "./search";
 import HamburgerMenu from "./nav";
 import Cart from "./cart";
-import styles from "./Nav.module.css";
+import styles from "./Header.module.css";
 
 export default function Header() {
   return (
