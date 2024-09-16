@@ -12,11 +12,11 @@ export default function Button({ page }) {
     btnClass = styles.checkout;
     btnText = "checkout";
   }
-  if (page === "checkout-success") {
+  if (page === "success") {
     btnClass = styles.continueShopping;
     btnText = "continue shopping";
   }
-  if (page === "send-inquiry") {
+  if (page === "contact") {
     btnClass = styles.sendInquiry;
     btnText = "send inquiry";
   }
