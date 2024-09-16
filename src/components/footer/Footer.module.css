@@ -1,12 +1,14 @@
 .wrapper {
   bottom: 0;
+  border-top: 1.5px solid var(--color-light-gray);
   display: flex;
   gap: 1.5rem;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
   max-width: 1200px;
-  padding: 1rem;
+  padding: 1.5rem;
   background-color: var(--color-white);
   z-index: 100;
   position: fixed;
+  width: 100%;
 }
