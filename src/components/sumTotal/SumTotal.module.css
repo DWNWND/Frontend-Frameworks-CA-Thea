@@ -1,0 +1,19 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.title {
+  color: var(--color-dark-gray);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.sum {
+  color: var(--color-secondary);
+  font-size: 1.125rem;
+  font-weight: 400;
+  white-space: nowrap;
+}
