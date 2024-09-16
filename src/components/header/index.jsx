@@ -4,40 +4,22 @@ import BackArrowIcon from "../../images/back.svg";
 import Searchbar from "./search";
 import HamburgerMenu from "./nav";
 import Cart from "./cart";
-
-const Wrapper = styled.header`
-  display: flex;
-  gap: 1.5rem;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  padding: 1rem;
-  background-color: var(--color-white);
-  z-index: 100;
-  position: fixed;
-`;
-
-const IconWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 24px;
-`;
+import styles from "./Nav.module.css";
 
 export default function Header() {
   return (
-    <Wrapper>
-      <IconWrapper>
+    <header className={styles.wrapper}>
+      <div className={styled.icon}>
         <img src={LogoIcon} alt="Lazz logo, click to go to home page" />
-      </IconWrapper>
-      {/* <IconWrapper>
+      </div>
+      {/* <div className={styled.icon}>
         <img src={BackArrowIcon} alt="fill-in-later" />
-      </IconWrapper> */}
+      </div> */}
       <Searchbar />
-      <IconWrapper>
+      <div className={styled.icon}>
         <Cart />
-      </IconWrapper>
+      </div>
       <HamburgerMenu />
-    </Wrapper>
+    </header>
   );
 }
