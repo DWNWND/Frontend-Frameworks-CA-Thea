@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import styles from "./Footer.module.css";
 import Button from "../button";
+import Quantity from "../quanity";
 
-export default function Footer({ page = "checkout" }) {
+export default function Footer({ page = "product" }) {
   const checkIfMobileScreen = () => {
     const [width, setWidth] = useState(window.innerWidth);
     const handleWindowSizeChange = () => {
@@ -29,6 +30,7 @@ export default function Footer({ page = "checkout" }) {
     if (page === "product") {
       return (
         <footer className={styles.wrapper}>
+          <Quantity />
           <Button page={page} />
         </footer>
       );
