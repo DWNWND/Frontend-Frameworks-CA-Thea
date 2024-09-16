@@ -30,7 +30,6 @@ img {
 }
 
 /* https://github.com/march08/animated-burgers/blob/master/packages/BurgerSqueeze/dist/styles.css */
-
 .burger {
   height: 3em;
   width: 2em;
@@ -94,10 +93,6 @@ img {
   transition: 0.2s top 0.2s, 0.1s left, 0.2s transform, 0.4s background-color 0.2s;
 }
 
-/* .burger.burger-squeeze .burger-lines:after,
-.burger.burger-squeeze .burger-lines:before {
-  width: 2em;
-} */
 
 .burger.burger-squeeze.open .burger-lines,
 .burger.burger-squeeze.open .burger-lines:after,
@@ -113,7 +108,6 @@ img {
 
 .burger.burger-squeeze.open .burger-lines:before,
 .burger.burger-squeeze.open .burger-lines:after {
-  /* left: 0.5em; */
   top: 0px;
 }
 
