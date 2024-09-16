@@ -1,0 +1,12 @@
+.wrapper {
+  bottom: 0;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  padding: 1rem;
+  background-color: var(--color-white);
+  z-index: 100;
+  position: fixed;
+}
