@@ -6,10 +6,11 @@ import styled from "styled-components";
 const Nav = styled.nav`
   background-color: white;
   position: absolute;
-  top: 100px;
+  top: 65.59px;
   left: 0;
   width: 100%;
   z-index: 100;
+  transition: all 0.5s ease;
 `;
 
 const HamburgerMenuBtn = styled.button`
@@ -22,15 +23,19 @@ const HamburgerMenuBtn = styled.button`
   max-height: 24px;
 `;
 
-function OpenMenu() {
+function OpenMenu({ isActive }) {
   return (
-    <Nav>
+    <Nav className={isActive ? "active" : "hidden"}>
       <ul className="main-nav-ul">
         <li>
-          <a href="#" className="main-nav-a">Home</a>
+          <a href="#" className="main-nav-a">
+            Home
+          </a>
         </li>
         <li>
-          <a href="#" className="main-nav-a">Categories</a>
+          <a href="#" className="main-nav-a">
+            Categories
+          </a>
           <ul className="sub-nav-ul">
             <li>
               <a href="#">Electronics</a>
@@ -53,10 +58,14 @@ function OpenMenu() {
           </ul>
         </li>
         <li>
-          <a href="#" className="main-nav-a">Contact us</a>
+          <a href="#" className="main-nav-a">
+            Contact us
+          </a>
         </li>
         <li>
-          <a href="#" className="main-nav-a">Help & support</a>
+          <a href="#" className="main-nav-a">
+            Help & support
+          </a>
         </li>
       </ul>
     </Nav>
@@ -78,7 +87,7 @@ export default function HamburgerMenu() {
           <div className="burger-lines"></div>
         </div>
       </HamburgerMenuBtn>
-      {isMenuOpen ? <OpenMenu /> : <></>}
+      <OpenMenu isActive={isMenuOpen} />
     </>
   );
 }

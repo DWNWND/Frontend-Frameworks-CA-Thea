@@ -13,6 +13,8 @@ const Wrapper = styled.header`
   max-width: 1200px;
   padding: 1rem;
   background-color: var(--color-white);
+  z-index: 100;
+  position: fixed;
 `;
 
 const IconWrapper = styled.div`
@@ -26,7 +28,7 @@ export default function Header() {
   return (
     <Wrapper>
       <IconWrapper>
-        <img src={LogoIcon} alt="Lazz logo, click to go to home page"/>
+        <img src={LogoIcon} alt="Lazz logo, click to go to home page" />
       </IconWrapper>
       {/* <IconWrapper>
         <img src={BackArrowIcon} alt="fill-in-later" />
