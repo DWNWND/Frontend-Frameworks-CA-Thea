@@ -1,7 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-// import HamburgerMenuIcon from "../../../images/menu.svg";
-// import CrossIcon from "../../../images/cross.svg";
+import styles from "./Nav.module.css";
 
 const Nav = styled.nav`
   background-color: white;
@@ -25,47 +24,39 @@ const HamburgerMenuBtn = styled.button`
 
 function OpenMenu({ isActive }) {
   return (
-    <Nav className={isActive ? "active" : "hidden"}>
-      <ul className="main-nav-ul">
+    <Nav className={isActive ? styles.active : styles.hidden}>
+      <ul className={styles.pages}>
         <li>
-          <a href="#" className="main-nav-a">
-            Home
-          </a>
+          <a href="#" className={styles.page}>Home</a>
         </li>
         <li>
-          <a href="#" className="main-nav-a">
-            Categories
-          </a>
-          <ul className="sub-nav-ul">
+          <a href="#" className={styles.page}>Categories</a>
+          <ul className={styles.categories}>
             <li>
-              <a href="#">Electronics</a>
+              <a href="#"className={styles.category}>Electronics</a>
             </li>
             <li>
-              <a href="#">Audio</a>
+              <a href="#" className={styles.category}>Audio</a>
             </li>
             <li>
-              <a href="#">Fashion</a>
+              <a href="#" className={styles.category}>Fashion</a>
             </li>
             <li>
-              <a href="#">Beauty</a>
+              <a href="#" className={styles.category}>Beauty</a>
             </li>
             <li>
-              <a href="#">Watches</a>
+              <a href="#" className={styles.category}>Watches</a>
             </li>
             <li>
-              <a href="#">Shoes</a>
+              <a href="#" className={styles.category}>Shoes</a>
             </li>
           </ul>
         </li>
         <li>
-          <a href="#" className="main-nav-a">
-            Contact us
-          </a>
+          <a href="#" className={styles.page}>Contact us</a>
         </li>
         <li>
-          <a href="#" className="main-nav-a">
-            Help & support
-          </a>
+          <a href="#" className={styles.page}>Help & support</a>
         </li>
       </ul>
     </Nav>
@@ -82,7 +73,6 @@ export default function HamburgerMenu() {
   return (
     <>
       <HamburgerMenuBtn onClick={() => onHamburgerMenuClick()}>
-        {/* <img onClick={() => onHamburgerMenuClick()} src={isMenuOpen ? CrossIcon : HamburgerMenuIcon} alt="Menu icon" className="menu-transition" /> */}
         <div className={isMenuOpen ? "burger burger-squeeze open" : "burger burger-squeeze"}>
           <div className="burger-lines"></div>
         </div>
