@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import styles from "./Footer.module.css";
 import Button from "../button";
 import Quantity from "../quanity";
+import SumTotal from "../sumTotal";
 
-export default function Footer({ page = "product" }) {
+export default function Footer({ page = "checkout" }) {
   const checkIfMobileScreen = () => {
     const [width, setWidth] = useState(window.innerWidth);
     const handleWindowSizeChange = () => {
@@ -38,18 +39,19 @@ export default function Footer({ page = "product" }) {
     if (page === "checkout") {
       return (
         <footer className={styles.wrapper}>
+          <SumTotal total="placeholder" />
           <Button page={page} />
         </footer>
       );
     }
-    if (page === "checkout-success") {
+    if (page === "success") {
       return (
         <footer className={styles.wrapper}>
           <Button page={page} />
         </footer>
       );
     }
-    if (page === "send-inquiry") {
+    if (page === "contact") {
       return (
         <footer className={styles.wrapper}>
           <Button page={page} />
