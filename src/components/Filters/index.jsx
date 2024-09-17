@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./Filters.module.css";
 
 export default function Filters({ page = "/" }) {
-  const [isActive, setActive] = useState("");
+  const [isActive, setActive] = useState("TopSales");
 
   const toggleClass = (event) => {
     setActive(event.target.id);
@@ -21,6 +21,7 @@ export default function Filters({ page = "/" }) {
     );
   }
   if (page === "/products") {
+    setActive("BestMatch");
     return (
       <div className={styles.wrapper}>
         <button className={`${isActive == "BestMatch" ? styles.current : ""} ${styles.filter}`} id="BestMatch" onClick={toggleClass}>
