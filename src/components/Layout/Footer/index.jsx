@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import styles from "./Footer.module.css";
-import Button from "../../Button";
 import Quantity from "../../Quanity";
 import SumTotal from "../../SumTotal";
+import Button from "../../button";
 import VisaLogo from "../../../assets/logos/logos_visa.png";
 import KlarnaLogo from "../../../assets/logos/logos_klarna.png";
 import MastercardLogo from "../../../assets/logos/logos_mastercard.png";
