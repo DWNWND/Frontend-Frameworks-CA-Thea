@@ -1,30 +1,14 @@
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
-
-function Home() {
-  return <div>Home</div>;
-}
-
-function Product() {
-  return <div>Product</div>;
-}
-
-function Checkout() {
-  return <div>Checkout</div>;
-}
-
-function CheckoutSuccess() {
-  return <div>success</div>;
-}
-
-function Contact() {
-  return <div>Contact</div>;
-}
+import Home from "./components/pages/Home";
+import Product from "./components/pages/Product";
+import Checkout from "./components/pages/Checkout";
+import CheckoutSuccess from "./components/pages/CheckoutSuccess";
+import Contact from "./components/pages/Contact";
 
 function RouteNotFound() {
   return <div>Page not found</div>;
 }
-
 
 function App() {
   return (
