@@ -32,51 +32,53 @@ export default function Footer({ page = "checkout" }) {
 
   function DesktopFooter() {
     return (
-      <footer className={styles.wrapper}>
-        <div className={styles.footerContainers}>
-          <h3>Customer care</h3>
-          <ul>
-            <li>
-              <a>Help & support</a>
-            </li>
-            <li>
-              <a>How to buy</a>
-            </li>
-            <li>
-              <a>How to return</a>
-            </li>
-            <li>
-              <a>Shipping & delivery</a>
-            </li>
-            <li>
-              <a>FAQ</a>
-            </li>
-          </ul>
-        </div>
-        <div className={styles.footerContainers}>
-          <h3>Lazz</h3>
-          <ul>
-            <li>
-              <a>About LAZZ</a>
-            </li>
-            <li>
-              <a>Privacy policy</a>
-            </li>
-            <li>
-              <a>Terms & conditions</a>
-            </li>
-            <li>
-              <a>Contact us</a>
-            </li>
-          </ul>
-        </div>
-        <div className={styles.footerContainers}>
-          <h3>Payment options</h3>
-          <div className={styles.paymentContainer}>
-            <img src={VisaLogo} alt="Visa logo, to show that you can pay with visa"></img>
-            <img src={MastercardLogo} alt="Mastercard logo, to show that you can pay with Mastercard"></img>
-            <img src={KlarnaLogo} alt="Klarna logo, to show that you can pay with Klarna"></img>
-            <img src={PaypalLogo} alt="Paypal logo, to show that you can pay with Paypal"></img>
+      <footer className={styles.width}>
+        <div className={styles.wrapper}>
+          <div className={styles.footerContainers}>
+            <h3>Customer care</h3>
+            <ul>
+              <li>
+                <a>Help & support</a>
+              </li>
+              <li>
+                <a>How to buy</a>
+              </li>
+              <li>
+                <a>How to return</a>
+              </li>
+              <li>
+                <a>Shipping & delivery</a>
+              </li>
+              <li>
+                <a>FAQ</a>
+              </li>
+            </ul>
+          </div>
+          <div className={styles.footerContainers}>
+            <h3>Lazz</h3>
+            <ul>
+              <li>
+                <a>About LAZZ</a>
+              </li>
+              <li>
+                <a>Privacy policy</a>
+              </li>
+              <li>
+                <a>Terms & conditions</a>
+              </li>
+              <li>
+                <a>Contact us</a>
+              </li>
+            </ul>
+          </div>
+          <div className={styles.footerContainers}>
+            <h3>Payment options</h3>
+            <div className={styles.paymentContainer}>
+              <img src={VisaLogo} alt="Visa logo, to show that you can pay with visa"></img>
+              <img src={MastercardLogo} alt="Mastercard logo, to show that you can pay with Mastercard"></img>
+              <img src={KlarnaLogo} alt="Klarna logo, to show that you can pay with Klarna"></img>
+              <img src={PaypalLogo} alt="Paypal logo, to show that you can pay with Paypal"></img>
+            </div>
           </div>
         </div>
       </footer>

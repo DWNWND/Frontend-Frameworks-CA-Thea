@@ -1,0 +1,13 @@
+.star {
+  color: var(--color-soft-yellow);
+  font-size: 0.8rem;
+}
+.ratings {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.reviewsCount {
+  font-size: 0.625rem;
+  color: var(--color-mid-gray);
+}
