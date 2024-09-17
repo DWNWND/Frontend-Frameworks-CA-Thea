@@ -8,8 +8,8 @@ const Nav = styled.nav`
   top: 65.59px;
   left: 0;
   width: 100%;
-  z-index: 100;
-  transition: all 0.5s ease;
+  z-index: 99;
+  transition: all 0.7s ease-in-out;
 `;
 
 const HamburgerMenuBtn = styled.button`
@@ -20,6 +20,7 @@ const HamburgerMenuBtn = styled.button`
   justify-content: center;
   align-items: center;
   max-height: 24px;
+  z-index: 100;
 `;
 
 function OpenMenu({ isActive }) {
@@ -27,36 +28,56 @@ function OpenMenu({ isActive }) {
     <Nav className={isActive ? styles.active : styles.hidden}>
       <ul className={styles.pages}>
         <li>
-          <a href="#" className={styles.page}>Home</a>
+          <a href="#" className={styles.page}>
+            Home
+          </a>
         </li>
         <li>
-          <a href="#" className={styles.page}>Categories</a>
+          <a href="#" className={styles.page}>
+            Categories
+          </a>
           <ul className={styles.categories}>
             <li>
-              <a href="#"className={styles.category}>Electronics</a>
+              <a href="#" className={styles.category}>
+                Electronics
+              </a>
             </li>
             <li>
-              <a href="#" className={styles.category}>Audio</a>
+              <a href="#" className={styles.category}>
+                Audio
+              </a>
             </li>
             <li>
-              <a href="#" className={styles.category}>Fashion</a>
+              <a href="#" className={styles.category}>
+                Fashion
+              </a>
             </li>
             <li>
-              <a href="#" className={styles.category}>Beauty</a>
+              <a href="#" className={styles.category}>
+                Beauty
+              </a>
             </li>
             <li>
-              <a href="#" className={styles.category}>Watches</a>
+              <a href="#" className={styles.category}>
+                Watches
+              </a>
             </li>
             <li>
-              <a href="#" className={styles.category}>Shoes</a>
+              <a href="#" className={styles.category}>
+                Shoes
+              </a>
             </li>
           </ul>
         </li>
         <li>
-          <a href="#" className={styles.page}>Contact us</a>
+          <a href="#" className={styles.page}>
+            Contact us
+          </a>
         </li>
         <li>
-          <a href="#" className={styles.page}>Help & support</a>
+          <a href="#" className={styles.page}>
+            Help & support
+          </a>
         </li>
       </ul>
     </Nav>

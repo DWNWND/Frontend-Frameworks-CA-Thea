@@ -8,10 +8,22 @@
   background-color: var(--color-white);
   z-index: 100;
   position: fixed;
+  width: 100%;
 }
 .icon {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 24px;
+  z-index: 100;
+}
+
+.headerBackground {
+  background-color: var(--color-white);
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  height: 65.59px;
+  top: 0;
+  left: 0;
 }

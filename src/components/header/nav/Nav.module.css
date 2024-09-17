@@ -1,9 +1,9 @@
 nav.active {
-  transform: translateX(0);
+  transform: translateY(0);
 }
 
 nav.hidden {
-  transform: translateX(-150%);
+  transform: translateY(-150%);
 }
 
 .pages {
@@ -12,6 +12,7 @@ nav.hidden {
   justify-content: space-evenly;
   flex-direction: column;
   gap: 1rem;
+  background-color: var(--color-white);
 
   a.page {
     font-weight: 400;
@@ -19,6 +20,10 @@ nav.hidden {
     font-size: 1.25rem;
     color: var(--color-black);
     text-transform: uppercase;
+  }
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
   }
 }
 

@@ -1,0 +1,38 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.title {
+  text-transform: uppercase;
+  color:var(--color-dark-purple);
+  font-size: 0.875rem;
+}
+.bullet {
+  background-color: var(--color-light-purple);
+  padding: 0.6rem 0.9rem;
+  border-radius: 10px;
+  /* border: 1px solid var(--color-dark-purple); */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.8rem;
+}
+.minus, .pluss {
+  font-size: 1.8rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-white);
+  background-color: var(--color-mid-dark-purple);
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
+  border: none;
+}
+.amount {
+  font-size: 1.25rem;
+  color: var(--color-dark-purple);
+}
