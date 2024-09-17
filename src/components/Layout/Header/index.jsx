@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import LogoIcon from "../../images/logo.png";
-import BackArrowIcon from "../../images/back.svg";
-import Searchbar from "./search";
-import HamburgerMenu from "./nav";
-import Cart from "./cart";
+import LogoIcon from "../../../assets/logos/logo.png";
+import BackArrowIcon from "../../../assets/icons/back.svg";
+import Searchbar from "./Search";
+import HamburgerMenu from "./Nav";
+import Cart from "./Cart";
 import styles from "./Header.module.css";
 
 export default function Header() {

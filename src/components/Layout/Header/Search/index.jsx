@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import SearchIcon from "../../../images/search.svg";
+import SearchIcon from "../../../../assets/icons/search.svg";
 
 const SearchForm = styled.form`
   display: flex;

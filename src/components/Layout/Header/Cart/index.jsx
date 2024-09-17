@@ -1,4 +1,4 @@
-import CartIcon from "../../../images/cart.svg";
+import CartIcon from "../../../../assets/icons/cart.svg";
 
 export default function Cart() {
   return (

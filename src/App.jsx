@@ -1,12 +1,28 @@
-import { useState, useEffect } from "react";
-import Header from "./components/header/index.jsx";
-import Footer from "./components/footer/index.jsx";
+import { Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
+import Home from "./components/pages/Home";
+import Product from "./components/pages/Product";
+import Checkout from "./components/pages/Checkout";
+import CheckoutSuccess from "./components/pages/CheckoutSuccess";
+import Contact from "./components/pages/Contact";
+
+function RouteNotFound() {
+  return <div>Page not found</div>;
+}
 
 function App() {
   return (
     <>
-      <Header />
-      <Footer />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="product/:id" element={<Product />} />
+          <Route path="checkout" element={<Checkout />} />
+          <Route path="success" element={<CheckoutSuccess />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="*" element={<RouteNotFound />} />
+        </Route>
+      </Routes>
     </>
   );
 }

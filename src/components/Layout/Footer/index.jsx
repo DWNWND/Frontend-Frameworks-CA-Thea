@@ -1,14 +1,17 @@
 import { useState, useEffect } from "react";
 import styles from "./Footer.module.css";
-import Button from "../button";
-import Quantity from "../quanity";
-import SumTotal from "../sumTotal";
-import VisaLogo from "../../images/logos_visa.png";
-import KlarnaLogo from "../../images/logos_klarna.png";
-import MastercardLogo from "../../images/logos_mastercard.png";
-import PaypalLogo from "../../images/logos_paypal.png";
+import Quantity from "../../Quanity";
+import SumTotal from "../../SumTotal";
+import Button from "../../button";
+import VisaLogo from "../../../assets/logos/logos_visa.png";
+import KlarnaLogo from "../../../assets/logos/logos_klarna.png";
+import MastercardLogo from "../../../assets/logos/logos_mastercard.png";
+import PaypalLogo from "../../../assets/logos/logos_paypal.png";
 
 export default function Footer({ page = "checkout" }) {
+  console.log(page);
+
+  //add link to source here
   const checkIfMobileScreen = () => {
     const [width, setWidth] = useState(window.innerWidth);
     const handleWindowSizeChange = () => {
@@ -81,7 +84,7 @@ export default function Footer({ page = "checkout" }) {
   } // the desktop footer is empty for now
 
   function MobileFooter() {
-    if (page === "product") {
+    if (page === "/product") {
       return (
         <footer className={styles.wrapper}>
           <Quantity />
@@ -89,7 +92,7 @@ export default function Footer({ page = "checkout" }) {
         </footer>
       );
     }
-    if (page === "checkout") {
+    if (page === "/checkout") {
       return (
         <footer className={styles.wrapper}>
           <SumTotal total="placeholder" />
@@ -97,19 +100,21 @@ export default function Footer({ page = "checkout" }) {
         </footer>
       );
     }
-    if (page === "success") {
+    if (page === "/success") {
       return (
         <footer className={styles.wrapper}>
           <Button page={page} />
         </footer>
       );
     }
-    if (page === "contact") {
+    if (page === "/contact") {
       return (
         <footer className={styles.wrapper}>
           <Button page={page} />
         </footer>
       );
+    } else {
+      return <></>;
     }
   }
   if (isMobile) {
