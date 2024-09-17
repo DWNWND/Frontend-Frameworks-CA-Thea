@@ -1,19 +1,23 @@
 .button {
+  width: 100%;
+  max-height: 48.1875px;
   padding: 0.68rem 2rem;
-  text-transform: uppercase;
+
   border: none;
   border-radius: 10px;
-  transition: all 0.3s ease 0s;
+
   font-weight: 500;
   font-size: 1.25rem;
-  cursor: pointer;
+  text-transform: uppercase;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-height: 48.1875px;
   align-self: end;
+
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
 }
 
 .addToCart,
