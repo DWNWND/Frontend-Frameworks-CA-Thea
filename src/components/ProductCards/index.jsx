@@ -7,6 +7,8 @@ const url = "https://v2.api.noroff.dev/online-shop";
 
 export default function ProductCards() {
   const [products, setProducts] = useState([]);
+  const [filterButtons, setfilterButtons] = useState([]);
+  const [filterActive, setfilterActive] = useState(false);
 
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -20,7 +22,9 @@ export default function ProductCards() {
         const response = await fetch(url);
         const json = await response.json();
         const data = json.data;
-        setProducts(data);
+
+        const topSalesProducts = data.sort((a, b) => b.reviews.length - a.reviews.length);
+        setProducts(topSalesProducts);
 
         setIsLoading(false);
       } catch (error) {
@@ -28,11 +32,14 @@ export default function ProductCards() {
         setIsError(true);
       }
     }
-
     getData();
   }, []);
 
-  console.log(products);
+  useEffect(() => {
+    const filtersContainer = document.getElementById("filters");
+    const filtersAll = filtersContainer.querySelectorAll("button");
+    setfilterButtons(filtersAll);
+  }, [filterActive]);
 
   if (isLoading) {
     return <div>Loading posts</div>;
@@ -41,6 +48,24 @@ export default function ProductCards() {
   if (isError) {
     return <div>Error loading data</div>;
   }
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      if (button.id === "TopSales") {
+        const sortedProducts = products.sort((a, b) => b.reviews.length - a.reviews.length);
+        setProducts(sortedProducts);
+        setfilterActive(false);
+        setfilterButtons([]);
+      }
+
+      if (button.id === "DiscountedItems") {
+        const filteredProducts = products.filter((product) => product.discountedPrice !== product.price);
+        setProducts(filteredProducts);
+        setfilterActive(false);
+        setfilterButtons([]);
+      }
+    });
+  });
 
   return (
     <div className={styles.wrapper}>
@@ -51,8 +76,8 @@ export default function ProductCards() {
           </div>
           <div className={styles.infoContainer}>
             <h2>{product.title}</h2>
-            <Price originalPrice={product.price} discountedPrice={product.discountedPrice}/>
-            <Ratings rating={product.rating} reviews={product.reviews}/>
+            <Price originalPrice={product.price} discountedPrice={product.discountedPrice} />
+            <Ratings rating={product.rating} reviews={product.reviews} />
           </div>
         </div>
       ))}

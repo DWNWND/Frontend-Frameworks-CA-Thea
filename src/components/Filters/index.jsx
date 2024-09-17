@@ -10,11 +10,11 @@ export default function Filters({ page = "/" }) {
 
   if (page === "/") {
     return (
-      <div className={styles.wrapper}>
-        <button className={`${isActive == "TopSales" ? styles.current : ""} ${styles.filter}`} id="TopSales" onClick={toggleClass}>
+      <div id="filters" className={styles.wrapper}>
+        <button className={`${isActive == "TopSales" ? styles.current : "notSelected"} ${styles.filter}`} id="TopSales" onClick={toggleClass}>
           Top sales
         </button>
-        <button className={`${isActive == "DiscountedItems" ? styles.current : ""} ${styles.filter}`} id="DiscountedItems" onClick={toggleClass}>
+        <button className={`${isActive == "DiscountedItems" ? styles.current : "notSelected"} ${styles.filter}`} id="DiscountedItems" onClick={toggleClass}>
           Discounted items
         </button>
       </div>
@@ -23,14 +23,14 @@ export default function Filters({ page = "/" }) {
   if (page === "/products") {
     setActive("BestMatch");
     return (
-      <div className={styles.wrapper}>
-        <button className={`${isActive == "BestMatch" ? styles.current : ""} ${styles.filter}`} id="BestMatch" onClick={toggleClass}>
+      <div id="filters" className={styles.wrapper}>
+        <button className={`${isActive == "BestMatch" ? styles.current : "notSelected"} ${styles.filter}`} id="BestMatch" onClick={toggleClass}>
           Best match
         </button>
-        <button className={`${isActive == "TopSales" ? styles.current : ""} ${styles.filter}`} id="TopSales" onClick={toggleClass}>
+        <button className={`${isActive == "TopSales" ? styles.current : "notSelected"} ${styles.filter}`} id="TopSales" onClick={toggleClass}>
           Top sales
         </button>
-        <button className={`${isActive == "DiscountedItems" ? styles.current : ""} ${styles.filter}`} id="DiscountedItems" onClick={toggleClass}>
+        <button className={`${isActive == "DiscountedItems" ? styles.current : "notSelected"} ${styles.filter}`} id="DiscountedItems" onClick={toggleClass}>
           Discounted items
         </button>
       </div>
