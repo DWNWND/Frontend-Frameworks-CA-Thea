@@ -4,8 +4,8 @@ import styles from "./Nav.module.css";
 
 const Nav = styled.nav`
   background-color: white;
-  position: absolute;
-  top: 65.59px;
+  position: fixed;
+  top: 65px;
   left: 0;
   width: 100%;
   z-index: 99;
