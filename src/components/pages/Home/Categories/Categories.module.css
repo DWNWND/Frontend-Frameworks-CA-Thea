@@ -8,6 +8,8 @@
   align-items: center;
   text-transform: uppercase;
   padding: 0.5rem 1rem;
+  text-decoration: none;
+  cursor: pointer;
   @media screen and (min-width: 1200px) {
     height: 155px;
   }

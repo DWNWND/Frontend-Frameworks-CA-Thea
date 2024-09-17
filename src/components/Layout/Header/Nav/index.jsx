@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import styles from "./Nav.module.css";
 
@@ -28,56 +29,56 @@ function OpenMenu({ isActive }) {
     <Nav className={isActive ? styles.active : styles.hidden}>
       <ul className={styles.pages}>
         <li>
-          <a href="#" className={styles.page}>
+          <Link to="/" className={styles.page}>
             Home
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#" className={styles.page}>
+          <div className={styles.page}>
             Categories
-          </a>
+          </div>
           <ul className={styles.categories}>
             <li>
-              <a href="#" className={styles.category}>
+              <Link to="/products/electronics" className={styles.category}>
                 Electronics
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className={styles.category}>
+              <Link to="/products/audio" className={styles.category}>
                 Audio
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className={styles.category}>
+              <Link to="/products/fashion" className={styles.category}>
                 Fashion
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className={styles.category}>
+              <Link to="/products/beauty" className={styles.category}>
                 Beauty
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className={styles.category}>
+              <Link to="/products/watches" className={styles.category}>
                 Watches
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className={styles.category}>
+              <Link to="/products/shoes" className={styles.category}>
                 Shoes
-              </a>
+              </Link>
             </li>
           </ul>
         </li>
         <li>
-          <a href="#" className={styles.page}>
+          <Link to="/contact" className={styles.page}>
             Contact us
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#" className={styles.page}>
+          <Link to="/support" className={styles.page}>
             Help & support
-          </a>
+          </Link>
         </li>
       </ul>
     </Nav>

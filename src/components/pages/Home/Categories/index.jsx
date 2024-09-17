@@ -1,27 +1,28 @@
 import styles from "./Categories.module.css";
+import { Link } from "react-router-dom";
 
 export default function Categories() {
   return (
     <>
       <ul className={styles.wrapper}>
-        <a className={styles.categoryElement}>
+        <Link to="/products/electronics" className={styles.categoryElement}>
           <li>Electronics</li>
-        </a>
-        <a className={styles.categoryElement}>
+        </Link>
+        <Link to="/products/beauty" className={styles.categoryElement}>
           <li>Beauty</li>
-        </a>
-        <a className={styles.categoryElement}>
+        </Link>
+        <Link to="/products/Audio" className={styles.categoryElement}>
           <li>Audio</li>
-        </a>
-        <a className={styles.categoryElement}>
+        </Link>
+        <Link to="/products/watches" className={styles.categoryElement}>
           <li>Watches</li>
-        </a>
-        <a className={styles.categoryElement}>
+        </Link>
+        <Link to="/products/fashion" className={styles.categoryElement}>
           <li>Fashion</li>
-        </a>
-        <a className={styles.categoryElement}>
+        </Link>
+        <Link to="/products/shoes" className={styles.categoryElement}>
           <li>Shoes</li>
-        </a>
+        </Link>
       </ul>
     </>
   );
