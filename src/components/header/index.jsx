@@ -9,6 +9,7 @@ import styles from "./Header.module.css";
 export default function Header() {
   return (
     <header className={styles.wrapper}>
+      <div className={styles.headerBackground}></div>
       <div className={styles.icon}>
         <img src={LogoIcon} alt="Lazz logo, click to go to home page" />
       </div>
