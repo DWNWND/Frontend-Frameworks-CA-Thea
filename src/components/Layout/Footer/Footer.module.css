@@ -1,14 +1,19 @@
+.width {
+  width: 100%;
+  background-color: var(--color-white);
+}
 .wrapper {
   position: fixed;
   bottom: 0;
   z-index: 100;
 
   max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
   width: 100%;
   padding: 1.5rem;
 
   border-top: 1.5px solid var(--color-light-gray);
-  background-color: var(--color-white);
 
   display: flex;
   justify-content: space-between;
@@ -16,6 +21,8 @@
   /* align-items: center; */
 
   @media screen and (min-width: 768px) {
+    position: relative;
+    border-top: none;
     padding: 4rem;
   }
 }
