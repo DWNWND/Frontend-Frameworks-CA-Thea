@@ -3,10 +3,10 @@ import styles from "./Footer.module.css";
 import Button from "../../Button";
 import Quantity from "../../Quanity";
 import SumTotal from "../../SumTotal";
-import VisaLogo from "../../../images/logos_visa.png";
-import KlarnaLogo from "../../../images/logos_klarna.png";
-import MastercardLogo from "../../../images/logos_mastercard.png";
-import PaypalLogo from "../../../images/logos_paypal.png";
+import VisaLogo from "../../../assets/logos/logos_visa.png";
+import KlarnaLogo from "../../../assets/logos/logos_klarna.png";
+import MastercardLogo from "../../../assets/logos/logos_mastercard.png";
+import PaypalLogo from "../../../assets/logos/logos_paypal.png";
 
 export default function Footer({ page = "checkout" }) {
   console.log(page);
