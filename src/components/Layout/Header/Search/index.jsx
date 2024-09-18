@@ -26,10 +26,16 @@ const SearchInput = styled.input`
   font-size: 1rem;
 `;
 
+// const search_params = Object.keys(Object.assign({}, ...data));
+
+// function search(data) {
+//   return data.filter((data) => search_params.some((param) => data[param].toString().toLowerCase().includes(searchQuery)));
+// }
+
 export default function Searchbar() {
   return (
     <SearchForm id="searchForm">
-      <SearchInput id="searchInput" type="search" placeholder="Search..." aria-label="Search" />
+      <SearchInput id="searchInput" type="search" placeholder="Search..." aria-label="Search" onChange={(e) => setSearchQuery(e.target.value)} />
       <SearchButton id="searchButton" type="submit" aria-label="Search">
         <img src={SearchIcon} alt="Search icon" />
       </SearchButton>
