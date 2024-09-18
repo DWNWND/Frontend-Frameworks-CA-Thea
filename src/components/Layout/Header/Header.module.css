@@ -22,6 +22,7 @@
   justify-content: center;
   height: 24px;
   z-index: 100;
+  cursor: pointer;
 }
 
 .headerBackground {
