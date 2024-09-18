@@ -77,7 +77,7 @@ export default function ProductCards() {
           </div>
           <div className={styles.infoContainer}>
             <h2>{product.title}</h2>
-            <Price originalPrice={product.price} discountedPrice={product.discountedPrice} />
+            <Price originalPrice={product.price} discountedPrice={product.discountedPrice} page="" />
             <Ratings rating={product.rating} reviews={product.reviews} />
           </div>
         </Link>
