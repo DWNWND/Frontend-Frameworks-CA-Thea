@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./ProductCards.module.css";
 import Price from "../Price";
 import Ratings from "../Ratings";
@@ -70,7 +71,7 @@ export default function ProductCards() {
   return (
     <div className={styles.wrapper}>
       {products.map((product) => (
-        <div key={product.id} className={styles.card}>
+        <Link to={"/product/" + product.id} key={product.id} className={styles.card}>
           <div className={styles.imageContainer}>
             <img src={product.image.url} alt={product.image.alt} />
           </div>
@@ -79,7 +80,7 @@ export default function ProductCards() {
             <Price originalPrice={product.price} discountedPrice={product.discountedPrice} />
             <Ratings rating={product.rating} reviews={product.reviews} />
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );
