@@ -9,9 +9,7 @@ import KlarnaLogo from "../../../assets/logos/logos_klarna.png";
 import MastercardLogo from "../../../assets/logos/logos_mastercard.png";
 import PaypalLogo from "../../../assets/logos/logos_paypal.png";
 
-export default function Footer({ page = "checkout" }) {
-  console.log(page);
-
+export default function Footer({ page }) {
   //add link to source here
   const checkIfMobileScreen = () => {
     const [width, setWidth] = useState(window.innerWidth);
@@ -105,32 +103,32 @@ export default function Footer({ page = "checkout" }) {
   } // the desktop footer is empty for now
 
   function MobileFooter() {
-    if (page === "/product") {
+    if (page.includes("/product/")) {
       return (
-        <footer className={styles.wrapper}>
+        <footer className={`${styles.wrapper} ${styles.width}`}>
           <Quantity />
           <Button page={page} />
         </footer>
       );
     }
-    if (page === "/checkout") {
+    if (page.includes("/checkout")) {
       return (
-        <footer className={styles.wrapper}>
+        <footer className={`${styles.wrapper} ${styles.width}`}>
           <SumTotal total="placeholder" />
           <Button page={page} />
         </footer>
       );
     }
-    if (page === "/success") {
+    if (page.includes("/success")) {
       return (
-        <footer className={styles.wrapper}>
+        <footer className={`${styles.wrapper} ${styles.width}`}>
           <Button page={page} />
         </footer>
       );
     }
-    if (page === "/contact") {
+    if (page.includes("/contact")) {
       return (
-        <footer className={styles.wrapper}>
+        <footer className={`${styles.wrapper} ${styles.width}`}>
           <Button page={page} />
         </footer>
       );
