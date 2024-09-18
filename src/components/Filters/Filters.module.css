@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+}
+
+.filter {
+  padding: 1rem;
+  background-color: var(--color-white);
+  text-transform: lowercase;
+  font-size: 0.875rem;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+  &:not(.current):hover {
+    color: var(--color-mid-gray);
+  }
+}
+
+.current {
+  color: var(--color-secondary);
+  font-weight: 600;
+}

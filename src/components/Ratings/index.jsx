@@ -1,7 +1,6 @@
 import styles from "./Ratings.module.css";
 
 export default function Ratings({ rating, reviews }) {
-  console.log(rating);
   if (rating < 1) {
     return (
       <div className={styles.ratings}>

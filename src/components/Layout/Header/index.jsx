@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { Link } from "react-router-dom";
 import LogoIcon from "../../../assets/logos/logo.png";
 import BackArrowIcon from "../../../assets/icons/back.svg";
 import Searchbar from "./Search";
@@ -11,9 +11,9 @@ export default function Header() {
     <header className={styles.width}>
       <div className={styles.wrapper}>
         <div className={styles.headerBackground}></div>
-        <div className={styles.icon}>
+        <Link to="/" className={styles.icon}>
           <img src={LogoIcon} alt="Lazz logo, click to go to home page" />
-        </div>
+        </Link>
         {/* <div className={styled.icon}>
         <img src={BackArrowIcon} alt="fill-in-later" />
       </div> */}

@@ -14,27 +14,31 @@ nav.hidden {
   gap: 1rem;
   background-color: var(--color-white);
 
-  a.page {
-    font-weight: 400;
-    text-decoration: none;
-    font-size: 1.25rem;
-    color: var(--color-black);
-    text-transform: uppercase;
-  }
-
   @media screen and (min-width: 768px) {
     flex-direction: row;
   }
 }
 
+.page {
+  font-weight: 400;
+  text-decoration: none;
+  font-size: 1.25rem;
+  color: var(--color-black);
+  text-transform: uppercase;
+}
+
 .categories {
   padding: 1rem;
   gap: 0.5rem;
+}
 
-  a.category {
-    font-weight: 400;
-    font-size: 1.125rem;
-    text-decoration: none;
-    color: var(--color-dark-gray);
-  }
+.category {
+  font-weight: 400;
+  font-size: 1.125rem;
+  text-decoration: none;
+  color: var(--color-dark-gray);
+}
+
+.category:hover {
+  text-decoration: underline;
 }

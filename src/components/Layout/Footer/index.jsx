@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import styles from "./Footer.module.css";
 import Quantity from "../../Quanity";
 import SumTotal from "../../SumTotal";
@@ -38,19 +39,29 @@ export default function Footer({ page = "checkout" }) {
             <h3>Customer care</h3>
             <ul>
               <li>
-                <a>Help & support</a>
+                <Link to="/support" className={styles.link}>
+                  Help & support
+                </Link>
               </li>
               <li>
-                <a>How to buy</a>
+                <Link to="/support" className={styles.link}>
+                  How to buy
+                </Link>
               </li>
               <li>
-                <a>How to return</a>
+                <Link to="/support" className={styles.link}>
+                  How to return
+                </Link>
               </li>
               <li>
-                <a>Shipping & delivery</a>
+                <Link to="/support" className={styles.link}>
+                  Shipping & delivery
+                </Link>
               </li>
               <li>
-                <a>FAQ</a>
+                <Link to="/support" className={styles.link}>
+                  FAQ
+                </Link>
               </li>
             </ul>
           </div>
@@ -58,16 +69,24 @@ export default function Footer({ page = "checkout" }) {
             <h3>Lazz</h3>
             <ul>
               <li>
-                <a>About LAZZ</a>
+                <Link to="/contact" className={styles.link}>
+                  About LAZZ
+                </Link>
               </li>
               <li>
-                <a>Privacy policy</a>
+                <Link to="/support" className={styles.link}>
+                  Privacy policy
+                </Link>
               </li>
               <li>
-                <a>Terms & conditions</a>
+                <Link to="/support" className={styles.link}>
+                  Terms & conditions
+                </Link>
               </li>
               <li>
-                <a>Contact us</a>
+                <Link to="/contact" className={styles.link}>
+                  Contact us
+                </Link>
               </li>
             </ul>
           </div>
