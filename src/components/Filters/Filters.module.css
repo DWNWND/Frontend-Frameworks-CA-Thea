@@ -18,6 +18,9 @@
   cursor: pointer;
   transition: all 0.3s;
   border: none;
+  &:not(.current):hover {
+    color: var(--color-mid-gray);
+  }
 }
 
 .current {

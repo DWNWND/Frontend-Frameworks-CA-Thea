@@ -10,8 +10,21 @@
   padding: 0.5rem 1rem;
   text-decoration: none;
   cursor: pointer;
+  transition: all 0.3s;
+  li {
+    transition: all 0.3s;
+  }
   @media screen and (min-width: 1200px) {
     height: 155px;
+  }
+}
+
+.categoryElement:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  li {
+    font-size: 1.1rem;
   }
 }
 
