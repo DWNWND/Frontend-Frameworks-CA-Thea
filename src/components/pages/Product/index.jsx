@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import styles from "./Product.module.css";
 import Price from "../../Price";
 import Ratings from "../../Ratings";
+import ProductCards from "../../ProductCards";
 
 const url = "https://v2.api.noroff.dev/online-shop";
 
@@ -53,6 +54,7 @@ export default function Product() {
 
   console.log(data);
   const product = data.data;
+  const page = product.category;
 
   return (
     <div className={styles.wrapper}>
@@ -90,7 +92,7 @@ export default function Product() {
               <div className={`${styles.arrow} ${descriptionOpen ? styles.down : styles.up}`}></div>
             </div>
           </div>
-          {descriptionOpen ? <p>{product.description}</p> : <></>}
+          <p className={`${styles.content} ${descriptionOpen ? styles.open : styles.hidden}`}>{product.description}</p>
         </div>
 
         <div className={styles.extendedInfoWrapper}>
@@ -100,25 +102,22 @@ export default function Product() {
               <div className={`${styles.arrow} ${reviewsOpen ? styles.down : styles.up}`}></div>
             </div>
           </div>
-          {reviewsOpen ? (
-            <div className={styles.reviewsContainer}>
-              {product.reviews.map((review) => {
-                return (
-                  <div key={review.id} className={styles.reviewWrapper}>
-                    <div className={styles.reviewHeader}>
-                      <div className={styles.reviewUser}>{review.username}</div>
-                      <Ratings rating={review.rating} reviews={1} section="reviews"></Ratings>
-                    </div>
-                    <p>{review.description}</p>
+          <div className={`${styles.reviewsContainer} ${styles.content} ${reviewsOpen ? styles.open : styles.hidden}`}>
+            {product.reviews.map((review) => {
+              return (
+                <div key={review.id} className={styles.reviewWrapper}>
+                  <div className={styles.reviewHeader}>
+                    <div className={styles.reviewUser}>{review.username}</div>
+                    <Ratings rating={review.rating} reviews={1} section="reviews"></Ratings>
                   </div>
-                );
-              })}
-            </div>
-          ) : (
-            <></>
-          )}
+                  <p>{review.description}</p>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
+      <ProductCards category="fashion"></ProductCards>
     </div>
   );
 }
