@@ -133,3 +133,20 @@
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
+
+.hidden {
+  height: 0rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s ease-in-out;
+}
+
+.content {
+  transition: visibility 0s, opacity 0.5s ease-in-out;
+}
+
+.open {
+  height: 100%;
+  visibility: visible;
+  opacity: 1;
+}
