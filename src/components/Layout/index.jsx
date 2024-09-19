@@ -6,10 +6,10 @@ import Footer from "./Footer/index.jsx";
 export default function Layout() {
   const location = useLocation();
 
-  useEffect(() => {
-    console.log("Location changed");
-    console.log(location);
-  }, [location]);
+  // useEffect(() => {
+  //   console.log("Location changed");
+  //   console.log(location);
+  // }, [location]);
 
   return (
     <div>
