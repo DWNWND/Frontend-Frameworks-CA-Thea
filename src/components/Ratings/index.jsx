@@ -1,11 +1,19 @@
 import styles from "./Ratings.module.css";
 
-export default function Ratings({ rating, reviews }) {
+function ReviewLength({ section, reviews }) {
+  if (section === "reviews") {
+    return <></>;
+  } else {
+    return <p className={styles.reviewsCount}>({reviews.length})</p>;
+  }
+}
+
+export default function Ratings({ rating, reviews, section }) {
   if (rating < 1) {
     return (
       <div className={styles.ratings}>
         <p className={styles.star}>☆ ☆ ☆ ☆ ☆</p>
-        <p className={styles.reviewsCount}>({reviews.length})</p>
+        <ReviewLength section={section} reviews={reviews} />
       </div>
     );
   }
@@ -13,7 +21,7 @@ export default function Ratings({ rating, reviews }) {
     return (
       <div className={styles.ratings}>
         <p className={styles.star}>★ ☆ ☆ ☆ ☆</p>
-        <p className={styles.reviewsCount}>({reviews.length})</p>
+        <ReviewLength section={section} reviews={reviews} />
       </div>
     );
   }
@@ -21,7 +29,7 @@ export default function Ratings({ rating, reviews }) {
     return (
       <div className={styles.ratings}>
         <p className={styles.star}>★ ★ ☆ ☆ ☆</p>
-        <p className={styles.reviewsCount}>({reviews.length})</p>
+        <ReviewLength section={section} reviews={reviews} />
       </div>
     );
   }
@@ -29,7 +37,7 @@ export default function Ratings({ rating, reviews }) {
     return (
       <div className={styles.ratings}>
         <p className={styles.star}>★ ★ ★ ☆ ☆</p>
-        <p className={styles.reviewsCount}>({reviews.length})</p>
+        <ReviewLength section={section} reviews={reviews} />
       </div>
     );
   }
@@ -37,7 +45,7 @@ export default function Ratings({ rating, reviews }) {
     return (
       <div className={styles.ratings}>
         <p className={styles.star}>★ ★ ★ ★ ☆</p>
-        <p className={styles.reviewsCount}>({reviews.length})</p>
+        <ReviewLength section={section} reviews={reviews} />
       </div>
     );
   }
@@ -45,7 +53,7 @@ export default function Ratings({ rating, reviews }) {
     return (
       <div className={styles.ratings}>
         <p className={styles.star}>★ ★ ★ ★ ★</p>
-        <p className={styles.reviewsCount}>({reviews.length})</p>
+        <ReviewLength section={section} reviews={reviews} />
       </div>
     );
   }
