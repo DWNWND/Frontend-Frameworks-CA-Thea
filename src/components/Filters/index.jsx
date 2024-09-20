@@ -1,39 +1,18 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import styles from "./Filters.module.css";
+import { FilterContext } from "../ProductCards";
 
-export default function Filters({ page = "/" }) {
-  const [isActive, setActive] = useState("TopSales");
+export default function Filters({ page }) {
+  const { filters, setFilters } = useContext(FilterContext);
 
-  const toggleClass = (event) => {
-    setActive(event.target.id);
-  };
-
-  if (page === "/") {
-    return (
-      <div id="filters" className={styles.wrapper}>
-        <button className={`${isActive == "TopSales" ? styles.current : "notSelected"} ${styles.filter}`} id="TopSales" onClick={toggleClass}>
-          Top sales
-        </button>
-        <button className={`${isActive == "DiscountedItems" ? styles.current : "notSelected"} ${styles.filter}`} id="DiscountedItems" onClick={toggleClass}>
-          Discounted items
-        </button>
-      </div>
-    );
-  }
-  if (page === "/products") {
-    setActive("BestMatch");
-    return (
-      <div id="filters" className={styles.wrapper}>
-        <button className={`${isActive == "BestMatch" ? styles.current : "notSelected"} ${styles.filter}`} id="BestMatch" onClick={toggleClass}>
-          Best match
-        </button>
-        <button className={`${isActive == "TopSales" ? styles.current : "notSelected"} ${styles.filter}`} id="TopSales" onClick={toggleClass}>
-          Top sales
-        </button>
-        <button className={`${isActive == "DiscountedItems" ? styles.current : "notSelected"} ${styles.filter}`} id="DiscountedItems" onClick={toggleClass}>
-          Discounted items
-        </button>
-      </div>
-    );
-  }
+  return (
+    <div id="filters" className={styles.wrapper}>
+      <button className={`${filters == "topSales" ? styles.current : "notSelected"} ${styles.filter}`} id="TopSales" onClick={() => setFilters("topSales")}>
+        Top sales
+      </button>
+      <button className={`${filters == "discountedItems" ? styles.current : "notSelected"} ${styles.filter}`} id="DiscountedItems" onClick={() => setFilters("discountedItems")}>
+        Discounted items
+      </button>
+    </div>
+  );
 }

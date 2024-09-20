@@ -11,7 +11,7 @@ export default function Categories() {
         <Link to="/products/beauty" className={styles.categoryElement}>
           <li>Beauty</li>
         </Link>
-        <Link to="/products/Audio" className={styles.categoryElement}>
+        <Link to="/products/audio" className={styles.categoryElement}>
           <li>Audio</li>
         </Link>
         <Link to="/products/watches" className={styles.categoryElement}>
