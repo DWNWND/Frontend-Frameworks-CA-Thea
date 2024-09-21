@@ -15,7 +15,7 @@ export default function Layout() {
     <div>
       <Header />
       <Outlet />
-      <Footer page={location.pathname} />
+      {/* <Footer page={location.pathname} /> */}
     </div>
   );
 }
