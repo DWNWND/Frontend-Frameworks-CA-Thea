@@ -106,7 +106,7 @@ export default function Footer({ page }) {
     if (page.includes("/product/")) {
       return (
         <footer className={`${styles.wrapper} ${styles.width}`}>
-          <Quantity />
+          {/* <Quantity /> */}
           <Button page={page} />
         </footer>
       );
