@@ -18,9 +18,9 @@ export default function Header() {
         <img src={BackArrowIcon} alt="fill-in-later" />
       </div> */}
         <Searchbar />
-        <div className={styles.icon}>
+        <Link to="checkout" className={styles.icon}>
           <Cart />
-        </div>
+        </Link>
         <HamburgerMenu />
       </div>
     </header>
