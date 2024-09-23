@@ -1,16 +1,12 @@
 import styles from "./Button.module.css";
 import { useContext } from "react";
-import { ProductObjectContext } from "../pages/Product";
+// import { ProductObjectContext } from "../pages/Product";
 // import { ShoppingCartContext } from "../Layout";
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, useLocation } from "react-router-dom";
 
 let newProductArray = [];
 
-export default function Button({ page }) {
-  // const { cart, setCart } = useContext(ShoppingCartContext);
-  const { cart, setCart } = useOutletContext();
-  const product = useContext(ProductObjectContext);
-
+export default function Button({ page, product, setCart }) {
   var btnClass;
   var btnText;
 
@@ -19,6 +15,8 @@ export default function Button({ page }) {
     btnText = "Add to cart";
 
     function handleClick() {
+      console.log("product in button", product);
+
       const shoppingCart = JSON.parse(localStorage.getItem("shopping-cart"));
 
       if (shoppingCart && shoppingCart.length > 0) {
@@ -84,7 +82,7 @@ export default function Button({ page }) {
     }
 
     return (
-      <button className={`${btnClass} ${styles.button}`} onClick={() => handleClick()}>
+      <button className={`${btnClass} ${styles.button}`} onClick={() => handleClick(product)}>
         {btnText}
       </button>
     );
