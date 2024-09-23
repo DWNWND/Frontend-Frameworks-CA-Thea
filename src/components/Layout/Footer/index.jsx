@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Footer.module.css";
-import Quantity from "../../Quanity";
+import { Quantity } from "../../quanity";
 import SumTotal from "../../SumTotal";
 import Button from "../../button";
 import VisaLogo from "../../../assets/logos/logos_visa.png";
