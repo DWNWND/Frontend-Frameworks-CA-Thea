@@ -1,10 +1,14 @@
 import styles from "./Button.module.css";
 import { useContext } from "react";
 import { ProductObjectContext } from "../pages/Product";
+// import { ShoppingCartContext } from "../Layout";
+import { useOutletContext } from "react-router-dom";
 
-let productArray = [];
+let newProductArray = [];
 
 export default function Button({ page }) {
+  // const { cart, setCart } = useContext(ShoppingCartContext);
+  const { cart, setCart } = useOutletContext();
   const product = useContext(ProductObjectContext);
 
   var btnClass;
@@ -15,33 +19,35 @@ export default function Button({ page }) {
     btnText = "Add to cart";
 
     function handleClick() {
-      const cartString = localStorage.getItem("shopping-cart");
-      const parsedCart = JSON.parse(cartString);
+      const shoppingCart = JSON.parse(localStorage.getItem("shopping-cart"));
 
-      if (parsedCart && parsedCart.length > 0) {
-        console.log("parsed items in local storage", parsedCart);
-        productArray = parsedCart;
+      if (shoppingCart && shoppingCart.length > 0) {
+        console.log("parsed items in local storage", shoppingCart);
+        newProductArray = shoppingCart;
 
-        const found = productArray.find((item) => item.id === product.id);
+        const duplicates = newProductArray.find((item) => item.id === product.id);
 
-        if (found) {
-          for (let i = 0; i < productArray.length; i++) {
-            if (productArray[i].id === product.id) {
-              productArray[i].quantity++;
-              localStorage.setItem("shopping-cart", JSON.stringify(productArray));
+        if (duplicates) {
+          for (let i = 0; i < newProductArray.length; i++) {
+            if (newProductArray[i].id === product.id) {
+              newProductArray[i].quantity++;
+              localStorage.setItem("shopping-cart", JSON.stringify(newProductArray));
+              setCart(newProductArray);
             }
           }
-        } else if (!found) {
+        } else if (!duplicates) {
           console.log("this item was not in the products array", product);
           product["quantity"] = 1;
-          productArray.push(product);
-          localStorage.setItem("shopping-cart", JSON.stringify(productArray));
+          newProductArray.push(product);
+          localStorage.setItem("shopping-cart", JSON.stringify(newProductArray));
+          setCart(newProductArray);
         }
       } else if (!product.quantity) {
         console.log("initial product", product);
         product["quantity"] = 1;
-        productArray.push(product);
-        localStorage.setItem("shopping-cart", JSON.stringify(productArray));
+        newProductArray.push(product);
+        localStorage.setItem("shopping-cart", JSON.stringify(newProductArray));
+        setCart(newProductArray);
       }
     }
 
