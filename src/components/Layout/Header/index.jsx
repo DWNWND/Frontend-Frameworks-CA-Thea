@@ -6,7 +6,7 @@ import HamburgerMenu from "./Nav";
 import Cart from "./Cart";
 import styles from "./Header.module.css";
 
-export default function Header() {
+export default function Header({ cart }) {
   return (
     <header className={styles.width}>
       <div className={styles.wrapper}>
@@ -19,7 +19,7 @@ export default function Header() {
       </div> */}
         <Searchbar />
         <Link to="checkout" className={styles.icon}>
-          <Cart />
+          <Cart cart={cart} />
         </Link>
         <HamburgerMenu />
       </div>
