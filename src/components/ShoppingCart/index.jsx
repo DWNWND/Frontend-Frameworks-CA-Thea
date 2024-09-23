@@ -77,53 +77,44 @@ export function reducer(state, action) {
   }
 }
 
-
 export function ShoppingCart() {
   const { cart, setCart } = useOutletContext();
   const [state, dispatch] = useReducer(reducer, initialState);
   const location = useLocation();
 
-  if (!cart) {
-    return (
-      <>
-        <div>Loading</div>
-      </>
-    );
-  } else {
-    let newProductsArray = [];
+  let newProductsArray = [];
 
-    function checkProductQuantity() {
-      const shoppingCart = JSON.parse(localStorage.getItem("shopping-cart"));
+  function checkProductQuantity() {
+    const shoppingCart = JSON.parse(localStorage.getItem("shopping-cart"));
 
-      if (shoppingCart) {
-        newProductsArray = shoppingCart.filter((product) => product.quantity > 0);
-        localStorage.setItem("shopping-cart", JSON.stringify(newProductsArray));
-      } else {
-        throw new Error("Product you want to decrement is not found in the cart");
-      }
+    if (shoppingCart) {
+      newProductsArray = shoppingCart.filter((product) => product.quantity > 0);
+      localStorage.setItem("shopping-cart", JSON.stringify(newProductsArray));
+    } else {
+      throw new Error("Product you want to decrement is not found in the cart");
     }
-
-    useEffect(() => {
-      checkProductQuantity();
-    }, [cart, location.pathname]);
-
-    checkProductQuantity();
-
-    return (
-      <>
-        {newProductsArray.length > 0 ? (
-          <>
-            <div className={styles.wrapper}>
-              {newProductsArray.map((product) => (
-                <ProductCartCards product={product} key={product.id}></ProductCartCards>
-              ))}
-            </div>
-            <Footer page={location.pathname} />
-          </>
-        ) : null}
-      </>
-    );
   }
+
+  useEffect(() => {
+    checkProductQuantity();
+  }, [cart]);
+
+  checkProductQuantity();
+
+  return (
+    <>
+      {newProductsArray.length > 0 ? (
+        <>
+          <div className={styles.wrapper}>
+            {newProductsArray.map((product) => (
+              <ProductCartCards product={product} key={product.id}></ProductCartCards>
+            ))}
+          </div>
+          {/* <Footer page={location.pathname} /> */}
+        </>
+      ) : null}
+    </>
+  );
 }
 
 function ProductCartCards({ product }) {
