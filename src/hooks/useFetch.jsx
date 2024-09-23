@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 // API fetch hook
 export default function useApi(url) {
   const [data, setData] = useState([]);
-  const [tag, setTag] = useState([]);
+  const [tag, setTag] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
@@ -15,7 +15,9 @@ export default function useApi(url) {
         const fetchedData = await fetch(url);
         const json = await fetchedData.json();
         setData(json);
-        setTag(json.data.tags[0]);
+        if (json.data.tags) {
+          setTag(json.data.tags[0]);
+        }
       } catch (error) {
         console.log(error);
         setIsError(true);
