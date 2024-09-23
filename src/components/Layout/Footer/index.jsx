@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styles from "./Footer.module.css";
 import { Quantity } from "../../quanity";
 import SumTotal from "../../SumTotal";
@@ -9,7 +9,7 @@ import KlarnaLogo from "../../../assets/logos/logos_klarna.png";
 import MastercardLogo from "../../../assets/logos/logos_mastercard.png";
 import PaypalLogo from "../../../assets/logos/logos_paypal.png";
 
-export default function Footer({ page }) {
+export default function Footer({ page, product, setCart }) {
   //add link to source here
   const checkIfMobileScreen = () => {
     const [width, setWidth] = useState(window.innerWidth);
@@ -107,7 +107,7 @@ export default function Footer({ page }) {
       return (
         <footer className={`${styles.wrapper} ${styles.width}`}>
           {/* <Quantity /> */}
-          <Button page={page} />
+          <Button page={page} product={product} setCart={setCart} />
         </footer>
       );
     }
