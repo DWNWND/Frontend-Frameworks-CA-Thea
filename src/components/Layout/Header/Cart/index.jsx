@@ -12,19 +12,13 @@ export default function Cart({ cart }) {
         arr.push(item.quantity);
       });
       quantity = arr.reduce((a, b) => a + b, 0);
-      console.log("quantity", quantity);
-    } else if (!shoppingCart) {
+    } else if (!cart) {
       console.log("no shopping cart");
     }
   }
 
   useEffect(() => {
     calculateQuantityInCart();
-    if (cart.length > 0) {
-      console.log("full - Cart", cart);
-    } else {
-      console.log("empty - Cart", cart);
-    }
   }, [cart]);
 
   calculateQuantityInCart();
