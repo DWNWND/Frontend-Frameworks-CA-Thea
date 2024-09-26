@@ -1,18 +1,42 @@
 import styles from "./Quantity.module.css";
-import { useReducer, createContext } from "react";
+import { useReducer, createContext, useEffect } from "react";
 import { useContext } from "react";
 import { useOutletContext } from "react-router-dom";
 
 function reducer(state, action) {
+  let newProductsArray = [];
+  let cart;
+  let newTotal;
+
   // These are actions that can be dispatched
   switch (action.type) {
     case "increment":
-      return { count: state.count + 1 };
+      newProductsArray = JSON.parse(localStorage.getItem("shopping-cart"));
+
+      cart = [...newProductsArray];
+
+      newTotal = cart.reduce((currentTotal, product) => {
+        currentTotal += product.discountedPrice * product.quantity;
+        return currentTotal;
+      }, 0);
+
+      return { count: state.count + 1, total: newTotal };
+
     case "decrement":
+      newProductsArray = JSON.parse(localStorage.getItem("shopping-cart"));
+
+      cart = [...newProductsArray];
+
+      // Set the new total so we don't have to keep calculating it
+      newTotal = cart.reduce((currentTotal, product) => {
+        currentTotal += product.discountedPrice * product.quantity;
+        return currentTotal;
+      }, 0);
+
       if (state.count === 1) {
-        return { count: 1 };
+        return { count: 1, total: newTotal };
       } else {
-        return { count: state.count - 1 };
+        return { count: state.count - 1, total: newTotal };
       }
     case "reset":
       return { count: 0 };
@@ -21,26 +45,18 @@ function reducer(state, action) {
   }
 }
 
-// function App() {
-//   const [state, dispatch] = useReducer(reducer, initialState);
-//   return (
-//     <div>
-//       <div>Count: {state.count}</div>
-//       <button onClick={() => dispatch({ type: "decrement" })}>-</button>
-//       <button onClick={() => dispatch({ type: "increment" })}>+</button>
-//       <button onClick={() => dispatch({ type: "reset" })}>Reset</button>
-//     </div>
-//   );
-// }
-
-let newProductsArray = [];
-
 export const QuantityContext = createContext();
 
 export function Quantity({ page, product }) {
-  const { cart, setCart } = useOutletContext();
-  const initialState = { count: product.quantity };
+  const { cart, setCart, totalSum, setTotalSum } = useOutletContext();
+  const initialState = { product: product, total: totalSum, count: product.quantity };
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  let newProductsArray = [];
+
+  useEffect(() => {
+    setTotalSum(state.total);
+  }, [state.total]);
 
   let checkout = false;
 
@@ -49,8 +65,7 @@ export function Quantity({ page, product }) {
   }
 
   function addToLocalStorage(product) {
-    const shoppingCart = JSON.parse(localStorage.getItem("shopping-cart"));
-    newProductsArray = shoppingCart;
+    newProductsArray = JSON.parse(localStorage.getItem("shopping-cart"));
 
     const duplicates = newProductsArray.find((item) => item.id === product.id);
 
@@ -68,8 +83,7 @@ export function Quantity({ page, product }) {
   }
 
   function removeFromLocalStorage(product) {
-    const shoppingCart = JSON.parse(localStorage.getItem("shopping-cart"));
-    newProductsArray = shoppingCart;
+    newProductsArray = JSON.parse(localStorage.getItem("shopping-cart"));
 
     const duplicates = newProductsArray.find((item) => item.id === product.id);
 
