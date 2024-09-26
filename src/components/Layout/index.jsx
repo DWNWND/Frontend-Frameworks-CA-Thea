@@ -35,7 +35,7 @@ export function Layout() {
     <div>
       <Header cart={cart} />
       <Outlet context={{ product, setProduct, cart, setCart, totalSum, setTotalSum }} />
-      <Footer page={location.pathname} product={product} setCart={setCart} totalSum={totalSum} setTotalSum={setTotalSum} />
+      <Footer page={location.pathname} product={product} cart={cart} setCart={setCart} totalSum={totalSum} setTotalSum={setTotalSum} />
     </div>
   );
 }
