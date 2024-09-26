@@ -9,7 +9,7 @@ import KlarnaLogo from "../../../assets/logos/logos_klarna.png";
 import MastercardLogo from "../../../assets/logos/logos_mastercard.png";
 import PaypalLogo from "../../../assets/logos/logos_paypal.png";
 
-export default function Footer({ page, product, setCart }) {
+export default function Footer({ page, product, setCart, totalSum, setTotalSum }) {
   //add link to source here
   const checkIfMobileScreen = () => {
     const [width, setWidth] = useState(window.innerWidth);
@@ -112,9 +112,10 @@ export default function Footer({ page, product, setCart }) {
       );
     }
     if (page.includes("/checkout")) {
+      //put a check for items in cart here
       return (
         <footer className={`${styles.wrapper} ${styles.width}`}>
-          <SumTotal total="placeholder" />
+          <SumTotal totalSum={totalSum} setTotalSum={setTotalSum} />
           <Button page={page} />
         </footer>
       );
