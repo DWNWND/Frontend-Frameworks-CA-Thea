@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styles from "./Footer.module.css";
-import Quantity from "../../Quanity";
+import { Quantity } from "../../quanity";
 import SumTotal from "../../SumTotal";
 import Button from "../../button";
 import VisaLogo from "../../../assets/logos/logos_visa.png";
@@ -9,7 +9,7 @@ import KlarnaLogo from "../../../assets/logos/logos_klarna.png";
 import MastercardLogo from "../../../assets/logos/logos_mastercard.png";
 import PaypalLogo from "../../../assets/logos/logos_paypal.png";
 
-export default function Footer({ page }) {
+export default function Footer({ page, product, setCart, totalSum, setTotalSum }) {
   //add link to source here
   const checkIfMobileScreen = () => {
     const [width, setWidth] = useState(window.innerWidth);
@@ -106,15 +106,16 @@ export default function Footer({ page }) {
     if (page.includes("/product/")) {
       return (
         <footer className={`${styles.wrapper} ${styles.width}`}>
-          <Quantity />
-          <Button page={page} />
+          {/* <Quantity /> */}
+          <Button page={page} product={product} setCart={setCart} />
         </footer>
       );
     }
     if (page.includes("/checkout")) {
+      //put a check for items in cart here
       return (
         <footer className={`${styles.wrapper} ${styles.width}`}>
-          <SumTotal total="placeholder" />
+          <SumTotal totalSum={totalSum} setTotalSum={setTotalSum} />
           <Button page={page} />
         </footer>
       );
