@@ -23,8 +23,6 @@ export function Product() {
   const location = useLocation();
   const thisProduct = data.data;
 
-  console.log(setProduct)
-
   useEffect(() => {
     setProduct(thisProduct);
   }, [data]);
