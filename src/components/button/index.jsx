@@ -3,10 +3,11 @@ import { useContext } from "react";
 // import { ProductObjectContext } from "../pages/Product";
 // import { ShoppingCartContext } from "../Layout";
 import { useOutletContext, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 let newProductArray = [];
 
-export default function Button({ page, product, setCart }) {
+export default function Button({ page, product, cart, setCart }) {
   var btnClass;
   var btnText;
 
@@ -15,9 +16,8 @@ export default function Button({ page, product, setCart }) {
     btnText = "Add to cart";
 
     function handleClick() {
-      console.log("product in button", product);
-
       const shoppingCart = JSON.parse(localStorage.getItem("shopping-cart"));
+      console.log("product in button", product);
 
       if (shoppingCart && shoppingCart.length > 0) {
         console.log("parsed items in local storage", shoppingCart);
@@ -43,6 +43,7 @@ export default function Button({ page, product, setCart }) {
       } else if (!product.quantity) {
         console.log("initial product", product);
         product["quantity"] = 1;
+        newProductArray = [];
         newProductArray.push(product);
         localStorage.setItem("shopping-cart", JSON.stringify(newProductArray));
         setCart(newProductArray);
@@ -63,13 +64,16 @@ export default function Button({ page, product, setCart }) {
     btnText = "checkout";
 
     function handleClick() {
-      console.log("checkout");
+      const shoppingCart = JSON.parse(localStorage.getItem("shopping-cart"));
+      sessionStorage.setItem("receipt", JSON.stringify(shoppingCart));
+      localStorage.removeItem("shopping-cart");
+      setCart([]);
     }
 
     return (
-      <button className={`${btnClass} ${styles.button}`} onClick={() => handleClick()}>
+      <Link to="/success" className={`${btnClass} ${styles.button} ${cart.length > 0 ? styles.full : styles.empty}`} onClick={() => handleClick()}>
         {btnText}
-      </button>
+      </Link>
     );
   }
 
@@ -78,13 +82,13 @@ export default function Button({ page, product, setCart }) {
     btnText = "continue shopping";
 
     function handleClick() {
-      console.log("go back to homepage");
+      sessionStorage.removeItem("receipt");
     }
 
     return (
-      <button className={`${btnClass} ${styles.button}`} onClick={() => handleClick(product)}>
+      <Link to="/" className={`${btnClass} ${styles.button}`} onClick={() => handleClick()}>
         {btnText}
-      </button>
+      </Link>
     );
   }
 

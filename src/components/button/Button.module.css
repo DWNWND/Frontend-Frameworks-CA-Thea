@@ -18,10 +18,26 @@
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: all 0.3s ease 0s;
+  text-decoration: none;
+}
+
+.empty {
+  background-color: var(--color-light-gray);
+  color: var(--color-dark-gray);
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.full {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
 }
 
 .addToCart,
-.checkout,
 .sendInquiry {
   background-color: var(--color-secondary);
   color: var(--color-white);
