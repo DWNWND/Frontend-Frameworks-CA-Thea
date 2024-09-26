@@ -3,12 +3,18 @@ import styles from "./SumTotal.module.css";
 
 export default function SumTotal({ totalSum, setTotalSum }) {
   let newShoppingCartArray = JSON.parse(localStorage.getItem("shopping-cart"));
-  let destructuredCart = [...newShoppingCartArray];
+  let currentSumTotal;
 
-  let currentSumTotal = destructuredCart.reduce((currentTotal, product) => {
-    currentTotal += product.discountedPrice * product.quantity;
-    return currentTotal;
-  }, 0);
+  if (newShoppingCartArray) {
+    let destructuredCart = [...newShoppingCartArray];
+
+    currentSumTotal = destructuredCart.reduce((currentTotal, product) => {
+      currentTotal += product.discountedPrice * product.quantity;
+      return currentTotal;
+    }, 0);
+  } else {
+    currentSumTotal = 0;
+  }
 
   useEffect(() => {
     setTotalSum(currentSumTotal);
