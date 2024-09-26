@@ -22,7 +22,7 @@ export function ShoppingCart() {
       newProductsArray = shoppingCart.filter((product) => product.quantity > 0);
       localStorage.setItem("shopping-cart", JSON.stringify(newProductsArray));
     } else {
-      throw new Error("Product you want to decrement is not found in the cart");
+      console.log("there are no items in the shopping cart");
     }
   }
 
