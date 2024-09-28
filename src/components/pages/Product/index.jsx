@@ -27,7 +27,6 @@ export function Product() {
     setProduct(thisProduct);
   }, [data]);
 
-
   if (isLoading || !data) {
     return <div>Loading</div>;
   }
@@ -60,20 +59,22 @@ export function Product() {
                 </Link>{" "}
                 / <div className={styles.active}>{thisProduct.title}</div>
               </div>
-              <div className={styles.imageWrapper}>
-                <img src={thisProduct.image.url} alt={thisProduct.image.alt}></img>
-              </div>
-              <div className={styles.productInfoContainer}>
-                <div className={styles.infoWrapper}>
-                  <h1>{thisProduct.title}</h1>
-                  <div className={styles.likeShareWrapper}>
-                    <div>Like</div>
-                    <div>Share</div>
-                  </div>
+              <div className={styles.productContainer}>
+                <div className={styles.imageWrapper}>
+                  <img src={thisProduct.image.url} alt={thisProduct.image.alt}></img>
                 </div>
-                <div className={styles.infoWrapper}>
-                  <Price originalPrice={thisProduct.price} discountedPrice={thisProduct.discountedPrice} page="/product/"></Price>
-                  <Ratings rating={thisProduct.rating} reviews={thisProduct.reviews} section=""></Ratings>
+                <div className={styles.productInfoContainer}>
+                  <div className={styles.infoWrapper}>
+                    <h1>{thisProduct.title}</h1>
+                    <div className={styles.likeShareWrapper}>
+                      <div>Like</div>
+                      <div>Share</div>
+                    </div>
+                  </div>
+                  <div className={styles.infoWrapper}>
+                    <Price originalPrice={thisProduct.price} discountedPrice={thisProduct.discountedPrice} page="/product/"></Price>
+                    <Ratings rating={thisProduct.rating} reviews={thisProduct.reviews} section=""></Ratings>
+                  </div>
                 </div>
               </div>
               <div className={styles.extendedInfoContainer}>
@@ -117,9 +118,6 @@ export function Product() {
               </div>
             </div>
           </ProductTagContext.Provider>
-          {/* <ProductObjectContext.Provider value={product}> */}
-          <Footer page={location.pathname} />
-          {/* </ProductObjectContext.Provider> */}
         </>
       ) : null}
     </>

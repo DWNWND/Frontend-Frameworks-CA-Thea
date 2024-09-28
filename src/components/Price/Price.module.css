@@ -4,17 +4,26 @@
   gap: 0.2rem;
 }
 .discounted {
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 400;
   color: var(--color-secondary);
+  @media screen and (min-width: 1200px) {
+    font-size: 0.8rem;
+  }
 }
 .percentage {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 400;
   color: var(--color-mid-gray);
+  @media screen and (min-width: 1200px) {
+    font-size: 0.7rem;
+  }
 }
 .original {
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 400;
   color: var(--color-dark-gray);
+  @media screen and (min-width: 1200px) {
+    font-size: 0.8rem;
+  }
 }

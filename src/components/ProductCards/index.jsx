@@ -79,24 +79,24 @@ export function ProductsToDisplay() {
   }, [filters]);
 
   if (isLoading) {
-    return <div>Loading posts</div>;
+    return <div className="loader">Loading products . . .</div>;
   }
 
   if (isError) {
-    return <div>Error loading data</div>;
+    return <div className="error">Error loading data</div>;
   }
 
   return (
     <>
       <FilterContext.Provider value={{ filters, setFilters }}>
-        <div>
+        
           <Filters page={location} />
-        </div>
+        
       </FilterContext.Provider>
       <ProductsContext.Provider value={{ products, setProducts }}>
-        <div>
+        
           <ProductCards />
-        </div>
+        
       </ProductsContext.Provider>
     </>
   );

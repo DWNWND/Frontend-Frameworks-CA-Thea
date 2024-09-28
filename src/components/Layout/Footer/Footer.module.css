@@ -22,8 +22,12 @@
 
   @media screen and (min-width: 768px) {
     position: relative;
+ 
     border-top: none;
     padding: 4rem;
+  }
+  @media screen and (min-width: 1210px) {
+    padding: 4rem 0;
   }
 }
 
