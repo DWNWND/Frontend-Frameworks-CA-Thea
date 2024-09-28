@@ -96,12 +96,12 @@ export default function Button({ page, product, cart, setCart }) {
     btnClass = styles.sendInquiry;
     btnText = "send inquiry";
 
-    function handleClick() {
-      console.log("send message");
-    }
+    // function handleClick() {
+    //   console.log("send message");
+    // }
 
     return (
-      <button className={`${btnClass} ${styles.button}`} onClick={() => handleClick()}>
+      <button type="submit" form="contact-form" className={`${btnClass} ${styles.button}`}>
         {btnText}
       </button>
     );

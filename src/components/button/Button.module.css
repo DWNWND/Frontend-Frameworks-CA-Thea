@@ -37,13 +37,13 @@
   color: var(--color-white);
 }
 
-.addToCart,
-.sendInquiry {
+.addToCart {
   background-color: var(--color-secondary);
   color: var(--color-white);
 }
 
-.continueShopping {
+.continueShopping,
+.sendInquiry {
   background-color: var(--color-primary);
   color: var(--color-white);
 }

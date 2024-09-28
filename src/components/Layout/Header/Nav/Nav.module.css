@@ -1,9 +1,15 @@
+menu {
+transition: all 0.3s ease 0s;
+}
+
 nav.active {
   transform: translateY(0);
+  height: 100%;
 }
 
 nav.hidden {
   transform: translateY(-150%);
+  height: 100%;
 }
 
 .pages {

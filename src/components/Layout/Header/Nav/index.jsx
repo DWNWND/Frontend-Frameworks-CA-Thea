@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, createContext, useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import styles from "./Nav.module.css";
@@ -24,66 +24,7 @@ const HamburgerMenuBtn = styled.button`
   z-index: 100;
 `;
 
-function OpenMenu({ isActive }) {
-  return (
-    <Nav className={isActive ? styles.active : styles.hidden}>
-      <ul className={styles.pages}>
-        <li>
-          <Link to="/" className={styles.page}>
-            Home
-          </Link>
-        </li>
-        <li>
-          <div className={styles.page}>
-            Categories
-          </div>
-          <ul className={styles.categories}>
-            <li>
-              <Link to="/products/electronics" className={styles.category}>
-                Electronics
-              </Link>
-            </li>
-            <li>
-              <Link to="/products/audio" className={styles.category}>
-                Audio
-              </Link>
-            </li>
-            <li>
-              <Link to="/products/fashion" className={styles.category}>
-                Fashion
-              </Link>
-            </li>
-            <li>
-              <Link to="/products/beauty" className={styles.category}>
-                Beauty
-              </Link>
-            </li>
-            <li>
-              <Link to="/products/watches" className={styles.category}>
-                Watches
-              </Link>
-            </li>
-            <li>
-              <Link to="/products/shoes" className={styles.category}>
-                Shoes
-              </Link>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <Link to="/contact" className={styles.page}>
-            Contact us
-          </Link>
-        </li>
-        <li>
-          <Link to="/support" className={styles.page}>
-            Help & support
-          </Link>
-        </li>
-      </ul>
-    </Nav>
-  );
-}
+const OpenMenuContext = createContext();
 
 export default function HamburgerMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -94,12 +35,79 @@ export default function HamburgerMenu() {
 
   return (
     <>
-      <HamburgerMenuBtn onClick={() => onHamburgerMenuClick()}>
-        <div className={isMenuOpen ? "burger burger-squeeze open" : "burger burger-squeeze"}>
-          <div className="burger-lines"></div>
-        </div>
-      </HamburgerMenuBtn>
-      <OpenMenu isActive={isMenuOpen} />
+      <OpenMenuContext.Provider value={{ isMenuOpen, setIsMenuOpen }}>
+        <HamburgerMenuBtn onClick={() => onHamburgerMenuClick()}>
+          <div className={isMenuOpen ? "burger burger-squeeze open" : "burger burger-squeeze"}>
+            <div className="burger-lines"></div>
+          </div>
+        </HamburgerMenuBtn>
+        <OpenMenu />
+      </OpenMenuContext.Provider>
     </>
+  );
+}
+
+function OpenMenu() {
+  const { isMenuOpen, setIsMenuOpen } = useContext(OpenMenuContext);
+
+  function handleClick() {
+    setIsMenuOpen(!isMenuOpen);
+  }
+
+  return (
+    <Nav className={`${isMenuOpen ? styles.active : styles.hidden} ${styles.menu}`}>
+      <ul className={styles.pages}>
+        <li>
+          <Link to="/" className={styles.page} onClick={() => handleClick()}>
+            Home
+          </Link>
+        </li>
+        <li>
+          <div className={styles.page}>Categories</div>
+          <ul className={styles.categories}>
+            <li>
+              <Link to="/products/electronics" className={styles.category} onClick={() => handleClick()}>
+                Electronics
+              </Link>
+            </li>
+            <li>
+              <Link to="/products/audio" className={styles.category} onClick={() => handleClick()}>
+                Audio
+              </Link>
+            </li>
+            <li>
+              <Link to="/products/fashion" className={styles.category} onClick={() => handleClick()}>
+                Fashion
+              </Link>
+            </li>
+            <li>
+              <Link to="/products/beauty" className={styles.category} onClick={() => handleClick()}>
+                Beauty
+              </Link>
+            </li>
+            <li>
+              <Link to="/products/watches" className={styles.category} onClick={() => handleClick()}>
+                Watches
+              </Link>
+            </li>
+            <li>
+              <Link to="/products/shoes" className={styles.category} onClick={() => handleClick()}>
+                Shoes
+              </Link>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <Link to="/contact" className={styles.page} onClick={() => handleClick()}>
+            Contact us
+          </Link>
+        </li>
+        <li>
+          <Link to="/support" className={styles.page} onClick={() => handleClick()}>
+            Help & support
+          </Link>
+        </li>
+      </ul>
+    </Nav>
   );
 }
