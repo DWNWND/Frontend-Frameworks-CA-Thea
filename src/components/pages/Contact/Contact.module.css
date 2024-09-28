@@ -1,13 +1,30 @@
 .wrapper {
-  padding: 80px 1rem 1rem 1rem;
+  padding: 90px 1rem 130px 1rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 
   h1 {
-    color: var(--color-soft-secondary);
+    color: var(--color-dark-purple);
     font-size: 2rem;
     font-weight: 600;
     margin-bottom: 16px;
     text-transform: uppercase;
   }
+
+  @media screen and (min-width: 768px) {
+    padding: 120px 2rem 60px 2rem;
+  }
+}
+
+.pageTitle {
+  @media screen and (min-width: 768px) {
+    padding-bottom: 0.5rem;
+  }
+}
+
+.form {
+  margin-bottom: 2rem;
 }
 
 .inputContainer {
@@ -21,11 +38,29 @@
     /* border: 1px solid var(--color-mid-light-purple); */
     border-radius: 0;
   }
+}
 
-  label {
-    color: var(--color-primary);
-    font-size: 1rem;
-    font-weight: 600;
+.inputLabelForText {
+  color: var(--color-primary);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.inputLabelForCheckbox {
+  color: var(--color-dark-purple);
+  font-size: 1rem;
+  font-weight: 400;
+  /* display: inline; */
+  margin-left: 8px;
+}
+
+.required {
+  font-size: 0.8rem;
+  color: var(--color-secondary);
+  margin-top: 1rem;
+  font-weight: 400;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 2rem;
   }
 }
 
