@@ -3,7 +3,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import styles from "./Contact.module.css";
 import ValidationMessage from "../../ValidationMessage";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import Button from "../../Button";
 
 const schema = yup
   .object({
@@ -15,6 +17,27 @@ const schema = yup
   .required();
 
 export default function Contact() {
+  //add link to source here
+  const checkIfMobileScreen = () => {
+    const [width, setWidth] = useState(window.innerWidth);
+    const handleWindowSizeChange = () => {
+      setWidth(window.innerWidth);
+    };
+
+    useEffect(() => {
+      window.addEventListener("resize", handleWindowSizeChange);
+      return () => {
+        window.removeEventListener("resize", handleWindowSizeChange);
+      };
+    }, []);
+
+    return width <= 768;
+  };
+
+  const isMobile = checkIfMobileScreen();
+  const location = useLocation();
+  const page = location.pathname;
+
   const {
     register,
     handleSubmit,
@@ -39,29 +62,45 @@ export default function Contact() {
 
   return (
     <div className={styles.wrapper}>
-      <h1>Contact us</h1>
+      <h1 className={styles.pageTitle}>Contact us</h1>
       <form onSubmit={handleSubmit(onSubmit)} id="contact-form">
         <div className={styles.inputContainer}>
-          <label htmlFor="fullName">Full name</label>
-          <input className={errors.fullName ? styles.error : styles.valid} {...register("fullName")} />
+          <label className={styles.inputLabelForText} htmlFor="fullName">
+            Full name *
+          </label>
+          <input id="fullName" className={errors.fullName ? styles.error : styles.valid} {...register("fullName")} />
           <ValidationMessage errorMessage={errors.fullName?.message}></ValidationMessage>
         </div>
         <div className={styles.inputContainer}>
-          <label htmlFor="email">Email</label>
-          <input className={errors.email ? styles.error : styles.valid} {...register("email")} />
+          <label className={styles.inputLabelForText} htmlFor="email">
+            Email *
+          </label>
+          <input autocomplete="email" id="email" className={errors.email ? styles.error : styles.valid} {...register("email")} />
           <ValidationMessage errorMessage={errors.email?.message}></ValidationMessage>
         </div>
         <div className={styles.inputContainer}>
-          <label htmlFor="subject">Subject</label>
-          <input className={errors.subject ? styles.error : styles.valid} {...register("subject")} />
+          <label className={styles.inputLabelForText} htmlFor="subject">
+            Subject *
+          </label>
+          <input id="subject" className={errors.subject ? styles.error : styles.valid} {...register("subject")} />
           <ValidationMessage errorMessage={errors.subject?.message}></ValidationMessage>
         </div>
         <div className={styles.inputContainer}>
-          <label htmlFor="body">Message</label>
-          <input className={`${errors.body ? styles.error : styles.valid} ${styles.message}`} {...register("body")} />
+          <label className={styles.inputLabelForText} htmlFor="body">
+            Message *
+          </label>
+          <input id="body" className={`${errors.body ? styles.error : styles.valid} ${styles.message}`} {...register("body")} />
           <ValidationMessage errorMessage={errors.body?.message}></ValidationMessage>
         </div>
+        <div>
+          <input type="checkbox" id="terms" name="terms" />
+          <label htmlFor="terms" className={styles.inputLabelForCheckbox}>
+            I want updates on new offers.
+          </label>
+        </div>
       </form>
+      <p className={styles.required}>Required fields are marked with *</p>
+      {isMobile ? null : <Button page={page} />}
     </div>
   );
 }
