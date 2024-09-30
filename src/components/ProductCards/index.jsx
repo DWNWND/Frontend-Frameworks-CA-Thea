@@ -77,7 +77,7 @@ export function ProductsToDisplay() {
   }
 
   return (
-    <div className={!page.includes("/product/") ? styles.containerListView : null}>
+    <div className={page.includes("/product/") ? null : styles.containerListView}>
       {page.includes("/product/") ? null : (
         <FilterContext.Provider value={{ filters, setFilters }}>
           <Filters page={page} />
@@ -85,6 +85,7 @@ export function ProductsToDisplay() {
       )}
       <ProductsContext.Provider value={products}>
         <ProductCards />
+        <p className={styles.allProductsDisplayed}>All relevant products displayed.</p>
       </ProductsContext.Provider>
     </div>
   );
