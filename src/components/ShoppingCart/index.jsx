@@ -8,9 +8,10 @@ import Footer from "../Layout/Footer";
 import { Quantity } from "../quanity";
 import { useOutletContext } from "react-router-dom";
 import Button from "../Button";
+import SumTotal from "../SumTotal";
 
 export function ShoppingCart() {
-  const { cart, setCart } = useOutletContext();
+  const { cart, setCart, totalSum, setTotalSum } = useOutletContext();
 
   //add link to source here
   const checkIfMobileScreen = () => {
@@ -64,7 +65,12 @@ export function ShoppingCart() {
           </div>
         </>
       ) : null}
-      {isMobile ? null : <Button page={page} cart={cart} setCart={setCart}></Button>}
+      {isMobile ? null : (
+        <>
+          <SumTotal totalSum={totalSum} setTotalSum={setTotalSum}></SumTotal>
+          <Button page={page} cart={cart} setCart={setCart}></Button>
+        </>
+      )}
     </>
   );
 }
