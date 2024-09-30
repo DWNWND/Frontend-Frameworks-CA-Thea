@@ -5,8 +5,8 @@ export default function BrandCommercial() {
     <>
       <div className={styles.wrapper}>
         <div className={styles.infoContainer}>
-          <h2>Some nice title text</h2>
-          <p>Some slogan thing</p>
+          <h2>Flash Sale!</h2>
+          <p>Up to 50% Off – Shop Now!</p>
         </div>
       </div>
     </>
