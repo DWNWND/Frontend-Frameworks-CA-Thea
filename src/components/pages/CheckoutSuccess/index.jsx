@@ -4,12 +4,32 @@ import { useEffect } from "react";
 import Price from "../../Price";
 import Ratings from "../../Ratings";
 import Button from "../../Button";
+import { useState } from "react";
 
 export default function CheckoutSuccess() {
   const { totalSum } = useOutletContext();
   const receipt = JSON.parse(sessionStorage.getItem("receipt"));
   const location = useLocation();
   const page = location.pathname;
+
+  //add link to source here
+  const checkIfMobileScreen = () => {
+    const [width, setWidth] = useState(window.innerWidth);
+    const handleWindowSizeChange = () => {
+      setWidth(window.innerWidth);
+    };
+
+    useEffect(() => {
+      window.addEventListener("resize", handleWindowSizeChange);
+      return () => {
+        window.removeEventListener("resize", handleWindowSizeChange);
+      };
+    }, []);
+
+    return width <= 768;
+  };
+
+  const isMobile = checkIfMobileScreen();
 
   let paidTotal;
 
@@ -40,14 +60,14 @@ export default function CheckoutSuccess() {
           {receipt ? (
             <>
               {receipt.map((product) => (
-                <div key={product.id}>
-                  <div className={styles.cardWrapper}>
-                    <div className={styles.imageWrapper}>
-                      <img src={product.image.url} alt={product.image.alt}></img>
-                    </div>
-                    <div className={styles.infoWrapper}>
+                <div key={product.id} className={styles.cardWrapper}>
+                  <div className={styles.imageWrapper}>
+                    <img src={product.image.url} alt={product.image.alt}></img>
+                  </div>
+                  <div className={styles.infoWrapper}>
+                    <h2>{product.title}</h2>
+                    <div className={styles.bottomWrapper}>
                       <div className={styles.productInfo}>
-                        <h2>{product.title}</h2>
                         <Price originalPrice={product.price} discountedPrice={product.discountedPrice} page="/checkout/"></Price>
                         <Ratings rating={product.rating} reviews={product.reviews} section=""></Ratings>
                       </div>
@@ -59,7 +79,7 @@ export default function CheckoutSuccess() {
             </>
           ) : null}
         </div>
-        <Button page={page}></Button>
+        {isMobile ? null : <Button page={page}></Button>}
       </div>
     </div>
   );
