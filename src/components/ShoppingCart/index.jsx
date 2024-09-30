@@ -86,13 +86,15 @@ function ProductCartCards({ product }) {
             <img src={product.image.url} alt={product.image.alt}></img>
           </div>
           <div className={styles.infoWrapper}>
-            <div className={styles.productInfo}>
-              <h2>{product.title}</h2>
-              <Price originalPrice={product.price} discountedPrice={product.discountedPrice} page="/checkout/" view="listView"></Price>
-              <Ratings rating={product.rating} reviews={product.reviews} section=""></Ratings>
-            </div>
-            <div className={styles.quantityWrapper}>
-              <Quantity page={location.pathname} product={product}></Quantity>
+            <h2>{product.title}</h2>
+            <div className={styles.container}>
+              <div className={styles.productInfo}>
+                <Price originalPrice={product.price} discountedPrice={product.discountedPrice} page="/checkout/" view="listView"></Price>
+                <Ratings rating={product.rating} reviews={product.reviews} section=""></Ratings>
+              </div>
+              <div className={styles.quantityWrapper}>
+                <Quantity page={location.pathname} product={product}></Quantity>
+              </div>
             </div>
           </div>
         </div>
