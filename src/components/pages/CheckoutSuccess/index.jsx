@@ -1,12 +1,15 @@
 import styles from "./CheckoutSuccess.module.css";
-import { useOutletContext } from "react-router-dom";
+import { useLocation, useOutletContext } from "react-router-dom";
 import { useEffect } from "react";
 import Price from "../../Price";
 import Ratings from "../../Ratings";
+import Button from "../../Button";
 
 export default function CheckoutSuccess() {
   const { totalSum } = useOutletContext();
   const receipt = JSON.parse(sessionStorage.getItem("receipt"));
+  const location = useLocation();
+  const page = location.pathname;
 
   let paidTotal;
 
@@ -33,7 +36,7 @@ export default function CheckoutSuccess() {
         <div className={styles.infoHeader}>
           <h2>You ordered this:</h2>
         </div>
-        <div>
+        <div className={styles.products}>
           {receipt ? (
             <>
               {receipt.map((product) => (
@@ -56,6 +59,7 @@ export default function CheckoutSuccess() {
             </>
           ) : null}
         </div>
+        <Button page={page}></Button>
       </div>
     </div>
   );
