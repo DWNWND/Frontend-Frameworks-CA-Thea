@@ -24,11 +24,6 @@
     font-weight: 400;
     color: var(--color-black);
   }
-
-  .oldPrice {
-    text-decoration: line-through;
-    color: var(--color-dark-gray);
-  }
 }
 
 .productSpesificView {
@@ -58,9 +53,9 @@
       font-size: 2rem;
     }
   }
+}
 
-  .oldPrice {
-    text-decoration: line-through;
-    color: var(--color-dark-gray);
-  }
+.oldPrice {
+  text-decoration: line-through;
+  color: var(--color-dark-gray);
 }
