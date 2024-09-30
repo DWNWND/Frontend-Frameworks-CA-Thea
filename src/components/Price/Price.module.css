@@ -3,56 +3,64 @@
   align-items: center;
   gap: 0.2rem;
 }
-.discounted {
-  font-weight: 400;
-  color: var(--color-secondary);
-}
-.discountedProductSpes {
-  font-size: 1.5rem;
-  @media screen and (min-width: 1200px) {
-    font-size: 2rem;
-  }
-}
-.discountedProductList {
-  font-size: 1rem;
-  @media screen and (min-width: 1200px) {
-    font-size: 1.5rem;
-  }
-}
 
-.percentage {
-  font-size: 0.8rem;
-  font-weight: 400;
-  color: var(--color-mid-gray);
-  @media screen and (min-width: 1200px) {
-    font-size: 0.7rem;
+.listView {
+  .discounted {
+    font-weight: 400;
+    color: var(--color-secondary);
+    font-size: 1rem;
   }
-}
-.original {
-  font-size: 1rem;
-  font-weight: 400;
-  color: var(--color-black);
 
-  @media screen and (min-width: 1200px) {
+  .percentage {
     font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--color-mid-gray);
+    @media screen and (min-width: 1200px) {
+      font-size: 0.7rem;
+    }
+  }
+  .original {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-black);
+  }
+
+  .oldPrice {
+    text-decoration: line-through;
+    color: var(--color-dark-gray);
   }
 }
 
-.originalProductSpes {
-  font-size: 1.5rem;
-  @media screen and (min-width: 1200px) {
-    font-size: 2rem;
-  }
-}
-
-.originalProductList {
-  font-size: 1rem;
-  @media screen and (min-width: 1200px) {
+.productSpesificView {
+  .discounted {
+    font-weight: 400;
+    color: var(--color-secondary);
     font-size: 1.5rem;
+    @media screen and (min-width: 1200px) {
+      font-size: 2rem;
+    }
   }
-}
+  .percentage {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--color-mid-gray);
+    @media screen and (min-width: 1200px) {
+      font-size: 0.7rem;
+    }
+  }
+  .original {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-black);
 
-.originalBefore {
-  text-decoration: line-through;
-  color: var(--color-dark-gray);
+    font-size: 1.5rem;
+    @media screen and (min-width: 1200px) {
+      font-size: 2rem;
+    }
+  }
+
+  .oldPrice {
+    text-decoration: line-through;
+    color: var(--color-dark-gray);
+  }
 }
