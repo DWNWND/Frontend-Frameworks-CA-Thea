@@ -6,6 +6,7 @@ import ProductsList from "./components/pages/ProductsList";
 import Checkout from "./components/pages/Checkout";
 import CheckoutSuccess from "./components/pages/CheckoutSuccess";
 import Contact from "./components/pages/Contact";
+import ScrollToTop from "./scrollToTop";
 
 function RouteNotFound() {
   return <div>Page not found</div>;
@@ -14,6 +15,7 @@ function RouteNotFound() {
 function App() {
   return (
     <>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
