@@ -184,3 +184,7 @@
   visibility: visible;
   opacity: 1;
 }
+
+.similarProductsHeader {
+  margin-bottom: 2rem;
+}
