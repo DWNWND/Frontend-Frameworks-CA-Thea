@@ -1,6 +1,5 @@
 import calcPercentage from "../../calculateDiscount.js";
 import styles from "./Price.module.css";
-import { useState, useEffect } from "react";
 
 export default function Price({ originalPrice, discountedPrice, page, view }) {
   const discount = calcPercentage(discountedPrice, originalPrice);

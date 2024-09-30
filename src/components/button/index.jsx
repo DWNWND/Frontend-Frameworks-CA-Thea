@@ -1,8 +1,4 @@
 import styles from "./Button.module.css";
-import { useContext } from "react";
-// import { ProductObjectContext } from "../pages/Product";
-// import { ShoppingCartContext } from "../Layout";
-import { useOutletContext, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 let newProductArray = [];
@@ -95,10 +91,6 @@ export default function Button({ page, product, cart, setCart }) {
   if (page.includes("/contact")) {
     btnClass = styles.sendInquiry;
     btnText = "send inquiry";
-
-    // function handleClick() {
-    //   console.log("send message");
-    // }
 
     return (
       <button type="submit" form="contact-form" className={`${btnClass} ${styles.button}`}>

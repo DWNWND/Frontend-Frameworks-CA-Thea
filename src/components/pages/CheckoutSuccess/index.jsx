@@ -1,34 +1,14 @@
 import styles from "./CheckoutSuccess.module.css";
-import { useLocation, useOutletContext } from "react-router-dom";
-import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Price from "../../Price";
 import Ratings from "../../Ratings";
 import Button from "../../Button";
-import { useState } from "react";
+import checkIfMobileScreen from "../../../checkIfMobileScreen.js";
 
 export default function CheckoutSuccess() {
-  const { totalSum } = useOutletContext();
   const receipt = JSON.parse(sessionStorage.getItem("receipt"));
   const location = useLocation();
   const page = location.pathname;
-
-  //add link to source here
-  const checkIfMobileScreen = () => {
-    const [width, setWidth] = useState(window.innerWidth);
-    const handleWindowSizeChange = () => {
-      setWidth(window.innerWidth);
-    };
-
-    useEffect(() => {
-      window.addEventListener("resize", handleWindowSizeChange);
-      return () => {
-        window.removeEventListener("resize", handleWindowSizeChange);
-      };
-    }, []);
-
-    return width <= 768;
-  };
-
   const isMobile = checkIfMobileScreen();
 
   let paidTotal;
@@ -43,8 +23,6 @@ export default function CheckoutSuccess() {
   } else {
     paidTotal = 0;
   }
-
-  console.log(paidTotal);
 
   return (
     <div className={styles.wrapper}>

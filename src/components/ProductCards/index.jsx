@@ -1,10 +1,10 @@
 import { useEffect, useState, createContext, useContext } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
-import Price from "../Price";
-import Ratings from "../Ratings";
+import Price from "../Price/index.jsx";
+import Ratings from "../Ratings/index.jsx";
 import styles from "./ProductCards.module.css";
-import Filters from "../Filters";
-import { ProductTagContext } from "../pages/Product/index.jsx";
+import Filters from "../Filters/index.jsx";
+import { ProductTagContext } from "../pages/ProductSpecific/index.jsx";
 
 const url = "https://v2.api.noroff.dev/online-shop";
 

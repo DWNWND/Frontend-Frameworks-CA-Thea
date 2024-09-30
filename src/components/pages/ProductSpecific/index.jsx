@@ -1,18 +1,16 @@
-import { useParams } from "react-router-dom";
 import { useState, createContext, useEffect } from "react";
-import { Link, useLocation, useOutletContext } from "react-router-dom";
-import styles from "./Product.module.css";
-import Price from "../../Price";
-import Ratings from "../../Ratings";
-import { ProductsToDisplay } from "../../ProductCards";
-import Footer from "../../Layout/Footer";
-import useFetch from "../../../hooks/useFetch";
-import Button from "../../Button";
+import { Link, useLocation, useOutletContext, useParams } from "react-router-dom";
+import styles from "./ProductSpecific.module.css";
+import Price from "../../Price/index.jsx";
+import Ratings from "../../Ratings/index.jsx";
+import { ProductsToDisplay } from "../../ProductCards/index.jsx";
+import useFetch from "../../../hooks/useFetch.jsx";
+import Button from "../../Button/index.jsx";
+import checkIfMobileScreen from "../../../checkIfMobileScreen.js";
 
 const url = "https://v2.api.noroff.dev/online-shop";
 
 export const ProductTagContext = createContext();
-// export const ProductObjectContext = createContext();
 
 export function Product() {
   let { id } = useParams();
@@ -28,23 +26,6 @@ export function Product() {
   useEffect(() => {
     setProduct(thisProduct);
   }, [data]);
-
-  //add link to source here
-  const checkIfMobileScreen = () => {
-    const [width, setWidth] = useState(window.innerWidth);
-    const handleWindowSizeChange = () => {
-      setWidth(window.innerWidth);
-    };
-
-    useEffect(() => {
-      window.addEventListener("resize", handleWindowSizeChange);
-      return () => {
-        window.removeEventListener("resize", handleWindowSizeChange);
-      };
-    }, []);
-
-    return width <= 768;
-  };
 
   const isMobile = checkIfMobileScreen();
 
