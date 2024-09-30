@@ -108,7 +108,6 @@ export function Product() {
                           <div>Share</div>
                         </div>
                       </div>
-
                       <Ratings rating={thisProduct.rating} reviews={thisProduct.reviews} section=""></Ratings>
                     </div>
                     <div className={styles.infoWrapper}>
