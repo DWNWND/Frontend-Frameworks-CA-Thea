@@ -63,13 +63,15 @@ export function ShoppingCart() {
               <ProductCartCards product={product} key={product.id}></ProductCartCards>
             ))}
           </div>
+          {isMobile ? null : (
+            <>
+              <SumTotal totalSum={totalSum} setTotalSum={setTotalSum}></SumTotal>
+              <Button page={page} cart={cart} setCart={setCart}></Button>
+            </>
+          )}
         </>
-      ) : null}
-      {isMobile ? null : (
-        <>
-          <SumTotal totalSum={totalSum} setTotalSum={setTotalSum}></SumTotal>
-          <Button page={page} cart={cart} setCart={setCart}></Button>
-        </>
+      ) : (
+        <div>Your shopping cart is empty.</div>
       )}
     </>
   );
