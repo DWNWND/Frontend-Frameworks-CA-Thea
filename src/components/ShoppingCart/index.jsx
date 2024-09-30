@@ -7,11 +7,32 @@ import Ratings from "../Ratings";
 import Footer from "../Layout/Footer";
 import { Quantity } from "../quanity";
 import { useOutletContext } from "react-router-dom";
+import Button from "../Button";
 
 export function ShoppingCart() {
   const { cart, setCart } = useOutletContext();
 
+  //add link to source here
+  const checkIfMobileScreen = () => {
+    const [width, setWidth] = useState(window.innerWidth);
+    const handleWindowSizeChange = () => {
+      setWidth(window.innerWidth);
+    };
+
+    useEffect(() => {
+      window.addEventListener("resize", handleWindowSizeChange);
+      return () => {
+        window.removeEventListener("resize", handleWindowSizeChange);
+      };
+    }, []);
+
+    return width <= 768;
+  };
+
+  const isMobile = checkIfMobileScreen();
+
   const location = useLocation();
+  const page = location.pathname;
 
   let newProductsArray = [];
 
@@ -43,6 +64,7 @@ export function ShoppingCart() {
           </div>
         </>
       ) : null}
+      {isMobile ? null : <Button page={page} cart={cart} setCart={setCart}></Button>}
     </>
   );
 }
@@ -60,7 +82,7 @@ function ProductCartCards({ product }) {
           <div className={styles.infoWrapper}>
             <div className={styles.productInfo}>
               <h2>{product.title}</h2>
-              <Price originalPrice={product.price} discountedPrice={product.discountedPrice} page="/checkout/"></Price>
+              <Price originalPrice={product.price} discountedPrice={product.discountedPrice} page="/checkout/" view="listView"></Price>
               <Ratings rating={product.rating} reviews={product.reviews} section=""></Ratings>
             </div>
             <div className={styles.quantityWrapper}>
@@ -71,29 +93,4 @@ function ProductCartCards({ product }) {
       ) : null}
     </>
   );
-}
-
-{
-  /* <div>
-        {productsInCart.map((product) => (
-          <div key={product.id}>
-            <button onClick={() => dispatch({ type: "addProduct", payload: product })}>Add {product.title}</button>
-            <button onClick={() => dispatch({ type: "removeProduct", payload: product })}>Remove {product.title}</button>
-          </div>
-        ))}
-        <div>
-          <hr />
-          <button onClick={() => dispatch({ type: "clearCart" })}>Clear cart</button>
-          <button onClick={() => dispatch({ type: "getTotal" })}>Get total</button>
-        </div>
-        <div>{state.total}</div>
-        <hr />
-        <div>
-          {state.cart.map((product) => (
-            <div key={product.id}>
-              {product.quantity} - {product.title} - {product.discountedPrice}
-            </div>
-          ))}
-        </div>
-      </div> */
 }
