@@ -27,7 +27,7 @@ export default function CheckoutSuccess() {
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <h1>Thank you for your order</h1>
-        <p>PAID: kr{paidTotal}</p>
+        <p>TOTAL PAID: kr {paidTotal}</p>
       </div>
       <div className={styles.receipt}>
         <div className={styles.infoHeader}>
