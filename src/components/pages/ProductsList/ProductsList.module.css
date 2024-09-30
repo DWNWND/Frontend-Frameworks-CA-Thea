@@ -11,5 +11,8 @@
     font-size: 1.7rem;
     text-transform: uppercase;
     padding: 0 1rem;
+    @media screen and (min-width: 1200px) {
+      padding: 0;
+    }
   }
 }
