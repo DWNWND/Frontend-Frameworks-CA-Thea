@@ -1,5 +1,5 @@
 import styles from "./CheckoutSuccess.module.css";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import Price from "../../Price";
 import Ratings from "../../Ratings";
 import Button from "../../Button";
@@ -39,11 +39,13 @@ export default function CheckoutSuccess() {
             <>
               {receipt.map((product) => (
                 <div key={product.id} className={styles.productCard}>
-                  <div className={styles.imageWrapper}>
+                  <Link to={`/product/${product.id}`} className={styles.imageWrapper}>
                     <img src={product.image.url} alt={product.image.alt}></img>
-                  </div>
+                  </Link>
                   <div className={styles.infoWrapper}>
-                    <h3>{product.title}</h3>
+                    <Link to={`/product/${product.id}`} className={styles.productTitle}>
+                      <h3>{product.title}</h3>
+                    </Link>
                     <div className={styles.priceRatingQuantity}>
                       <div className={styles.priceRating}>
                         <Price originalPrice={product.price} discountedPrice={product.discountedPrice} page="/checkout/"></Price>

@@ -42,7 +42,6 @@
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-
   h2 {
     color: var(--color-dark-gray);
     text-transform: uppercase;
@@ -82,7 +81,10 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+}
 
+.productTitle {
+  text-decoration: none;
   h3 {
     font-size: 1.125rem;
     font-weight: 600;
