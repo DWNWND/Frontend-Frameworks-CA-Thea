@@ -26,7 +26,7 @@ export default function Cart({ cart }) {
   return (
     <>
       <div className={styles.parent}>
-        <div className={cart.length > 0 ? styles.cartIconFull : styles.cartIconEmpty}>{quantity}</div>
+        <div className={cart.length > 0 ? styles.cartIconFull : styles.cartIconEmpty}>{cart.length > 0 ? quantity : null}</div>
         <img src={CartIcon} alt="Shopping cart icon, click to go to shopping cart" />
       </div>
     </>

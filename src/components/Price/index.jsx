@@ -1,33 +1,26 @@
 import calcPercentage from "../../calculateDiscount.js";
 import styles from "./Price.module.css";
 
-export default function Price({ originalPrice, discountedPrice, page }) {
+export default function Price({ originalPrice, discountedPrice, page, view }) {
   const discount = calcPercentage(discountedPrice, originalPrice);
 
   if (discountedPrice !== originalPrice) {
-    if (page.includes("/product/")) {
-      return (
-        <div>
-          <div className={styles.wrapper}>
-            <p className={styles.discounted}>kr {discountedPrice}</p>
-            <p className={styles.percentage}>- {discount}%</p>
-          </div>
-          <p className={styles.original}>kr {originalPrice}</p>
-        </div>
-      );
-    } else {
-      return (
-        <div className={styles.wrapper}>
+    return (
+      <div>
+        <div className={`${styles.wrapper} ${view == "listView" && styles.listView} ${view == "productSpesificView" && styles.productSpesificView}`}>
           <p className={styles.discounted}>kr {discountedPrice}</p>
           <p className={styles.percentage}>- {discount}%</p>
         </div>
-      );
-    }
+        {page.includes("/product/") && <p className={styles.oldPrice}>kr {originalPrice}</p>}
+      </div>
+    );
   }
   if (discountedPrice === originalPrice) {
     return (
       <>
-        <p className={styles.original}>kr {originalPrice}</p>
+        <div className={`${styles.wrapper} ${view == "listView" && styles.listView} ${view == "productSpesificView" && styles.productSpesificView}`}>
+          <p className={styles.original}>kr {originalPrice}</p>
+        </div>
       </>
     );
   }

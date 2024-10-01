@@ -1,13 +1,13 @@
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  gap: 1rem;
   width: 100%;
-  padding: 1rem;
+  /* padding: 1rem; */
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 
   img {
     width: 100%;
@@ -26,6 +26,9 @@
   }
 }
 
+.containerListView {
+  padding: 0 1rem 1rem 1rem;
+}
 .card {
   cursor: pointer;
   background-color: var(--color-white);
@@ -58,5 +61,18 @@
     font-size: 0.875rem;
     font-weight: 600;
     color: var(--color-black);
+  }
+}
+
+.allProductsDisplayed {
+  font-style: italic;
+  color: var(--color-dark-gray);
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+  max-width: 1200px;
+  @media screen and (min-width: 1200px) {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.5rem;
   }
 }

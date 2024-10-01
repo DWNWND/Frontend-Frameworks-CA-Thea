@@ -1,8 +1,4 @@
 import styles from "./Button.module.css";
-import { useContext } from "react";
-// import { ProductObjectContext } from "../pages/Product";
-// import { ShoppingCartContext } from "../Layout";
-import { useOutletContext, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 let newProductArray = [];
@@ -12,7 +8,7 @@ export default function Button({ page, product, cart, setCart }) {
   var btnText;
 
   if (page.includes("/product/")) {
-    btnClass = styles.addToCart;
+    btnClass = styles.addToCartBtn;
     btnText = "Add to cart";
 
     function handleClick() {
@@ -51,16 +47,14 @@ export default function Button({ page, product, cart, setCart }) {
     }
 
     return (
-      <>
-        <button className={`${btnClass} ${styles.button}`} onClick={() => handleClick()}>
-          {btnText}
-        </button>
-      </>
+      <button className={`${btnClass} ${styles.buttonGlobal}`} onClick={() => handleClick()}>
+        {btnText}
+      </button>
     );
   }
 
   if (page.includes("/checkout")) {
-    btnClass = styles.checkout;
+    btnClass = styles.checkoutBtn;
     btnText = "checkout";
 
     function handleClick() {
@@ -71,14 +65,14 @@ export default function Button({ page, product, cart, setCart }) {
     }
 
     return (
-      <Link to="/success" className={`${btnClass} ${styles.button} ${cart.length > 0 ? styles.full : styles.empty}`} onClick={() => handleClick()}>
+      <Link to="/success" className={`${btnClass} ${styles.buttonGlobal}`} onClick={() => handleClick()}>
         {btnText}
       </Link>
     );
   }
 
   if (page.includes("/success")) {
-    btnClass = styles.continueShopping;
+    btnClass = styles.continueShoppingBtn;
     btnText = "continue shopping";
 
     function handleClick() {
@@ -86,22 +80,18 @@ export default function Button({ page, product, cart, setCart }) {
     }
 
     return (
-      <Link to="/" className={`${btnClass} ${styles.button}`} onClick={() => handleClick()}>
+      <Link to="/" className={`${btnClass} ${styles.buttonGlobal}`} onClick={() => handleClick()}>
         {btnText}
       </Link>
     );
   }
 
   if (page.includes("/contact")) {
-    btnClass = styles.sendInquiry;
+    btnClass = styles.sendInquiryBtn;
     btnText = "send inquiry";
 
-    // function handleClick() {
-    //   console.log("send message");
-    // }
-
     return (
-      <button type="submit" form="contact-form" className={`${btnClass} ${styles.button}`}>
+      <button type="submit" form="contact-form" className={`${btnClass} ${styles.buttonGlobal}`}>
         {btnText}
       </button>
     );

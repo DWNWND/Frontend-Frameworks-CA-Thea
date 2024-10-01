@@ -1,32 +1,14 @@
-import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styles from "./Footer.module.css";
-import { Quantity } from "../../quanity";
 import SumTotal from "../../SumTotal";
 import Button from "../../Button";
 import VisaLogo from "../../../assets/logos/logos_visa.png";
 import KlarnaLogo from "../../../assets/logos/logos_klarna.png";
 import MastercardLogo from "../../../assets/logos/logos_mastercard.png";
 import PaypalLogo from "../../../assets/logos/logos_paypal.png";
+import checkIfMobileScreen from "../../../checkIfMobileScreen";
 
 export default function Footer({ page, product, cart, setCart, totalSum, setTotalSum }) {
-  //add link to source here
-  const checkIfMobileScreen = () => {
-    const [width, setWidth] = useState(window.innerWidth);
-    const handleWindowSizeChange = () => {
-      setWidth(window.innerWidth);
-    };
-
-    useEffect(() => {
-      window.addEventListener("resize", handleWindowSizeChange);
-      return () => {
-        window.removeEventListener("resize", handleWindowSizeChange);
-      };
-    }, []);
-
-    return width <= 768;
-  };
-
   const isMobile = checkIfMobileScreen();
 
   function DesktopFooter() {

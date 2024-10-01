@@ -1,11 +1,10 @@
 import { useEffect, useState, createContext, useContext } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
-import Price from "../Price";
-import Ratings from "../Ratings";
+import Price from "../Price/index.jsx";
+import Ratings from "../Ratings/index.jsx";
 import styles from "./ProductCards.module.css";
-import Filters from "../Filters";
-import ProductCards from "./card.jsx";
-import { ProductTagContext } from "../pages/Product/index.jsx";
+import Filters from "../Filters/index.jsx";
+import { ProductTagContext } from "../pages/ProductSpecific/index.jsx";
 
 const url = "https://v2.api.noroff.dev/online-shop";
 
@@ -21,6 +20,7 @@ export function ProductsToDisplay() {
 
   let { category } = useParams();
   const location = useLocation();
+  const page = location.pathname;
 
   useEffect(() => {
     async function getData() {
@@ -40,7 +40,7 @@ export function ProductsToDisplay() {
           const filteredProducts = data.filter((product) => product.discountedPrice !== product.price);
           setProducts(filteredProducts);
         }
-        if (location.pathname.includes(category)) {
+        if (page.includes(category)) {
           const categorizedProducts = data.filter((product) => product.tags.includes(category));
           setProducts(categorizedProducts);
 
@@ -53,19 +53,9 @@ export function ProductsToDisplay() {
             setProducts(filteredProducts);
           }
         }
-        if (location.pathname.includes("/product/")) {
+        if (page.includes("/product/")) {
           const taggedProducts = data.filter((product) => product.tags.includes(tag));
           setProducts(taggedProducts);
-
-
-          if (filters === "topSales") {
-            const sortedProducts = taggedProducts.sort((a, b) => b.reviews.length - a.reviews.length);
-            setProducts(sortedProducts);
-          }
-          if (filters === "discountedItems") {
-            const filteredProducts = taggedProducts.filter((product) => product.discountedPrice !== product.price);
-            setProducts(filteredProducts);
-          }
         }
 
         setIsLoading(false);
@@ -79,25 +69,45 @@ export function ProductsToDisplay() {
   }, [filters]);
 
   if (isLoading) {
-    return <div>Loading posts</div>;
+    return <div className="loader">Loading products . . .</div>;
   }
 
   if (isError) {
-    return <div>Error loading data</div>;
+    return <div className="error">Error loading data</div>;
   }
 
   return (
-    <>
-      <FilterContext.Provider value={{ filters, setFilters }}>
-        <div>
-          <Filters page={location} />
-        </div>
-      </FilterContext.Provider>
-      <ProductsContext.Provider value={{ products, setProducts }}>
-        <div>
-          <ProductCards />
-        </div>
+    <div className={page.includes("/product/") ? null : styles.containerListView}>
+      {page.includes("/product/") ? null : (
+        <FilterContext.Provider value={{ filters, setFilters }}>
+          <Filters page={page} />
+        </FilterContext.Provider>
+      )}
+      <ProductsContext.Provider value={products}>
+        <ProductCards />
+        <p className={styles.allProductsDisplayed}>All relevant products displayed.</p>
       </ProductsContext.Provider>
-    </>
+    </div>
+  );
+}
+
+function ProductCards() {
+  const products = useContext(ProductsContext);
+
+  return (
+    <div className={styles.wrapper}>
+      {products.map((product) => (
+        <Link to={"/product/" + product.id} key={product.id} className={styles.card}>
+          <div className={styles.imageContainer}>
+            <img src={product.image.url} alt={product.image.alt} />
+          </div>
+          <div className={styles.infoContainer}>
+            <h2>{product.title}</h2>
+            <Price originalPrice={product.price} discountedPrice={product.discountedPrice} page="" view="listView" />
+            <Ratings rating={product.rating} reviews={product.reviews} />
+          </div>
+        </Link>
+      ))}
+    </div>
   );
 }

@@ -19,6 +19,8 @@ html {
 
 --color-soft-secondary: #C7694B;
 --color-soft-yellow: #F5BD2C;
+
+--color-soft-green: #6B8D1D;
 }
 `;
 

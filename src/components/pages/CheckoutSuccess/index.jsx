@@ -1,12 +1,15 @@
 import styles from "./CheckoutSuccess.module.css";
-import { useOutletContext } from "react-router-dom";
-import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Price from "../../Price";
 import Ratings from "../../Ratings";
+import Button from "../../Button";
+import checkIfMobileScreen from "../../../checkIfMobileScreen.js";
 
 export default function CheckoutSuccess() {
-  const { totalSum } = useOutletContext();
   const receipt = JSON.parse(sessionStorage.getItem("receipt"));
+  const location = useLocation();
+  const page = location.pathname;
+  const isMobile = checkIfMobileScreen();
 
   let paidTotal;
 
@@ -21,30 +24,28 @@ export default function CheckoutSuccess() {
     paidTotal = 0;
   }
 
-  console.log(paidTotal);
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <h1>Thank you for your order</h1>
-        <p>PAID: kr{paidTotal}</p>
+        <p>TOTAL PAID: kr {paidTotal}</p>
       </div>
       <div className={styles.receipt}>
         <div className={styles.infoHeader}>
           <h2>You ordered this:</h2>
         </div>
-        <div>
+        <div className={styles.products}>
           {receipt ? (
             <>
               {receipt.map((product) => (
-                <div key={product.id}>
-                  <div className={styles.cardWrapper}>
-                    <div className={styles.imageWrapper}>
-                      <img src={product.image.url} alt={product.image.alt}></img>
-                    </div>
-                    <div className={styles.infoWrapper}>
+                <div key={product.id} className={styles.cardWrapper}>
+                  <div className={styles.imageWrapper}>
+                    <img src={product.image.url} alt={product.image.alt}></img>
+                  </div>
+                  <div className={styles.infoWrapper}>
+                    <h2>{product.title}</h2>
+                    <div className={styles.bottomWrapper}>
                       <div className={styles.productInfo}>
-                        <h2>{product.title}</h2>
                         <Price originalPrice={product.price} discountedPrice={product.discountedPrice} page="/checkout/"></Price>
                         <Ratings rating={product.rating} reviews={product.reviews} section=""></Ratings>
                       </div>
@@ -56,6 +57,7 @@ export default function CheckoutSuccess() {
             </>
           ) : null}
         </div>
+        {isMobile ? null : <Button page={page}></Button>}
       </div>
     </div>
   );

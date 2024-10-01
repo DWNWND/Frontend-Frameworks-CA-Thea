@@ -9,6 +9,7 @@ export function Layout() {
   const [product, setProduct] = useState({});
   const [totalSum, setTotalSum] = useState(0);
   const location = useLocation();
+  const page = location.pathname;
 
   function initializeCart() {
     let newProductsArray = [];
@@ -32,10 +33,10 @@ export function Layout() {
   }, [, location]);
 
   return (
-    <div>
+    <>
       <Header cart={cart} />
       <Outlet context={{ product, setProduct, cart, setCart, totalSum, setTotalSum }} />
-      <Footer page={location.pathname} product={product} cart={cart} setCart={setCart} totalSum={totalSum} setTotalSum={setTotalSum} />
-    </div>
+      <Footer page={page} product={product} cart={cart} setCart={setCart} totalSum={totalSum} setTotalSum={setTotalSum} />
+    </>
   );
 }

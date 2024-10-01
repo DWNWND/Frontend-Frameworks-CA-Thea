@@ -1,39 +1,40 @@
-import { useParams } from "react-router-dom";
 import { useState, createContext, useEffect } from "react";
-import { Link, useLocation, useOutletContext } from "react-router-dom";
-import styles from "./Product.module.css";
-import Price from "../../Price";
-import Ratings from "../../Ratings";
-import { ProductsToDisplay } from "../../ProductCards";
-import Footer from "../../Layout/Footer";
-import useFetch from "../../../hooks/useFetch";
+import { Link, useLocation, useOutletContext, useParams } from "react-router-dom";
+import styles from "./ProductSpecific.module.css";
+import Price from "../../Price/index.jsx";
+import Ratings from "../../Ratings/index.jsx";
+import { ProductsToDisplay } from "../../ProductCards/index.jsx";
+import useFetch from "../../../hooks/useFetch.jsx";
+import Button from "../../Button/index.jsx";
+import checkIfMobileScreen from "../../../checkIfMobileScreen.js";
 
 const url = "https://v2.api.noroff.dev/online-shop";
 
 export const ProductTagContext = createContext();
-// export const ProductObjectContext = createContext();
 
 export function Product() {
   let { id } = useParams();
-  const { product, setProduct } = useOutletContext();
+  const { product, setProduct, cart, setCart } = useOutletContext();
 
   const { data, tag, isLoading, isError } = useFetch(url + "/" + id);
   const [descriptionOpen, setDescriptionOpen] = useState(false);
   const [reviewsOpen, setReviewsOpen] = useState(false);
   const location = useLocation();
   const thisProduct = data.data;
+  const page = location.pathname;
 
   useEffect(() => {
     setProduct(thisProduct);
   }, [data]);
 
+  const isMobile = checkIfMobileScreen();
 
   if (isLoading || !data) {
-    return <div>Loading</div>;
+    return <div className="loader">Loading product . . .</div>;
   }
 
   if (isError) {
-    return <div>Error</div>;
+    return <div className="error">Error loading data</div>;
   }
 
   function toggleDescription() {
@@ -60,21 +61,42 @@ export function Product() {
                 </Link>{" "}
                 / <div className={styles.active}>{thisProduct.title}</div>
               </div>
-              <div className={styles.imageWrapper}>
-                <img src={thisProduct.image.url} alt={thisProduct.image.alt}></img>
-              </div>
-              <div className={styles.productInfoContainer}>
-                <div className={styles.infoWrapper}>
-                  <h1>{thisProduct.title}</h1>
-                  <div className={styles.likeShareWrapper}>
-                    <div>Like</div>
-                    <div>Share</div>
+              <div className={styles.productContainer}>
+                <div className={styles.imageWrapper}>
+                  <img src={thisProduct.image.url} alt={thisProduct.image.alt}></img>
+                </div>
+                {isMobile ? (
+                  <div className={styles.productInfoContainer}>
+                    <div className={styles.infoWrapper}>
+                      <h1>{thisProduct.title}</h1>
+                      <div className={styles.likeShareWrapper}>
+                        <div>Like</div>
+                        <div>Share</div>
+                      </div>
+                    </div>
+                    <div className={styles.infoWrapper}>
+                      <Price originalPrice={thisProduct.price} discountedPrice={thisProduct.discountedPrice} page={page} view="productSpesificView"></Price>
+                      <Ratings rating={thisProduct.rating} reviews={thisProduct.reviews} section=""></Ratings>
+                    </div>
                   </div>
-                </div>
-                <div className={styles.infoWrapper}>
-                  <Price originalPrice={thisProduct.price} discountedPrice={thisProduct.discountedPrice} page="/product/"></Price>
-                  <Ratings rating={thisProduct.rating} reviews={thisProduct.reviews} section=""></Ratings>
-                </div>
+                ) : (
+                  <div className={styles.productInfoContainer}>
+                    <div className={styles.flexWrapper}>
+                      <div className={styles.infoWrapper1}>
+                        <h1>{thisProduct.title}</h1>
+                        <div className={styles.likeShareWrapper}>
+                          <div>Like</div>
+                          <div>Share</div>
+                        </div>
+                      </div>
+                      <Ratings rating={thisProduct.rating} reviews={thisProduct.reviews} section=""></Ratings>
+                    </div>
+                    <div className={styles.infoWrapper}>
+                      <Price originalPrice={thisProduct.price} discountedPrice={thisProduct.discountedPrice} page={page} view="productSpesificView"></Price>
+                    </div>
+                    <Button page={page} product={product} cart={cart} setCart={setCart}></Button>
+                  </div>
+                )}
               </div>
               <div className={styles.extendedInfoContainer}>
                 <div className={styles.extendedInfoWrapper}>
@@ -109,7 +131,7 @@ export function Product() {
                   </div>
                 </div>
                 <div>
-                  <div className={styles.infoHeader}>
+                  <div className={`${styles.infoHeader} ${styles.similarProductsHeader}`}>
                     <h2>Similar products</h2>
                   </div>
                   <ProductsToDisplay />
@@ -117,9 +139,6 @@ export function Product() {
               </div>
             </div>
           </ProductTagContext.Provider>
-          {/* <ProductObjectContext.Provider value={product}> */}
-          <Footer page={location.pathname} />
-          {/* </ProductObjectContext.Provider> */}
         </>
       ) : null}
     </>

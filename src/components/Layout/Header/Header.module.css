@@ -15,6 +15,10 @@
   z-index: 100;
   position: fixed;
   width: 100%;
+
+  @media screen and (min-width: 1210px) {
+    padding: 1rem 0;
+  }
 }
 .icon {
   display: flex;

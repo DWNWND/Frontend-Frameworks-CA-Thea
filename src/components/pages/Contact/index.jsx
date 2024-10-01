@@ -3,9 +3,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import styles from "./Contact.module.css";
 import ValidationMessage from "../../ValidationMessage";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Button from "../../Button";
+import checkIfMobileScreen from "../../../checkIfMobileScreen";
+
 
 const schema = yup
   .object({
@@ -17,23 +19,6 @@ const schema = yup
   .required();
 
 export default function Contact() {
-  //add link to source here
-  const checkIfMobileScreen = () => {
-    const [width, setWidth] = useState(window.innerWidth);
-    const handleWindowSizeChange = () => {
-      setWidth(window.innerWidth);
-    };
-
-    useEffect(() => {
-      window.addEventListener("resize", handleWindowSizeChange);
-      return () => {
-        window.removeEventListener("resize", handleWindowSizeChange);
-      };
-    }, []);
-
-    return width <= 768;
-  };
-
   const isMobile = checkIfMobileScreen();
   const location = useLocation();
   const page = location.pathname;
@@ -75,7 +60,7 @@ export default function Contact() {
           <label className={styles.inputLabelForText} htmlFor="email">
             Email *
           </label>
-          <input autocomplete="email" id="email" className={errors.email ? styles.error : styles.valid} {...register("email")} />
+          <input autoComplete="email" id="email" className={errors.email ? styles.error : styles.valid} {...register("email")} />
           <ValidationMessage errorMessage={errors.email?.message}></ValidationMessage>
         </div>
         <div className={styles.inputContainer}>

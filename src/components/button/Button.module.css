@@ -1,4 +1,4 @@
-.button {
+.buttonGlobal {
   width: 100%;
   max-height: 48.1875px;
   padding: 0.68rem 2rem;
@@ -21,29 +21,13 @@
   text-decoration: none;
 }
 
-.empty {
-  background-color: var(--color-light-gray);
-  color: var(--color-dark-gray);
-  pointer-events: none;
-  cursor: not-allowed;
-  opacity: 0.65;
-  filter: alpha(opacity=65);
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-.full {
+.addToCartBtn {
   background-color: var(--color-secondary);
   color: var(--color-white);
 }
 
-.addToCart {
-  background-color: var(--color-secondary);
-  color: var(--color-white);
-}
-
-.continueShopping,
-.sendInquiry {
+.continueShoppingBtn,
+.sendInquiryBtn {
   background-color: var(--color-primary);
   color: var(--color-white);
 }

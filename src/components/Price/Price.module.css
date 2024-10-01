@@ -3,18 +3,59 @@
   align-items: center;
   gap: 0.2rem;
 }
-.discounted {
-  font-size: 0.875rem;
-  font-weight: 400;
-  color: var(--color-secondary);
+
+.listView {
+  .discounted {
+    font-weight: 400;
+    color: var(--color-secondary);
+    font-size: 1rem;
+  }
+
+  .percentage {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--color-mid-gray);
+    @media screen and (min-width: 1200px) {
+      font-size: 0.7rem;
+    }
+  }
+  .original {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-black);
+  }
 }
-.percentage {
-  font-size: 0.75rem;
-  font-weight: 400;
-  color: var(--color-mid-gray);
+
+.productSpesificView {
+  .discounted {
+    font-weight: 400;
+    color: var(--color-secondary);
+    font-size: 1.5rem;
+    @media screen and (min-width: 1200px) {
+      font-size: 2rem;
+    }
+  }
+  .percentage {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--color-mid-gray);
+    @media screen and (min-width: 1200px) {
+      font-size: 0.7rem;
+    }
+  }
+  .original {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-black);
+
+    font-size: 1.5rem;
+    @media screen and (min-width: 1200px) {
+      font-size: 2rem;
+    }
+  }
 }
-.original {
-  font-size: 0.875rem;
-  font-weight: 400;
+
+.oldPrice {
+  text-decoration: line-through;
   color: var(--color-dark-gray);
 }
