@@ -1,5 +1,8 @@
 import styled from "styled-components";
+import styles from "./Search.module.css";
 import SearchIcon from "../../../../assets/icons/search.svg";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const SearchForm = styled.form`
   display: flex;
@@ -26,19 +29,35 @@ const SearchInput = styled.input`
   font-size: 1rem;
 `;
 
-// const search_params = Object.keys(Object.assign({}, ...data));
 
-// function search(data) {
-//   return data.filter((data) => search_params.some((param) => data[param].toString().toLowerCase().includes(searchQuery)));
-// }
+export default function Searchbar({ products = [] }) {
+  const [searchQuery, setSearchQuery] = useState("");
 
-export default function Searchbar() {
+  const filteredProducts = products.filter((product) => product.title.toLowerCase().includes(searchQuery.toLowerCase()));
+
+  console.log("serach", filteredProducts);
+  
   return (
-    <SearchForm id="searchForm">
-      <SearchInput id="searchInput" type="search" placeholder="Search..." aria-label="Search" onChange={(e) => setSearchQuery(e.target.value)} />
-      <SearchButton id="searchButton" type="submit" aria-label="Search">
-        <img src={SearchIcon} alt="Search icon" />
-      </SearchButton>
-    </SearchForm>
+    <>
+      <SearchForm id="searchForm">
+        <SearchInput id="searchInput" type="search" placeholder="Search..." aria-label="Search" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value.trim())} />
+        <SearchButton id="searchButton" type="submit" aria-label="Search">
+          <img src={SearchIcon} alt="Search icon" />
+        </SearchButton>
+      </SearchForm>
+      {filteredProducts.length > 0 && searchQuery.length > 0 && (
+        <ul className={styles.searchResults}>
+          {filteredProducts.map((product) => {
+            return (
+              <li key={product.id}>
+                <Link to={`/product/${product.id}`} onClick={() => setSearchQuery("")}>
+                  {product.title}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </>
   );
 }
