@@ -12,7 +12,7 @@ const url = "https://v2.api.noroff.dev/online-shop";
 
 export function Product() {
   let { id } = useParams();
-  const { product, setProduct, cart, setCart, setTag } = useOutletContext();
+  const { product, setProduct, cart, setCart } = useOutletContext();
 
   const { data, tag, isLoading, isError } = useFetch(url + "/" + id);
   const [descriptionOpen, setDescriptionOpen] = useState(false);
@@ -23,7 +23,6 @@ export function Product() {
 
   useEffect(() => {
     setProduct(thisProduct);
-    setTag(tag);
   }, [data]);
 
   const isMobile = checkIfMobileScreen();
@@ -132,7 +131,7 @@ export function Product() {
                 <div className={`${styles.infoHeader} ${styles.similarProductsHeader}`}>
                   <h2>Similar products</h2>
                 </div>
-                <ProductsToDisplay tag={tag} />
+                <ProductsToDisplay tag={tag}/>
               </div>
             </div>
           </div>
