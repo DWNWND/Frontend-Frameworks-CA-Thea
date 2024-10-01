@@ -1,9 +1,8 @@
-import { useContext } from "react";
+import { useOutletContext } from "react-router-dom";
 import styles from "./Filters.module.css";
-import { FilterContext } from "../ProductCards";
 
-export default function Filters({ page }) {
-  const { filters, setFilters } = useContext(FilterContext);
+export default function Filters() {
+  const { filters, setFilters } = useOutletContext();
 
   return (
     <div id="filters" className={styles.wrapper}>

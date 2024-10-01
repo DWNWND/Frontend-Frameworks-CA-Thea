@@ -1,72 +1,14 @@
-import { useEffect, useState, createContext, useContext } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useOutletContext } from "react-router-dom";
 import Price from "../Price/index.jsx";
 import Ratings from "../Ratings/index.jsx";
 import styles from "./ProductCards.module.css";
 import Filters from "../Filters/index.jsx";
-import { ProductTagContext } from "../pages/ProductSpecific/index.jsx";
-
-const url = "https://v2.api.noroff.dev/online-shop";
-
-export const FilterContext = createContext();
-export const ProductsContext = createContext();
 
 export function ProductsToDisplay() {
-  const tag = useContext(ProductTagContext);
-  const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
-  const [filters, setFilters] = useState("topSales");
+  const { isLoading, isError } = useOutletContext();
 
-  let { category } = useParams();
   const location = useLocation();
   const page = location.pathname;
-
-  useEffect(() => {
-    async function getData() {
-      try {
-        setIsError(false);
-        setIsLoading(true);
-
-        const response = await fetch(url);
-        const json = await response.json();
-        const data = json.data;
-
-        if (filters === "topSales") {
-          const sortedProducts = data.sort((a, b) => b.reviews.length - a.reviews.length);
-          setProducts(sortedProducts);
-        }
-        if (filters === "discountedItems") {
-          const filteredProducts = data.filter((product) => product.discountedPrice !== product.price);
-          setProducts(filteredProducts);
-        }
-        if (page.includes(category)) {
-          const categorizedProducts = data.filter((product) => product.tags.includes(category));
-          setProducts(categorizedProducts);
-
-          if (filters === "topSales") {
-            const sortedProducts = categorizedProducts.sort((a, b) => b.reviews.length - a.reviews.length);
-            setProducts(sortedProducts);
-          }
-          if (filters === "discountedItems") {
-            const filteredProducts = categorizedProducts.filter((product) => product.discountedPrice !== product.price);
-            setProducts(filteredProducts);
-          }
-        }
-        if (page.includes("/product/")) {
-          const taggedProducts = data.filter((product) => product.tags.includes(tag));
-          setProducts(taggedProducts);
-        }
-
-        setIsLoading(false);
-      } catch (error) {
-        setIsLoading(false);
-        setIsError(true);
-        console.log(error);
-      }
-    }
-    getData();
-  }, [filters]);
 
   if (isLoading) {
     return <div className="loader">Loading products . . .</div>;
@@ -79,20 +21,16 @@ export function ProductsToDisplay() {
   return (
     <div className={page.includes("/product/") ? null : styles.containerListView}>
       {page.includes("/product/") ? null : (
-        <FilterContext.Provider value={{ filters, setFilters }}>
-          <Filters page={page} />
-        </FilterContext.Provider>
+        <Filters />
       )}
-      <ProductsContext.Provider value={products}>
-        <ProductCards />
-        <p className={styles.allProductsDisplayed}>All relevant products displayed.</p>
-      </ProductsContext.Provider>
+      <ProductCards />
+      <p className={styles.allProductsDisplayed}>All relevant products displayed.</p>
     </div>
   );
 }
 
 function ProductCards() {
-  const products = useContext(ProductsContext);
+  const { products } = useOutletContext();
 
   return (
     <div className={styles.wrapper}>
