@@ -5,7 +5,7 @@ import HamburgerMenu from "./Nav";
 import Cart from "./Cart";
 import styles from "./Header.module.css";
 
-export default function Header({ cart }) {
+export default function Header({ cart, products }) {
   function handleClick() {
     sessionStorage.removeItem("receipt");
   }
@@ -17,7 +17,7 @@ export default function Header({ cart }) {
         <Link to="/" className={styles.icon} onClick={() => handleClick()}>
           <img src={LogoIcon} alt="Lazz logo, click to go to home page" />
         </Link>
-        <Searchbar />
+        <Searchbar products={products}/>
         <Link to="checkout" className={styles.icon}>
           <Cart cart={cart} />
         </Link>
