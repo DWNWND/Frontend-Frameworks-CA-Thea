@@ -3,22 +3,13 @@ import { Link } from "react-router-dom";
 
 let newProductArray = [];
 
-export default function Button({ page, product, cart, setCart }) {
-  var btnClass;
-  var btnText;
-
+export default function Button({ page, product, setCart }) {
   if (page.includes("/product/")) {
-    btnClass = styles.addToCartBtn;
-    btnText = "Add to cart";
-
     function handleClick() {
       const shoppingCart = JSON.parse(localStorage.getItem("shopping-cart"));
-      console.log("product in button", product);
 
       if (shoppingCart && shoppingCart.length > 0) {
-        console.log("parsed items in local storage", shoppingCart);
         newProductArray = shoppingCart;
-
         const duplicates = newProductArray.find((item) => item.id === product.id);
 
         if (duplicates) {
@@ -30,14 +21,12 @@ export default function Button({ page, product, cart, setCart }) {
             }
           }
         } else if (!duplicates) {
-          console.log("this item was not in the products array", product);
           product["quantity"] = 1;
           newProductArray.push(product);
           localStorage.setItem("shopping-cart", JSON.stringify(newProductArray));
           setCart(newProductArray);
         }
       } else if (!product.quantity) {
-        console.log("initial product", product);
         product["quantity"] = 1;
         newProductArray = [];
         newProductArray.push(product);
@@ -47,16 +36,13 @@ export default function Button({ page, product, cart, setCart }) {
     }
 
     return (
-      <button className={`${btnClass} ${styles.buttonGlobal}`} onClick={() => handleClick()}>
-        {btnText}
+      <button className={`${styles.addToCartBtn} ${styles.buttonGeneral}`} onClick={() => handleClick()}>
+        Add to cart
       </button>
     );
   }
 
   if (page.includes("/checkout")) {
-    btnClass = styles.checkoutBtn;
-    btnText = "checkout";
-
     function handleClick() {
       const shoppingCart = JSON.parse(localStorage.getItem("shopping-cart"));
       sessionStorage.setItem("receipt", JSON.stringify(shoppingCart));
@@ -65,34 +51,28 @@ export default function Button({ page, product, cart, setCart }) {
     }
 
     return (
-      <Link to="/success" className={`${btnClass} ${styles.buttonGlobal}`} onClick={() => handleClick()}>
-        {btnText}
+      <Link to="/success" className={`${styles.checkoutBtn} ${styles.buttonGeneral}`} onClick={() => handleClick()}>
+        checkout
       </Link>
     );
   }
 
   if (page.includes("/success")) {
-    btnClass = styles.continueShoppingBtn;
-    btnText = "continue shopping";
-
     function handleClick() {
       sessionStorage.removeItem("receipt");
     }
 
     return (
-      <Link to="/" className={`${btnClass} ${styles.buttonGlobal}`} onClick={() => handleClick()}>
-        {btnText}
+      <Link to="/" className={`${styles.continueShoppingBtn} ${styles.buttonGeneral}`} onClick={() => handleClick()}>
+        continue shopping
       </Link>
     );
   }
 
   if (page.includes("/contact")) {
-    btnClass = styles.sendInquiryBtn;
-    btnText = "send inquiry";
-
     return (
-      <button type="submit" form="contact-form" className={`${btnClass} ${styles.buttonGlobal}`}>
-        {btnText}
+      <button type="submit" form="contact-form" className={`${styles.sendInquiryBtn} ${styles.buttonGeneral}`}>
+        send inquiry
       </button>
     );
   } else {
