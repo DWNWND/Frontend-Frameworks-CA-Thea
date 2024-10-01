@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function Categories() {
   return (
     <>
-      <ul className={styles.wrapper}>
+      <ul className={styles.container}>
         <Link to="/products/electronics" className={styles.categoryElement}>
           <li>Electronics</li>
         </Link>

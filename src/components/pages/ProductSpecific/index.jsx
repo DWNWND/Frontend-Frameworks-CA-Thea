@@ -91,7 +91,7 @@ export function Product() {
                   <div className={styles.infoWrapper}>
                     <Price originalPrice={thisProduct.price} discountedPrice={thisProduct.discountedPrice} page={page} view="productSpesificView"></Price>
                   </div>
-                  <Button page={page} product={product} cart={cart} setCart={setCart}></Button>
+                  <Button page={page} product={product} setCart={setCart}></Button>
                 </div>
               )}
             </div>
@@ -131,7 +131,7 @@ export function Product() {
                 <div className={`${styles.infoHeader} ${styles.similarProductsHeader}`}>
                   <h2>Similar products</h2>
                 </div>
-                <ProductsToDisplay tag={tag}/>
+                <ProductsToDisplay tag={tag} />
               </div>
             </div>
           </div>

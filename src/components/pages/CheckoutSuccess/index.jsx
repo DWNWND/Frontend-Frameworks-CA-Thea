@@ -25,12 +25,12 @@ export default function CheckoutSuccess() {
   }
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.container}>
+    <div className={styles.container}>
+      <div className={styles.successMessage}>
         <h1>Thank you for your order</h1>
         <p>TOTAL PAID: kr {paidTotal}</p>
       </div>
-      <div className={styles.receipt}>
+      <section className={styles.receipt}>
         <div className={styles.infoHeader}>
           <h2>You ordered this:</h2>
         </div>
@@ -38,14 +38,14 @@ export default function CheckoutSuccess() {
           {receipt ? (
             <>
               {receipt.map((product) => (
-                <div key={product.id} className={styles.cardWrapper}>
+                <div key={product.id} className={styles.productCard}>
                   <div className={styles.imageWrapper}>
                     <img src={product.image.url} alt={product.image.alt}></img>
                   </div>
                   <div className={styles.infoWrapper}>
-                    <h2>{product.title}</h2>
-                    <div className={styles.bottomWrapper}>
-                      <div className={styles.productInfo}>
+                    <h3>{product.title}</h3>
+                    <div className={styles.priceRatingQuantity}>
+                      <div className={styles.priceRating}>
                         <Price originalPrice={product.price} discountedPrice={product.discountedPrice} page="/checkout/"></Price>
                         <Ratings rating={product.rating} reviews={product.reviews} section=""></Ratings>
                       </div>
@@ -58,7 +58,7 @@ export default function CheckoutSuccess() {
           ) : null}
         </div>
         {isMobile ? null : <Button page={page}></Button>}
-      </div>
+      </section>
     </div>
   );
 }

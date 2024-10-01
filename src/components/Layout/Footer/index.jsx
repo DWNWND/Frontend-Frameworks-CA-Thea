@@ -8,71 +8,71 @@ import MastercardLogo from "../../../assets/logos/logos_mastercard.png";
 import PaypalLogo from "../../../assets/logos/logos_paypal.png";
 import checkIfMobileScreen from "../../../checkIfMobileScreen";
 
-export default function Footer({ page, product, cart, setCart, totalSum, setTotalSum }) {
+export default function Footer({ page, product, setCart, totalSum, setTotalSum }) {
   const isMobile = checkIfMobileScreen();
 
   function DesktopFooter() {
     return (
-      <footer className={styles.width}>
-        <div className={styles.wrapper}>
-          <div className={styles.footerContainers}>
+      <footer className={styles.footerBackground}>
+        <div className={styles.container}>
+          <div className={styles.desktopFooterColumn}>
             <h3>Customer care</h3>
-            <ul>
+            <ul className={styles.navLinkLists}>
               <li>
-                <Link to="/support" className={styles.link}>
+                <Link to="/support" className={styles.navLinks}>
                   Help & support
                 </Link>
               </li>
               <li>
-                <Link to="/support" className={styles.link}>
+                <Link to="/support" className={styles.navLinks}>
                   How to buy
                 </Link>
               </li>
               <li>
-                <Link to="/support" className={styles.link}>
+                <Link to="/support" className={styles.navLinks}>
                   How to return
                 </Link>
               </li>
               <li>
-                <Link to="/support" className={styles.link}>
+                <Link to="/support" className={styles.navLinks}>
                   Shipping & delivery
                 </Link>
               </li>
               <li>
-                <Link to="/support" className={styles.link}>
+                <Link to="/support" className={styles.navLinks}>
                   FAQ
                 </Link>
               </li>
             </ul>
           </div>
-          <div className={styles.footerContainers}>
+          <div className={styles.desktopFooterColumn}>
             <h3>Lazz</h3>
-            <ul>
+            <ul className={styles.navLinkLists}>
               <li>
-                <Link to="/contact" className={styles.link}>
+                <Link to="/contact" className={styles.navLinks}>
                   About LAZZ
                 </Link>
               </li>
               <li>
-                <Link to="/support" className={styles.link}>
+                <Link to="/support" className={styles.navLinks}>
                   Privacy policy
                 </Link>
               </li>
               <li>
-                <Link to="/support" className={styles.link}>
+                <Link to="/support" className={styles.navLinks}>
                   Terms & conditions
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className={styles.link}>
+                <Link to="/contact" className={styles.navLinks}>
                   Contact us
                 </Link>
               </li>
             </ul>
           </div>
-          <div className={styles.footerContainers}>
+          <div className={styles.desktopFooterColumn}>
             <h3>Payment options</h3>
-            <div className={styles.paymentContainer}>
+            <div className={styles.paymentOptions}>
               <img src={VisaLogo} alt="Visa logo, to show that you can pay with visa"></img>
               <img src={MastercardLogo} alt="Mastercard logo, to show that you can pay with Mastercard"></img>
               <img src={KlarnaLogo} alt="Klarna logo, to show that you can pay with Klarna"></img>
@@ -82,36 +82,34 @@ export default function Footer({ page, product, cart, setCart, totalSum, setTota
         </div>
       </footer>
     );
-  } // the desktop footer is empty for now
+  }
 
   function MobileFooter() {
     if (page.includes("/product/")) {
       return (
-        <footer className={`${styles.wrapper} ${styles.width}`}>
-          {/* <Quantity /> */}
+        <footer className={`${styles.container} ${styles.footerBackground}`}>
           <Button page={page} product={product} setCart={setCart} />
         </footer>
       );
     }
     if (page.includes("/checkout")) {
-      //put a check for items in cart here
       return (
-        <footer className={`${styles.wrapper} ${styles.width}`}>
+        <footer className={`${styles.container} ${styles.footerBackground}`}>
           <SumTotal totalSum={totalSum} setTotalSum={setTotalSum} />
-          <Button page={page} cart={cart} setCart={setCart} />
+          <Button page={page} setCart={setCart} />
         </footer>
       );
     }
     if (page.includes("/success")) {
       return (
-        <footer className={`${styles.wrapper} ${styles.width}`}>
+        <footer className={`${styles.container} ${styles.footerBackground}`}>
           <Button page={page} />
         </footer>
       );
     }
     if (page.includes("/contact")) {
       return (
-        <footer className={`${styles.wrapper} ${styles.width}`}>
+        <footer className={`${styles.container} ${styles.footerBackground}`}>
           <Button page={page} />
         </footer>
       );

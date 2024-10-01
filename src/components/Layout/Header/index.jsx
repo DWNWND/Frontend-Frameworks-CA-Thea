@@ -11,14 +11,14 @@ export default function Header({ cart, products }) {
   }
   
   return (
-    <header className={styles.width}>
-      <div className={styles.wrapper}>
+    <header className={styles.header}>
+      <div className={styles.container}>
         <div className={styles.headerBackground}></div>
-        <Link to="/" className={styles.icon} onClick={() => handleClick()}>
-          <img src={LogoIcon} alt="Lazz logo, click to go to home page" />
+        <Link to="/" className={styles.icons} onClick={() => handleClick()}>
+          <img src={LogoIcon} className={styles.logoImg} alt="Lazz logo, click to go to home page" />
         </Link>
         <Searchbar products={products}/>
-        <Link to="checkout" className={styles.icon}>
+        <Link to="checkout" className={styles.icons}>
           <Cart cart={cart} />
         </Link>
         <HamburgerMenu />

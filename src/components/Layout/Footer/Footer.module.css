@@ -1,28 +1,24 @@
-.width {
+.footerBackground {
   width: 100%;
   background-color: var(--color-white);
 }
-.wrapper {
+
+.container {
   position: fixed;
   bottom: 0;
   z-index: 99;
-
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
   padding: 1.5rem;
-
   border-top: 1.5px solid var(--color-light-gray);
-
   display: flex;
   justify-content: space-between;
   gap: 1.5rem;
-  /* align-items: center; */
 
   @media screen and (min-width: 768px) {
     position: relative;
- 
     border-top: none;
     padding: 4rem;
   }
@@ -31,12 +27,7 @@
   }
 }
 
-.paymentContainer {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.footerContainers {
+.desktopFooterColumn {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -49,7 +40,11 @@
   }
 }
 
-.link {
+.navLinkLists {
+  padding: 0;
+}
+
+.navLinks {
   font-size: 0.875rem;
   font-weight: 400;
   color: var(--color-dark-gray);
@@ -57,7 +52,13 @@
   cursor: pointer;
   margin-bottom: 0.2rem;
   text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
-.link:hover {
-  text-decoration: underline;
+
+.paymentOptions {
+  display: flex;
+  gap: 1.5rem;
 }

@@ -55,55 +55,55 @@ function OpenMenu() {
   }
 
   return (
-    <Nav className={`${isMenuOpen ? styles.active : styles.hidden} ${styles.menu}`}>
-      <ul className={styles.pages}>
+    <Nav className={isMenuOpen ? styles.active : styles.hidden}>
+      <ul className={styles.navContainer}>
         <li>
-          <Link to="/" className={styles.page} onClick={() => handleClick()}>
+          <Link to="/" className={styles.navLinkPages} onClick={() => handleClick()}>
             Home
           </Link>
         </li>
         <li>
-          <div className={styles.page}>Categories</div>
-          <ul className={styles.categories}>
+          <div className={styles.navLinkPages}>Categories</div>
+          <ul className={styles.navLinkCategoryList}>
             <li>
-              <Link to="/products/electronics" className={styles.category} onClick={() => handleClick()}>
+              <Link to="/products/electronics" className={styles.navLinkCategories} onClick={() => handleClick()}>
                 Electronics
               </Link>
             </li>
             <li>
-              <Link to="/products/audio" className={styles.category} onClick={() => handleClick()}>
+              <Link to="/products/audio" className={styles.navLinkCategories} onClick={() => handleClick()}>
                 Audio
               </Link>
             </li>
             <li>
-              <Link to="/products/fashion" className={styles.category} onClick={() => handleClick()}>
+              <Link to="/products/fashion" className={styles.navLinkCategories} onClick={() => handleClick()}>
                 Fashion
               </Link>
             </li>
             <li>
-              <Link to="/products/beauty" className={styles.category} onClick={() => handleClick()}>
+              <Link to="/products/beauty" className={styles.navLinkCategories} onClick={() => handleClick()}>
                 Beauty
               </Link>
             </li>
             <li>
-              <Link to="/products/watches" className={styles.category} onClick={() => handleClick()}>
+              <Link to="/products/watches" className={styles.navLinkCategories} onClick={() => handleClick()}>
                 Watches
               </Link>
             </li>
             <li>
-              <Link to="/products/shoes" className={styles.category} onClick={() => handleClick()}>
+              <Link to="/products/shoes" className={styles.navLinkCategories} onClick={() => handleClick()}>
                 Shoes
               </Link>
             </li>
           </ul>
         </li>
         <li>
-          <Link to="/contact" className={styles.page} onClick={() => handleClick()}>
+          <Link to="/contact" className={styles.navLinkPages} onClick={() => handleClick()}>
             Contact us
           </Link>
         </li>
         <li>
-          <Link to="/support" className={styles.page} onClick={() => handleClick()}>
+          <Link to="/support" className={styles.navLinkPages} onClick={() => handleClick()}>
             Help & support
           </Link>
         </li>

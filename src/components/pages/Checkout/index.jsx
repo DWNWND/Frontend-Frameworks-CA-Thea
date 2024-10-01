@@ -1,6 +1,6 @@
 import styles from "./Checkout.module.css";
-import { useLocation, useOutletContext } from "react-router-dom";
-import { useEffect, useState, } from "react";
+import { useLocation, useOutletContext, Link } from "react-router-dom";
+import { useEffect } from "react";
 import Price from "../../Price";
 import Ratings from "../../Ratings";
 import { Quantity } from "../../quanity";
@@ -10,7 +10,7 @@ import checkIfMobileScreen from "../../../checkIfMobileScreen.js";
 
 export default function Checkout() {
   return (
-    <div className={styles.wrapper2}>
+    <div className={styles.container}>
       <h1>Checkout</h1>
       <ShoppingCart />
     </div>
@@ -48,15 +48,15 @@ function ShoppingCart() {
     <>
       {newProductsArray.length > 0 ? (
         <>
-          <div className={styles.wrapper}>
+          <section className={styles.productsSection}>
             {newProductsArray.map((product) => (
               <ProductCartCards product={product} key={product.id}></ProductCartCards>
             ))}
-          </div>
+          </section>
           {isMobile ? null : (
             <>
               <SumTotal totalSum={totalSum} setTotalSum={setTotalSum}></SumTotal>
-              <Button page={page} cart={cart} setCart={setCart}></Button>
+              <Button page={page} setCart={setCart}></Button>
             </>
           )}
         </>
@@ -73,14 +73,16 @@ function ProductCartCards({ product }) {
   return (
     <>
       {product ? (
-        <div className={styles.cardWrapper}>
-          <div className={styles.imageWrapper}>
+        <div className={styles.productCard}>
+          <Link to={`/product/${product.id}`} className={styles.imageWrapper}>
             <img src={product.image.url} alt={product.image.alt}></img>
-          </div>
-          <div className={styles.infoWrapper}>
-            <h2>{product.title}</h2>
-            <div className={styles.container}>
-              <div className={styles.productInfo}>
+          </Link>
+          <div className={styles.productInfo}>
+            <Link to={`/product/${product.id}`} className={styles.productTitle}>
+              <h2>{product.title}</h2>
+            </Link>
+            <div className={styles.priceRatingQuantityContainer}>
+              <div className={styles.priceRatingContainer}>
                 <Price originalPrice={product.price} discountedPrice={product.discountedPrice} page="/checkout/" view="listView"></Price>
                 <Ratings rating={product.rating} reviews={product.reviews} section=""></Ratings>
               </div>

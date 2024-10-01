@@ -1,14 +1,12 @@
-.wrapper {
+.container {
   margin-top: 65px;
   margin-bottom: 150px;
-  /* padding: 1rem; */
 }
 
-.container {
+.successMessage {
   background-color: var(--color-white);
   text-align: center;
   padding: 4rem 1rem;
-
   h1 {
     font-size: 1.2rem;
     margin-bottom: 1rem;
@@ -18,17 +16,23 @@
     color: var(--color-soft-green);
     font-weight: 600;
   }
+
   @media screen and (min-width: 768px) {
     padding: 6rem;
-
     h1 {
       font-size: 1.5rem;
     }
-
     p {
       font-size: 1.2rem;
     }
   }
+}
+
+.receipt {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .infoHeader {
@@ -47,14 +51,14 @@
   }
 }
 
-.receipt {
-  padding: 2rem 1rem;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+.productsContainer {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.cardWrapper {
+.productCard {
   display: flex;
   gap: 0.5rem;
   background-color: var(--color-white);
@@ -68,10 +72,30 @@
   img {
     width: 100px;
     object-fit: cover;
+    height: 100%;
   }
 }
 
-.productInfo {
+.infoWrapper {
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-black);
+  }
+}
+
+.priceRatingQuantity {
+  display: flex;
+  justify-content: space-between;
+}
+
+.priceRating {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -79,36 +103,9 @@
   height: 100%;
 }
 
-.infoWrapper {
-  padding: 1rem;
-  /* margin-left: 1rem; */
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-
-  h2 {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--color-black);
-  }
-}
-
 .quantityWrapper {
   justify-self: end;
   align-self: flex-end;
   font-size: 0.8rem;
   white-space: nowrap;
-}
-
-.products {
-  margin-bottom: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.bottomWrapper {
-  display: flex;
-  justify-content: space-between;
 }
