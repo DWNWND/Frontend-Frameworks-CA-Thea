@@ -3,6 +3,9 @@
   margin-bottom: 150px;
 }
 
+.summaryContainer {
+  margin-bottom: 2rem;
+}
 .successMessage {
   background-color: var(--color-white);
   text-align: center;
