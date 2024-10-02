@@ -7,29 +7,32 @@ import { Quantity } from "../../quanity";
 import Button from "../../Button";
 import SumTotal from "../../SumTotal";
 import checkIfMobileScreen from "../../../checkIfMobileScreen.js";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 export default function Checkout() {
   return (
-    <div className={styles.container}>
-      <h1>Checkout</h1>
-      <ShoppingCart />
-    </div>
+    <HelmetProvider>
+      <Helmet prioritizeSeoTags>
+        <meta name="description" content="" />
+        <title>Checkout | Lazz</title>
+      </Helmet>
+      <div className={styles.container}>
+        <h1>Checkout</h1>
+        <ShoppingCart />
+      </div>
+    </HelmetProvider>
   );
 }
 
 function ShoppingCart() {
   const { cart, setCart, totalSum, setTotalSum } = useOutletContext();
-
   const isMobile = checkIfMobileScreen();
-
   const location = useLocation();
   const page = location.pathname;
-
   let newProductsArray = [];
 
   function checkProductQuantity() {
     const shoppingCart = JSON.parse(localStorage.getItem("shopping-cart"));
-
     if (shoppingCart) {
       newProductsArray = shoppingCart.filter((product) => product.quantity > 0);
       localStorage.setItem("shopping-cart", JSON.stringify(newProductsArray));
@@ -50,7 +53,7 @@ function ShoppingCart() {
         <>
           <section className={styles.productsSection}>
             {newProductsArray.map((product) => (
-              <ProductCartCards product={product} key={product.id}></ProductCartCards>
+              <ProductCartCards page={page} product={product} key={product.id}></ProductCartCards>
             ))}
           </section>
           {isMobile ? null : (
@@ -67,9 +70,7 @@ function ShoppingCart() {
   );
 }
 
-function ProductCartCards({ product }) {
-  const location = useLocation();
-
+function ProductCartCards({ product, page }) {
   return (
     <>
       {product ? (
@@ -87,7 +88,7 @@ function ProductCartCards({ product }) {
                 <Ratings rating={product.rating} reviews={product.reviews} section=""></Ratings>
               </div>
               <div className={styles.quantityWrapper}>
-                <Quantity page={location.pathname} product={product}></Quantity>
+                <Quantity page={page} product={product}></Quantity>
               </div>
             </div>
           </div>
