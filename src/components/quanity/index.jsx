@@ -55,7 +55,7 @@ export function Quantity({ page, product }) {
 
   useEffect(() => {
     setTotalSum(state.total);
-  }, [state.total]);
+  },);
 
   let checkout = false;
 
