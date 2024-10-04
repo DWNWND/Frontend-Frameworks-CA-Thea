@@ -3,7 +3,7 @@ import { useLocation, Link } from "react-router-dom";
 import Price from "../../Price";
 import Ratings from "../../Ratings";
 import Button from "../../Button";
-import checkIfMobileScreen from "../../../checkIfMobileScreen.js";
+import useScreenSizeCheck from "../../../hooks/useScreenSizeCheck.jsx";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
 export default function CheckoutSuccess() {
@@ -41,7 +41,7 @@ export default function CheckoutSuccess() {
 function Receipt({ purchase }) {
   const location = useLocation();
   const page = location.pathname;
-  const isMobile = checkIfMobileScreen();
+  const isMobile = useScreenSizeCheck();
 
   return (
     <>

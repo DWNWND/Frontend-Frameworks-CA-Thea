@@ -6,10 +6,10 @@ import VisaLogo from "../../../assets/logos/logos_visa.png";
 import KlarnaLogo from "../../../assets/logos/logos_klarna.png";
 import MastercardLogo from "../../../assets/logos/logos_mastercard.png";
 import PaypalLogo from "../../../assets/logos/logos_paypal.png";
-import checkIfMobileScreen from "../../../checkIfMobileScreen";
+import useScreenSizeCheck from "../../../hooks/useScreenSizeCheck.jsx";
 
 export default function Footer({ page, product, setCart, totalSum, setTotalSum }) {
-  const isMobile = checkIfMobileScreen();
+  const isMobile = useScreenSizeCheck();
 
   function DesktopFooter() {
     return (

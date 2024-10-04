@@ -6,7 +6,7 @@ import Ratings from "../../Ratings/index.jsx";
 import { ProductsToDisplay } from "../../ProductCards/index.jsx";
 import useFetch from "../../../hooks/useFetch.jsx";
 import Button from "../../Button/index.jsx";
-import checkIfMobileScreen from "../../../checkIfMobileScreen.js";
+import useScreenSizeCheck from "../../../hooks/useScreenSizeCheck.jsx";
 import { caseFirstLetter } from "../../../caseFirstLetter.js";
 import { createContext, useContext } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
@@ -83,7 +83,7 @@ function DisplayedProduct() {
 
   const location = useLocation();
   const page = location.pathname;
-  const isMobile = checkIfMobileScreen();
+  const isMobile = useScreenSizeCheck();
 
   return (
     <div className={styles.productContainer}>

@@ -6,7 +6,7 @@ import Ratings from "../../Ratings";
 import { Quantity } from "../../quanity";
 import Button from "../../Button";
 import SumTotal from "../../SumTotal";
-import checkIfMobileScreen from "../../../checkIfMobileScreen.js";
+import useScreenSizeCheck from "../../../hooks/useScreenSizeCheck.jsx";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
 export default function Checkout() {
@@ -26,7 +26,7 @@ export default function Checkout() {
 
 function ShoppingCart() {
   const { cart, setCart, totalSum, setTotalSum } = useOutletContext();
-  const isMobile = checkIfMobileScreen();
+  const isMobile = useScreenSizeCheck();
   const location = useLocation();
   const page = location.pathname;
   let newProductsArray = [];
@@ -36,8 +36,6 @@ function ShoppingCart() {
     if (shoppingCart) {
       newProductsArray = shoppingCart.filter((product) => product.quantity > 0);
       localStorage.setItem("shopping-cart", JSON.stringify(newProductsArray));
-    } else {
-      console.log("there are no items in the shopping cart");
     }
   }
 

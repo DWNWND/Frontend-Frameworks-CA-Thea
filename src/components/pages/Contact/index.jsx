@@ -6,7 +6,7 @@ import ValidationMessage from "../../ValidationMessage";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Button from "../../Button";
-import checkIfMobileScreen from "../../../checkIfMobileScreen";
+import useScreenSizeCheck from "../../../hooks/useScreenSizeCheck.jsx";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const schema = yup
@@ -34,7 +34,7 @@ export default function Contact() {
 }
 
 function ContactForm() {
-  const isMobile = checkIfMobileScreen();
+  const isMobile = useScreenSizeCheck();
   const location = useLocation();
   const page = location.pathname;
 
