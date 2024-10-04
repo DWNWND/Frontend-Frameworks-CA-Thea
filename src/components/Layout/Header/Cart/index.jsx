@@ -1,5 +1,5 @@
 import CartIcon from "../../../../assets/icons/cart.svg";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import styles from "./Cart.module.css";
 
 export default function Cart({ cart }) {
@@ -17,9 +17,9 @@ export default function Cart({ cart }) {
     }
   }
 
-  useEffect(() => {
-    calculateQuantityInCart();
-  }, [cart]);
+  // useEffect(() => {
+  //   calculateQuantityInCart();
+  // }, [cart]);
 
   calculateQuantityInCart();
 
