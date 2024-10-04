@@ -1,6 +1,5 @@
 import styles from "./Checkout.module.css";
 import { useLocation, useOutletContext, Link } from "react-router-dom";
-import { useEffect } from "react";
 import Price from "../../Price";
 import Ratings from "../../Ratings";
 import { Quantity } from "../../quanity";
@@ -25,7 +24,7 @@ export default function Checkout() {
 }
 
 function ShoppingCart() {
-  const { cart, setCart, totalSum, setTotalSum } = useOutletContext();
+  const {setCart, totalSum, setTotalSum } = useOutletContext();
   const isMobile = useScreenSizeCheck();
   const location = useLocation();
   const page = location.pathname;
@@ -39,11 +38,12 @@ function ShoppingCart() {
     }
   }
 
-  useEffect(() => {
-    checkProductQuantity();
-  }, [cart]);
+  // useEffect(() => {
+  //   checkProductQuantity();
+  // },);
 
   checkProductQuantity();
+
 
   return (
     <>
