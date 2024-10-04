@@ -1,4 +1,4 @@
-import { Outlet, useLocation, useParams } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { useState, useEffect, createContext } from "react";
 import Header from "./Header/index.jsx";
 import Footer from "./Footer/index.jsx";
@@ -41,7 +41,7 @@ export function Layout() {
     initializeCart();
     const productArray = data.data;
     setProducts(productArray);
-  }, [, location, data]);
+  }, [location, data]);
 
   return (
     <>
