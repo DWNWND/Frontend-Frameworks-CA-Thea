@@ -1,5 +1,4 @@
 import CartIcon from "../../../../assets/icons/cart.svg";
-// import { useEffect } from "react";
 import styles from "./Cart.module.css";
 
 export default function Cart({ cart }) {
@@ -12,14 +11,8 @@ export default function Cart({ cart }) {
         arr.push(item.quantity);
       });
       quantity = arr.reduce((a, b) => a + b, 0);
-    } else if (!cart) {
-      console.log("no shopping cart");
     }
   }
-
-  // useEffect(() => {
-  //   calculateQuantityInCart();
-  // }, [cart]);
 
   calculateQuantityInCart();
 
