@@ -43,7 +43,6 @@ function ContactForm() {
     handleSubmit,
     reset,
     formState,
-    formState: { isSubmitSuccessful },
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
