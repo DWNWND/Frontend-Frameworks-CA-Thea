@@ -34,8 +34,6 @@ export default function Searchbar({ products = [] }) {
 
   const filteredProducts = products.filter((product) => product.title.toLowerCase().includes(searchQuery.toLowerCase()));
 
-  console.log("serach", filteredProducts);
-
   return (
     <>
       <SearchForm id="searchForm">
