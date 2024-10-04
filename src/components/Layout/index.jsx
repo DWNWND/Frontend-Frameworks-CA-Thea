@@ -28,12 +28,8 @@ export function Layout() {
     if (shoppingCart) {
       if (shoppingCart.length > 0) {
         newProductsArray = shoppingCart;
-
         setCart(newProductsArray);
-        console.log("Cart update on mounting of - Layout", newProductsArray);
       }
-    } else {
-      console.log("No items in shopping cart");
     }
   }
 
