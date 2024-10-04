@@ -22,7 +22,7 @@ export function Product() {
 
   useEffect(() => {
     setProduct(thisProduct);
-  }, [data]);
+  });
 
   if (isLoading || !data) {
     return <div className="loader">Loading product . . .</div>;
