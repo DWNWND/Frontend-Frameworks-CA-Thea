@@ -1,4 +1,4 @@
-import { Outlet, useLocation, useParams } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { useState, useEffect, createContext } from "react";
 import Header from "./Header/index.jsx";
 import Footer from "./Footer/index.jsx";
@@ -28,12 +28,8 @@ export function Layout() {
     if (shoppingCart) {
       if (shoppingCart.length > 0) {
         newProductsArray = shoppingCart;
-
         setCart(newProductsArray);
-        console.log("Cart update on mounting of - Layout", newProductsArray);
       }
-    } else {
-      console.log("No items in shopping cart");
     }
   }
 
@@ -41,13 +37,13 @@ export function Layout() {
     initializeCart();
     const productArray = data.data;
     setProducts(productArray);
-  }, [, location, data]);
+  }, [location, data]);
 
   return (
     <>
       <Header cart={cart} products={products} />
       <Outlet context={{ isLoading, isError, products, product, setProduct, cart, setCart, totalSum, setTotalSum, filters, setFilters }} />
-      <Footer page={page} product={product} cart={cart} setCart={setCart} totalSum={totalSum} setTotalSum={setTotalSum} />
+      <Footer page={page} product={product} setCart={setCart} totalSum={totalSum} setTotalSum={setTotalSum} />
     </>
   );
 }

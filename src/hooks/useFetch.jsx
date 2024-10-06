@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 // API fetch hook
-export default function useApi(url) {
+export default function useFetch(url) {
   const [data, setData] = useState([]);
   const [tag, setTag] = useState();
   const [isLoading, setIsLoading] = useState(false);

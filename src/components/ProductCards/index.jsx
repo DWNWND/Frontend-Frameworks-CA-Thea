@@ -4,6 +4,7 @@ import Ratings from "../Ratings/index.jsx";
 import styles from "./ProductCards.module.css";
 import Filters from "../Filters/index.jsx";
 import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 export function ProductsToDisplay({ tag }) {
   const { products, isLoading, isError } = useOutletContext();
@@ -36,7 +37,6 @@ function ProductCards({ page, tag }) {
 
   if (tag && page.includes("/product/")) {
     renderProducts = products.filter((product) => product.tags.includes(tag));
-    console.log("renderProducts", renderProducts);
   }
 
   if (category && page.includes(category)) {
@@ -56,12 +56,9 @@ function ProductCards({ page, tag }) {
     }
 
     if (filters === "topSales") {
-      console.log("products", products);
       renderProducts = products.sort((a, b) => b.reviews.length - a.reviews.length);
     }
   }
-
-  console.log("renderProducts", renderProducts);
 
   return (
     <div className={styles.wrapper}>

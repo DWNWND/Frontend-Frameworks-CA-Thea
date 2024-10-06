@@ -9,10 +9,10 @@
 * {
   font-family: "Source Sans 3", sans-serif;
   font-optical-sizing: auto;
-  font-style: normal;
+  /* font-style: normal; */
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
+  /* padding: 0; */
 }
 
 body {
@@ -20,7 +20,6 @@ body {
   min-width: 320px;
   margin-left: auto;
   margin-right: auto;
-  /* margin: 0; */
   min-height: 100vh;
   width: 100%;
   background-color: var(--color-light-gray);
@@ -36,10 +35,10 @@ li {
   list-style-type: none;
 }
 
-img {
+/* img {
   height: 100%;
   width: auto;
-}
+} */
 
 .menu-transition {
   transition: transform 0.25s;

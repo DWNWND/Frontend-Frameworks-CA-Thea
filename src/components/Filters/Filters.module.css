@@ -1,4 +1,4 @@
-.wrapper {
+.container {
   display: flex;
   justify-content: start;
   align-items: center;
@@ -6,12 +6,11 @@
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  /* padding: 1rem; */
   margin-bottom: 1rem;
   margin-top: 1rem;
 }
 
-.filter {
+.filterGeneral {
   padding: 1rem;
   background-color: var(--color-white);
   text-transform: lowercase;
@@ -20,12 +19,13 @@
   cursor: pointer;
   transition: all 0.3s;
   border: none;
+
   &:not(.current):hover {
     color: var(--color-mid-gray);
   }
 }
 
-.current {
+.selected {
   color: var(--color-secondary);
   font-weight: 600;
 }

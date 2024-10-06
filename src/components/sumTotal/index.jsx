@@ -18,7 +18,7 @@ export default function SumTotal({ totalSum, setTotalSum }) {
 
   useEffect(() => {
     setTotalSum(currentSumTotal);
-  }, []);
+  },);
 
   return (
     <div className={styles.wrapper}>

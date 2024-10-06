@@ -9,15 +9,16 @@
   flex-direction: column;
   gap: 0.2rem;
 }
+
 .titleProductSpesific {
   text-transform: uppercase;
-  color:var(--color-dark-purple);
+  color: var(--color-dark-purple);
   font-size: 0.875rem;
 }
 
-.titleCheckout  {
+.titleCheckout {
   text-transform: uppercase;
-  color:var(--color-dark-purple);
+  color: var(--color-dark-purple);
   font-size: 0.7rem;
 }
 
@@ -45,7 +46,8 @@
   gap: 0.8rem;
 }
 
-.minus, .pluss {
+.minus,
+.pluss {
   font-size: 1.8rem;
   cursor: pointer;
   display: flex;
@@ -57,6 +59,7 @@
   height: 24px;
   border-radius: 5px;
   border: none;
+  padding: 0;
 }
 
 .amountCheckout {

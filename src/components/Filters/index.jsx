@@ -5,11 +5,11 @@ export default function Filters() {
   const { filters, setFilters } = useOutletContext();
 
   return (
-    <div id="filters" className={styles.wrapper}>
-      <button className={`${filters == "topSales" ? styles.current : styles.notSelected} ${styles.filter}`} id="TopSales" onClick={() => setFilters("topSales")}>
+    <div id="filters" className={styles.container}>
+      <button className={`${filters == "topSales" ? styles.selected : styles.notSelected} ${styles.filterGeneral}`} id="TopSales" onClick={() => setFilters("topSales")}>
         Top sales
       </button>
-      <button className={`${filters == "discountedItems" ? styles.current : styles.notSelected} ${styles.filter}`} id="DiscountedItems" onClick={() => setFilters("discountedItems")}>
+      <button className={`${filters == "discountedItems" ? styles.selected : styles.notSelected} ${styles.filterGeneral}`} id="DiscountedItems" onClick={() => setFilters("discountedItems")}>
         Discounted items
       </button>
     </div>

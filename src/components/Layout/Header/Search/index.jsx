@@ -29,14 +29,11 @@ const SearchInput = styled.input`
   font-size: 1rem;
 `;
 
-
 export default function Searchbar({ products = [] }) {
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredProducts = products.filter((product) => product.title.toLowerCase().includes(searchQuery.toLowerCase()));
 
-  console.log("serach", filteredProducts);
-  
   return (
     <>
       <SearchForm id="searchForm">
@@ -49,7 +46,7 @@ export default function Searchbar({ products = [] }) {
         <ul className={styles.searchResults}>
           {filteredProducts.map((product) => {
             return (
-              <li key={product.id}>
+              <li key={product.id} className={styles.listItem}>
                 <Link to={`/product/${product.id}`} onClick={() => setSearchQuery("")}>
                   {product.title}
                 </Link>

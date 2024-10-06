@@ -6,8 +6,8 @@ import ValidationMessage from "../../ValidationMessage";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Button from "../../Button";
-import checkIfMobileScreen from "../../../checkIfMobileScreen";
-
+import useScreenSizeCheck from "../../../hooks/useScreenSizeCheck.jsx";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const schema = yup
   .object({
@@ -19,7 +19,22 @@ const schema = yup
   .required();
 
 export default function Contact() {
-  const isMobile = checkIfMobileScreen();
+  return (
+    <HelmetProvider>
+      <Helmet prioritizeSeoTags>
+        <meta name="description" content="" />
+        <title>Contact us | Lazz</title>
+      </Helmet>
+      <div className={styles.wrapper}>
+        <h1 className={styles.pageTitle}>Contact us</h1>
+        <ContactForm />
+      </div>
+    </HelmetProvider>
+  );
+}
+
+function ContactForm() {
+  const isMobile = useScreenSizeCheck();
   const location = useLocation();
   const page = location.pathname;
 
@@ -28,7 +43,6 @@ export default function Contact() {
     handleSubmit,
     reset,
     formState,
-    formState: { isSubmitSuccessful },
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
@@ -46,8 +60,7 @@ export default function Contact() {
   }, [formState, reset]);
 
   return (
-    <div className={styles.wrapper}>
-      <h1 className={styles.pageTitle}>Contact us</h1>
+    <>
       <form onSubmit={handleSubmit(onSubmit)} id="contact-form">
         <div className={styles.inputContainer}>
           <label className={styles.inputLabelForText} htmlFor="fullName">
@@ -86,6 +99,6 @@ export default function Contact() {
       </form>
       <p className={styles.required}>Required fields are marked with *</p>
       {isMobile ? null : <Button page={page} />}
-    </div>
+    </>
   );
 }
