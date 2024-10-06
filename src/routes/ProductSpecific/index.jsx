@@ -1,15 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, createContext, useContext } from "react";
 import { Link, useLocation, useOutletContext, useParams } from "react-router-dom";
-import styles from "./ProductSpecific.module.css";
-import Price from "../../Price/index.jsx";
-import Ratings from "../../Ratings/index.jsx";
-import { ProductsToDisplay } from "../../ProductCards/index.jsx";
-import useFetch from "../../../hooks/useFetch.jsx";
-import Button from "../../Button/index.jsx";
-import useScreenSizeCheck from "../../../hooks/useScreenSizeCheck.jsx";
-import { caseFirstLetter } from "../../../caseFirstLetter.js";
-import { createContext, useContext } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import styles from "./ProductSpecific.module.css";
+import useFetch from "../../hooks/useFetch.jsx";
+import useScreenSizeCheck from "../../hooks/useScreenSizeCheck.jsx";
+import ProductsToDisplay from "../../components/ProductCards/index.jsx";
+import Price from "../../components/Price/index.jsx";
+import Ratings from "../../components/Ratings/index.jsx";
+import Button from "../../components/Button/index.jsx";
+import caseFirstLetter from "../../caseFirstLetter.js";
 
 const url = "https://v2.api.noroff.dev/online-shop";
 const ThisProductContext = createContext();

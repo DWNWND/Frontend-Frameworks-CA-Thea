@@ -1,8 +1,8 @@
-import { ProductsToDisplay } from "../../ProductCards";
-import Categories from "../../Categories";
-import BannerCommercial from "../../BannerCommercial";
-import styles from "./Home.module.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import styles from "./Home.module.css";
+import BannerCommercial from "../../components/BannerCommercial";
+import ProductsToDisplay from "../../components/ProductCards";
+import Categories from "../../components/Categories";
 
 export default function Home() {
   return (
