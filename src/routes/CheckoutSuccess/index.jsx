@@ -1,10 +1,10 @@
-import styles from "./CheckoutSuccess.module.css";
 import { useLocation, Link } from "react-router-dom";
-import Price from "../../Price";
-import Ratings from "../../Ratings";
-import Button from "../../Button";
-import useScreenSizeCheck from "../../../hooks/useScreenSizeCheck.jsx";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import styles from "./CheckoutSuccess.module.css";
+import useScreenSizeCheck from "../../hooks/useScreenSizeCheck.jsx";
+import Price from "../../components/Price/index.jsx";
+import Ratings from "../../components/Ratings/index.jsx";
+import Button from "../../components/Button/index.jsx";
 
 export default function CheckoutSuccess() {
   const purchasedProducts = JSON.parse(sessionStorage.getItem("receipt"));
@@ -15,7 +15,8 @@ export default function CheckoutSuccess() {
 
     paidTotal = destructuredReceipt.reduce((paid, product) => {
       paid += product.discountedPrice * product.quantity;
-      return paid;
+      const rounded = Math.round(paid * 100) / 100;
+      return rounded;
     }, 0);
   } else {
     paidTotal = 0;
@@ -61,7 +62,7 @@ function Receipt({ purchase }) {
                 </Link>
                 <div className={styles.priceRatingQuantity}>
                   <div className={styles.priceRating}>
-                    <Price originalPrice={product.price} discountedPrice={product.discountedPrice} page="/checkout/"></Price>
+                    <Price originalPrice={product.price} discountedPrice={product.discountedPrice} page="/checkout/" view="listView"></Price>
                     <Ratings rating={product.rating} reviews={product.reviews} section=""></Ratings>
                   </div>
                   <div className={styles.quantityWrapper}>number of items: {product.quantity}</div>

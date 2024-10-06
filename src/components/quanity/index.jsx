@@ -7,26 +7,19 @@ function reducer(state, action) {
   let cart;
   let newTotal;
 
-  // These are actions that can be dispatched
   switch (action.type) {
     case "increment":
       newProductsArray = JSON.parse(localStorage.getItem("shopping-cart"));
-
       cart = [...newProductsArray];
-
       newTotal = cart.reduce((currentTotal, product) => {
         currentTotal += product.discountedPrice * product.quantity;
         return currentTotal;
       }, 0);
-
       return { count: state.count + 1, total: newTotal };
 
     case "decrement":
       newProductsArray = JSON.parse(localStorage.getItem("shopping-cart"));
-
       cart = [...newProductsArray];
-
-      // Set the new total so we don't have to keep calculating it
       newTotal = cart.reduce((currentTotal, product) => {
         currentTotal += product.discountedPrice * product.quantity;
         return currentTotal;
@@ -44,9 +37,9 @@ function reducer(state, action) {
   }
 }
 
-export const QuantityContext = createContext();
+// export const QuantityContext = createContext();
 
-export function Quantity({ page, product }) {
+export default function Quantity({ page, product }) {
   const { setCart, totalSum, setTotalSum } = useOutletContext();
   const initialState = { product: product, total: totalSum, count: product.quantity };
   const [state, dispatch] = useReducer(reducer, initialState);

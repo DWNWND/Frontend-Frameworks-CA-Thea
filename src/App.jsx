@@ -1,34 +1,35 @@
-import { Routes, Route } from "react-router-dom";
 import { Layout } from "./components/Layout";
-import Home from "./components/pages/Home";
-import { Product } from "./components/pages/ProductSpecific";
-import ProductsList from "./components/pages/ProductsList";
-import Checkout from "./components/pages/Checkout";
-import CheckoutSuccess from "./components/pages/CheckoutSuccess";
-import Contact from "./components/pages/Contact";
+import Home from "./routes/Home";
+import { Product } from "./routes/ProductSpecific";
+import ProductsList from "./routes/ProductsList";
+import Checkout from "./routes/Checkout";
+import CheckoutSuccess from "./routes/CheckoutSuccess";
+import Contact from "./routes/Contact";
 import ScrollToTop from "./scrollToTop";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function RouteNotFound() {
   return <div>Page not found</div>;
 }
 
-function App() {
-  return (
-    <>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="products/:category" element={<ProductsList />} />
-          <Route path="product/:id" element={<Product />} />
-          <Route path="checkout" element={<Checkout />} />
-          <Route path="success" element={<CheckoutSuccess />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<RouteNotFound />} />
-        </Route>
-      </Routes>
-    </>
-  );
-}
+//recreated router according to this source: https://reactrouter.com/en/main/upgrading/v6-data
 
-export default App;
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: "products/:category", element: <ProductsList /> },
+      { path: "product/:id", element: <Product /> },
+      { path: "checkout", element: <Checkout /> },
+      { path: "success", element: <CheckoutSuccess /> },
+      { path: "contact", element: <Contact /> },
+      { path: "*", element: <RouteNotFound /> },
+    ],
+  },
+]);
+
+export default function App() {
+  return <RouterProvider router={router} />;
+}

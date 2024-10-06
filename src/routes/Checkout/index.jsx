@@ -1,12 +1,12 @@
-import styles from "./Checkout.module.css";
 import { useLocation, useOutletContext, Link } from "react-router-dom";
-import Price from "../../Price";
-import Ratings from "../../Ratings";
-import { Quantity } from "../../quanity";
-import Button from "../../Button";
-import SumTotal from "../../SumTotal";
-import useScreenSizeCheck from "../../../hooks/useScreenSizeCheck.jsx";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import styles from "./Checkout.module.css";
+import useScreenSizeCheck from "../../hooks/useScreenSizeCheck.jsx";
+import Price from "../../components/Price";
+import Ratings from "../../components/Ratings";
+import Quantity from "../../components/Quanity";
+import Button from "../../components/Button";
+import SumTotal from "../../components/SumTotal";
 
 export default function Checkout() {
   return (
@@ -24,7 +24,7 @@ export default function Checkout() {
 }
 
 function ShoppingCart() {
-  const {setCart, totalSum, setTotalSum } = useOutletContext();
+  const { setCart, totalSum, setTotalSum } = useOutletContext();
   const isMobile = useScreenSizeCheck();
   const location = useLocation();
   const page = location.pathname;
@@ -43,7 +43,6 @@ function ShoppingCart() {
   // },);
 
   checkProductQuantity();
-
 
   return (
     <>

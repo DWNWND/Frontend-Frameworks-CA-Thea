@@ -1,13 +1,13 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import styles from "./Contact.module.css";
-import ValidationMessage from "../../ValidationMessage";
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import Button from "../../Button";
-import useScreenSizeCheck from "../../../hooks/useScreenSizeCheck.jsx";
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import useScreenSizeCheck from "../../hooks/useScreenSizeCheck.jsx";
+import ValidationMessage from "../../components/ValidationMessage";
+import Button from "../../components/Button";
 
 const schema = yup
   .object({
