@@ -29,6 +29,7 @@ body {
 .error {
   text-align: center;
   margin: 3rem;
+  margin-top: 100px;
 }
 
 li {
