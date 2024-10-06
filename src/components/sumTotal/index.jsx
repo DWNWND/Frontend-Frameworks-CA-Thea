@@ -10,7 +10,8 @@ export default function SumTotal({ totalSum, setTotalSum }) {
 
     currentSumTotal = destructuredCart.reduce((currentTotal, product) => {
       currentTotal += product.discountedPrice * product.quantity;
-      return currentTotal;
+      const rounded = Math.round(currentTotal * 100) / 100;
+      return rounded;
     }, 0);
   } else {
     currentSumTotal = 0;
@@ -18,12 +19,12 @@ export default function SumTotal({ totalSum, setTotalSum }) {
 
   useEffect(() => {
     setTotalSum(currentSumTotal);
-  },);
+  });
 
   return (
     <div className={styles.wrapper}>
       <h2 className={styles.title}>Sumtotal</h2>
-      <div className={styles.sum}>kr {totalSum !== null && currentSumTotal !== null ? (totalSum === currentSumTotal ? Math.round(totalSum) : Math.round(currentSumTotal)) : 0}</div>
+      <div className={styles.sum}>kr {totalSum}</div>
     </div>
   );
 }
