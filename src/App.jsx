@@ -7,12 +7,19 @@ import Checkout from "./components/pages/Checkout";
 import CheckoutSuccess from "./components/pages/CheckoutSuccess";
 import Contact from "./components/pages/Contact";
 import ScrollToTop from "./scrollToTop";
+import { BrowserRouter, createBrowserRouter, RouterProvider } from "react-router-dom";
+
+const router = createBrowserRouter([{ path: "*", element: <Root /> }]);
 
 function RouteNotFound() {
   return <div>Page not found</div>;
 }
 
-function App() {
+export default function App() {
+  return <RouterProvider router={router} />;
+}
+
+function Root() {
   return (
     <>
       <ScrollToTop />
@@ -30,5 +37,3 @@ function App() {
     </>
   );
 }
-
-export default App;
