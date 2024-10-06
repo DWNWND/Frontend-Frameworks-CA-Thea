@@ -1,11 +1,10 @@
-import { Routes, Route } from "react-router-dom";
 import { Layout } from "./components/Layout";
-import Home from "./components/pages/Home";
-import { Product } from "./components/pages/ProductSpecific";
-import ProductsList from "./components/pages/ProductsList";
-import Checkout from "./components/pages/Checkout";
-import CheckoutSuccess from "./components/pages/CheckoutSuccess";
-import Contact from "./components/pages/Contact";
+import Home from "./routes/Home";
+import { Product } from "./routes/ProductSpecific";
+import ProductsList from "./routes/ProductsList";
+import Checkout from "./routes/Checkout";
+import CheckoutSuccess from "./routes/CheckoutSuccess";
+import Contact from "./routes/Contact";
 import ScrollToTop from "./scrollToTop";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
