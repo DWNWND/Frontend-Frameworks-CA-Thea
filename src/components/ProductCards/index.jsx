@@ -1,12 +1,11 @@
-import { Link, useLocation, useOutletContext } from "react-router-dom";
+import { Link, useLocation, useOutletContext, useParams } from "react-router-dom";
+import styles from "./ProductCards.module.css";
 import Price from "../Price/index.jsx";
 import Ratings from "../Ratings/index.jsx";
-import styles from "./ProductCards.module.css";
 import Filters from "../Filters/index.jsx";
-import { useParams } from "react-router-dom";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
-export function ProductsToDisplay({ tag }) {
+export default function ProductsToDisplay({ tag }) {
   const { products, isLoading, isError } = useOutletContext();
 
   const location = useLocation();
