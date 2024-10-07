@@ -4,7 +4,7 @@ import styles from "./Checkout.module.css";
 import useScreenSizeCheck from "../../hooks/useScreenSizeCheck.jsx";
 import Price from "../../components/Price";
 import Ratings from "../../components/Ratings";
-import Quantity from "../../components/Quanity";
+import Quantity from "../../components/Quantity";
 import Button from "../../components/Button";
 import SumTotal from "../../components/SumTotal";
 
