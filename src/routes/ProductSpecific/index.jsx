@@ -4,10 +4,10 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import styles from "./ProductSpecific.module.css";
 import useFetch from "../../hooks/useFetch.jsx";
 import useScreenSizeCheck from "../../hooks/useScreenSizeCheck.jsx";
-import ProductsToDisplay from "../../components/ProductCards/index.jsx";
-import Price from "../../components/Price/index.jsx";
-import Ratings from "../../components/Ratings/index.jsx";
-import Button from "../../components/Button/index.jsx";
+import ProductsToDisplay from "../../components/ProductCards";
+import Price from "../../components/Price";
+import Ratings from "../../components/Ratings";
+import Button from "../../components/Button";
 import caseFirstLetter from "../../caseFirstLetter.js";
 
 const url = "https://v2.api.noroff.dev/online-shop";
