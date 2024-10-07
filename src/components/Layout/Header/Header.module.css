@@ -1,0 +1,44 @@
+.header {
+  width: 100%;
+  background-color: var(--color-white);
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  padding: 1rem;
+  background-color: var(--color-white);
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+
+  @media screen and (min-width: 1210px) {
+    padding: 1rem 0;
+  }
+}
+
+.headerBackground {
+  background-color: var(--color-white);
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  height: 65.59px;
+  top: 0;
+  left: 0;
+}
+
+.logoImg {
+  height: 100%;
+  width: auto;
+}
+
+.icons {
+  height: 24px;
+  z-index: 100;
+  cursor: pointer;
+}

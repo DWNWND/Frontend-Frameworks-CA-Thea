@@ -1,0 +1,33 @@
+.section {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 5rem 0;
+    background-color: var(--color-mid-light-purple);
+  }
+
+  .container {
+    color: var(--color-white);
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .headLine {
+    color: var(--color-primary);
+    font-size: 2.5rem;
+    font-weight: 800;
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+
+  .tagLine {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+}

@@ -1,0 +1,72 @@
+.wrapperProductSpesific {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.wrapperCheckout {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.titleProductSpesific {
+  text-transform: uppercase;
+  color: var(--color-dark-purple);
+  font-size: 0.875rem;
+}
+
+.titleCheckout {
+  text-transform: uppercase;
+  color: var(--color-dark-purple);
+  font-size: 0.7rem;
+}
+
+.bulletProductSpesific {
+  background-color: var(--color-light-purple);
+  padding: 0.6rem 0.9rem;
+  border-radius: 10px;
+  /* border: 1px solid var(--color-dark-purple); */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.8rem;
+}
+
+.bulletCheckout {
+  background-color: var(--color-light-purple);
+  padding: 0.4rem 0.4rem;
+  border-radius: 10px;
+  /* border: 1px solid var(--color-dark-purple); */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.8rem;
+}
+
+.minus,
+.pluss {
+  font-size: 1.8rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-white);
+  background-color: var(--color-mid-dark-purple);
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
+  border: none;
+  padding: 0;
+}
+
+.amountCheckout {
+  font-size: 1rem;
+  color: var(--color-dark-purple);
+}
+.amountProductSpesific {
+  font-size: 1.25rem;
+  color: var(--color-dark-purple);
+}

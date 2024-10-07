@@ -1,0 +1,62 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  white-space: nowrap;
+}
+
+.listView {
+  .discounted {
+    font-weight: 400;
+    color: var(--color-secondary);
+    font-size: 1rem;
+  }
+
+  .percentage {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--color-mid-gray);
+    @media screen and (min-width: 1200px) {
+      font-size: 0.7rem;
+    }
+  }
+  .original {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-black);
+  }
+}
+
+.productSpesificView {
+  .discounted {
+    font-weight: 400;
+    color: var(--color-secondary);
+    font-size: 1.5rem;
+    @media screen and (min-width: 1200px) {
+      font-size: 2rem;
+    }
+  }
+  .percentage {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--color-mid-gray);
+    @media screen and (min-width: 1200px) {
+      font-size: 0.7rem;
+    }
+  }
+  .original {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-black);
+
+    font-size: 1.5rem;
+    @media screen and (min-width: 1200px) {
+      font-size: 2rem;
+    }
+  }
+}
+
+.oldPrice {
+  text-decoration: line-through;
+  color: var(--color-dark-gray);
+}
