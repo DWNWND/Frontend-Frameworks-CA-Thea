@@ -2,9 +2,9 @@ import { useLocation, Link } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import styles from "./CheckoutSuccess.module.css";
 import useScreenSizeCheck from "../../hooks/useScreenSizeCheck.jsx";
-import Price from "../../components/Price/index.jsx";
-import Ratings from "../../components/Ratings/index.jsx";
-import Button from "../../components/Button/index.jsx";
+import Price from "../../components/Price";
+import Ratings from "../../components/Ratings";
+import Button from "../../components/Button";
 
 export default function CheckoutSuccess() {
   const purchasedProducts = JSON.parse(sessionStorage.getItem("receipt"));
