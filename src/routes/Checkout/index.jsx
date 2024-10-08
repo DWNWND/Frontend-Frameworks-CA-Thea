@@ -38,10 +38,6 @@ function ShoppingCart() {
     }
   }
 
-  // useEffect(() => {
-  //   checkProductQuantity();
-  // },);
-
   checkProductQuantity();
 
   return (
@@ -73,7 +69,7 @@ function ProductCartCards({ product, page }) {
       {product ? (
         <div className={styles.productCard}>
           <Link to={`/product/${product.id}`} className={styles.imageWrapper}>
-            <img src={product.image.url} alt={product.image.alt}></img>
+            <img src={product.image.url} alt={product.image.alt ? product.image.alt : "image of product in cart"}></img>
           </Link>
           <div className={styles.productInfo}>
             <Link to={`/product/${product.id}`} className={styles.productTitle}>

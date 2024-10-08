@@ -20,7 +20,7 @@
 }
 
 .sum {
-  color: var(--color-secondary);
+  color: var(--color-dark-secondary);
   font-size: 1.125rem;
   font-weight: 400;
   white-space: nowrap;

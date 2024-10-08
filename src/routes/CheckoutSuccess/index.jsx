@@ -54,7 +54,7 @@ function Receipt({ purchase }) {
           {purchase.map((product) => (
             <div key={product.id} className={styles.productCard}>
               <Link to={`/product/${product.id}`} className={styles.imageWrapper}>
-                <img src={product.image.url} alt={product.image.alt}></img>
+                <img src={product.image.url} alt={product.image.alt ? product.image.alt : "image of bought product"}></img>
               </Link>
               <div className={styles.infoWrapper}>
                 <Link to={`/product/${product.id}`} className={styles.productTitle}>
