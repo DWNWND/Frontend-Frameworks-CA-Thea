@@ -3,13 +3,13 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
 html {
 --color-primary: #4D4ADF;
---color-secondary: #f45e2f;
+--color-secondary: #C54720;
 
 --color-white: white;
 --color-black: #010101;
 
 --color-dark-gray: #535353;
---color-mid-gray: #838383;
+--color-mid-gray: #535353;
 --color-light-gray: #F0F0F0;
 
 --color-dark-purple: #27346A;
@@ -17,10 +17,12 @@ html {
 --color-mid-light-purple: #9898C1;
 --color-light-purple: #E3E3EE;
 
---color-soft-secondary: #C7694B;
---color-soft-yellow: #F5BD2C;
+--color-dark-secondary: #A03614;
 
---color-soft-green: #6B8D1D;
+--color-soft-secondary: #B25600;
+--color-soft-yellow: #8E6E0C;
+
+--color-soft-green: #486700;
 }
 `;
 

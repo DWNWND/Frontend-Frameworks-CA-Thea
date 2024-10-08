@@ -35,7 +35,6 @@
   input {
     padding: 8px;
     margin-top: 8px;
-    /* border: 1px solid var(--color-mid-light-purple); */
     border-radius: 0;
   }
 }
@@ -56,7 +55,7 @@
 
 .required {
   font-size: 0.8rem;
-  color: var(--color-secondary);
+  color: var(--color-dark-secondary);
   margin-top: 1rem;
   font-weight: 400;
   @media screen and (min-width: 768px) {
@@ -74,7 +73,7 @@
 .error {
   padding: 8px;
   margin-top: 8px;
-  border: 1px solid var(--color-soft-secondary);
+  border: 1px solid var(--color-dark-secondary);
   border-radius: 0;
 }
 

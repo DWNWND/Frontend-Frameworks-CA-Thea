@@ -8,6 +8,10 @@
   height: 100%;
 }
 
+.hide {
+  display: none;
+}
+
 .navContainer {
   padding: 2rem 4rem;
   display: flex;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Error = styled.p`
-  color: var(--color-soft-secondary);
+  color: var(--color-dark-secondary);
 `;
 
 export default function ValidationMessage({ errorMessage }) {
