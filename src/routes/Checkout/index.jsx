@@ -38,10 +38,6 @@ function ShoppingCart() {
     }
   }
 
-  // useEffect(() => {
-  //   checkProductQuantity();
-  // },);
-
   checkProductQuantity();
 
   return (

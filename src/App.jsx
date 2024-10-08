@@ -9,7 +9,7 @@ import ScrollToTop from "./scrollToTop";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function RouteNotFound() {
-  return <div>Page not found</div>;
+  return <div className="error">Page not found</div>;
 }
 
 //recreated router according to this source: https://reactrouter.com/en/main/upgrading/v6-data
