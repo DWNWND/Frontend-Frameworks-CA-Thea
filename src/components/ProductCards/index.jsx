@@ -3,7 +3,6 @@ import styles from "./ProductCards.module.css";
 import Price from "../Price/index.jsx";
 import Ratings from "../Ratings/index.jsx";
 import Filters from "../Filters/index.jsx";
-// import { useEffect } from "react";
 
 export default function ProductsToDisplay({ tag }) {
   const { products, isLoading, isError } = useOutletContext();

@@ -38,7 +38,7 @@ export default function Searchbar({ products = [] }) {
     <>
       <SearchForm id="searchForm">
         <SearchInput id="searchInput" type="search" placeholder="Search..." aria-label="Search" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value.trim())} />
-        <SearchButton id="searchButton" type="submit" aria-label="Search">
+        <SearchButton value="search button" id="searchButton" type="submit" aria-label="Search">
           <img src={SearchIcon} alt="Search icon" />
         </SearchButton>
       </SearchForm>

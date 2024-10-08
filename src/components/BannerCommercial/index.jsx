@@ -5,8 +5,8 @@ export default function BannerCommercial() {
     <>
       <section className={styles.section}>
         <div className={styles.container}>
-          <h2 className={styles.headLine}>Flash Sale!</h2>
-          <p className={styles.tagLine}>Up to 50% Off – Shop Now!</p>
+          <h1 className={styles.headLine}>Flash Sale!</h1>
+          <h2 className={styles.tagLine}>Up to 50% Off – Shop Now!</h2>
         </div>
       </section>
     </>

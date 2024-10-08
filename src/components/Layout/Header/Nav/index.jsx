@@ -36,8 +36,9 @@ export default function HamburgerMenu() {
   return (
     <>
       <OpenMenuContext.Provider value={{ isMenuOpen, setIsMenuOpen }}>
-        <HamburgerMenuBtn onClick={() => onHamburgerMenuClick()}>
+        <HamburgerMenuBtn value="button to open and close menu" onClick={() => onHamburgerMenuClick()}>
           <div className={isMenuOpen ? "burger burger-squeeze open" : "burger burger-squeeze"}>
+            <div className={styles.hide}>menu</div>
             <div className="burger-lines"></div>
           </div>
         </HamburgerMenuBtn>
