@@ -1,6 +1,6 @@
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import styles from "./CheckoutSuccess.module.css";
-import Summary from "../../components/ProductCards/ProductsSummary";
+import Summary from "../../components/Products/ProductsSummary";
 
 export default function CheckoutSuccess() {
   const purchasedProducts = JSON.parse(sessionStorage.getItem("receipt"));
