@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Breadcrumbs.module.css";
-import caseFirstLetter from "../../caseFirstLetter.js";
+import caseFirstLetter from "../../js/caseFirstLetter.js";
 import { ThisProductContext } from "../../routes/ProductSpecific/index.jsx";
 
 export default function BreadCrumbs({ tag }) {

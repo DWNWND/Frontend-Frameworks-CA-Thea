@@ -1,4 +1,4 @@
-import calcPercentage from "../../calculateDiscount.js";
+import calcPercentage from "../../js/calculateDiscount.js";
 import styles from "./Price.module.css";
 
 export default function Price({ originalPrice, discountedPrice, page, view }) {
