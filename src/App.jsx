@@ -1,6 +1,6 @@
 import { Layout } from "./components/Layout";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Home, ProductSpesific, ProductsList, Checkout, CheckoutSuccess, Contact, RouteNotFound } from "./routes";
+import * as route from "./routes";
 
 //recreated router according to this source: https://reactrouter.com/en/main/upgrading/v6-data
 
@@ -9,13 +9,13 @@ const router = createBrowserRouter([
     path: "/",
     element: <Layout />,
     children: [
-      { index: true, element: <Home /> },
-      { path: "products/:category", element: <ProductsList /> },
-      { path: "product/:id", element: <ProductSpesific /> },
-      { path: "checkout", element: <Checkout /> },
-      { path: "success", element: <CheckoutSuccess /> },
-      { path: "contact", element: <Contact /> },
-      { path: "*", element: <RouteNotFound /> },
+      { index: true, element: <route.Home /> },
+      { path: "products/:category", element: <route.ProductsList /> },
+      { path: "product/:id", element: <route.ProductSpesific /> },
+      { path: "checkout", element: <route.Checkout /> },
+      { path: "success", element: <route.CheckoutSuccess /> },
+      { path: "contact", element: <route.Contact /> },
+      { path: "*", element: <route.RouteNotFound /> },
     ],
   },
 ]);
