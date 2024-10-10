@@ -4,7 +4,8 @@ import Header from "./Header/index.jsx";
 import Footer from "./Footer/index.jsx";
 import useFetch from "../../hooks/useFetch.jsx";
 
-const url = "https://v2.api.noroff.dev/online-shop";
+const url = import.meta.env.VITE_API_BASE_URL;
+
 export const ProductsContext = createContext();
 export const FilterContext = createContext();
 
