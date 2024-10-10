@@ -12,3 +12,4 @@ export { Ratings } from "./Ratings";
 export { ShoppingCart } from "./ShoppingCart";
 export { SumTotal } from "./SumTotal";
 export { ValidationMessage } from "./ValidationMessage";
+export * from "./Products";
