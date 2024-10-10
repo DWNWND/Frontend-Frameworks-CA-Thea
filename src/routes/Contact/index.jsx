@@ -9,7 +9,7 @@ import useScreenSizeCheck from "../../hooks/useScreenSizeCheck.jsx";
 import ValidationMessage from "../../components/ValidationMessage";
 import Button from "../../components/Button";
 
-const regEx = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+const regEx = import.meta.env.VITE_EMAIL_REGEX;
 
 const schema = yup
   .object({
