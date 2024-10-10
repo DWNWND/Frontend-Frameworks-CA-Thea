@@ -9,11 +9,13 @@ import useScreenSizeCheck from "../../hooks/useScreenSizeCheck.jsx";
 import ValidationMessage from "../../components/ValidationMessage";
 import Button from "../../components/Button";
 
+const regEx = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+
 const schema = yup
   .object({
     fullName: yup.string().min(3, "Your name must be minimum 3 characters.").required("Please enter your full name"),
     subject: yup.string().min(3, "Your subject must be more than 3 characters").required("Please enter a subject"),
-    email: yup.string().email("Please enter a valid email").required("Please enter your email"),
+    email: yup.string().matches(regEx, "Please enter a valid email").required("Please enter your email"),
     body: yup.string().min(3, "Your message must be more than 3 characters").required("Please enter a message"),
   })
   .required();
