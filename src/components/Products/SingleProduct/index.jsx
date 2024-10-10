@@ -8,7 +8,7 @@ import ProductDescription from "./ProductDescription/index.jsx";
 import ProductReviews from "./ProductReviews/index.jsx";
 import SimilarProducts from "./SimilarProducts/index.jsx";
 
-export default function SingleProduct({ tag }) {
+export function SingleProduct({ tag }) {
   const { product, setCart } = useOutletContext();
   const thisProduct = useContext(ThisProductContext);
 

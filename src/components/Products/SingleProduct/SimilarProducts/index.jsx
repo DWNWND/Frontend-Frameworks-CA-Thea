@@ -1,5 +1,5 @@
 import styles from "./SimilarProducts.module.css";
-import ProductsToDisplay from "../../ProductLists/index.jsx";
+import { ProductList } from "../../index.jsx";
 
 export default function SimilarProducts({ tag }) {
   return (
@@ -7,7 +7,7 @@ export default function SimilarProducts({ tag }) {
       <div className={`${styles.infoHeader} ${styles.similarProductsHeader}`}>
         <h2>Similar products</h2>
       </div>
-      <ProductsToDisplay tag={tag} />
+      <ProductList tag={tag} />
     </div>
   );
 }

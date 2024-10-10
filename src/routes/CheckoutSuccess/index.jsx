@@ -1,6 +1,6 @@
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import styles from "./CheckoutSuccess.module.css";
-import Summary from "../../components/Products/ProductsSummary";
+import { ProductsSummary } from "../../components/Products/index.jsx";
 
 export function CheckoutSuccess() {
   const purchasedProducts = JSON.parse(sessionStorage.getItem("receipt"));
@@ -29,7 +29,7 @@ export function CheckoutSuccess() {
           <h1>Thank you for your order</h1>
           <p>TOTAL PAID: kr {paidTotal}</p>
         </div>
-        {purchasedProducts ? <Summary purchase={purchasedProducts} /> : null}
+        {purchasedProducts ? <ProductsSummary purchase={purchasedProducts} /> : null}
       </main>
     </HelmetProvider>
   );

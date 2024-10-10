@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { ThisProductContext } from "../../../../routes/ProductSpesific/index.jsx";
 import styles from "./ProductReviews.module.css";
-import {Ratings} from "../../../";
+import { Ratings } from "../../../";
 
 export default function ProductReviews() {
   const [reviewsOpen, setReviewsOpen] = useState(false);

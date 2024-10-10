@@ -1,7 +1,7 @@
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import styles from "./Home.module.css";
 import { BannerCommercial, Categories } from "../../components";
-import ProductsToDisplay from "../../components/Products/ProductLists";
+import { ProductList } from "../../components/Products/index.jsx";
 
 export function Home() {
   return (
@@ -13,7 +13,7 @@ export function Home() {
       <main className={styles.wrapper}>
         <BannerCommercial />
         <Categories />
-        <ProductsToDisplay />
+        <ProductList />
       </main>
     </HelmetProvider>
   );

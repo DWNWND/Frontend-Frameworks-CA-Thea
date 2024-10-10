@@ -1,8 +1,8 @@
 import styles from "./ShoppingCart.module.css";
 import { useLocation, useOutletContext } from "react-router-dom";
 import useScreenSizeCheck from "../../hooks/useScreenSizeCheck";
-import ProductsInCart from "../Products/ProductsInCart";
-import {SumTotal, Button} from "../";
+import { ProductsInCart } from "../Products/index.jsx";
+import { SumTotal, Button } from "../";
 
 export function ShoppingCart() {
   const { setCart, totalSum, setTotalSum } = useOutletContext();

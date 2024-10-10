@@ -3,7 +3,7 @@ import styles from "./Summary.module.css";
 import { Price, Ratings, Button } from "../../";
 import useScreenSizeCheck from "../../../hooks/useScreenSizeCheck";
 
-export default function Summary({ purchase }) {
+export function ProductsSummary({ purchase }) {
   const location = useLocation();
   const page = location.pathname;
   const isMobile = useScreenSizeCheck();

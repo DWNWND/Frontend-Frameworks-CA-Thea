@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import styles from "./ProductsList.module.css";
-import ProductsToDisplay from "../../components/Products/ProductLists";
+import { ProductList } from "../../components/Products/index.jsx";
 import caseFirstLetter from "../../js/caseFirstLetter";
 
 export function ProductsList() {
@@ -17,7 +17,7 @@ export function ProductsList() {
       </Helmet>
       <main className={styles.wrapper}>
         <h1>{category}</h1>
-        <ProductsToDisplay />
+        <ProductList />
       </main>
     </HelmetProvider>
   );
