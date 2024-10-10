@@ -5,7 +5,6 @@ import ProductsList from "./routes/ProductsList";
 import Checkout from "./routes/Checkout";
 import CheckoutSuccess from "./routes/CheckoutSuccess";
 import Contact from "./routes/Contact";
-import ScrollToTop from "./scrollToTop";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function RouteNotFound() {
