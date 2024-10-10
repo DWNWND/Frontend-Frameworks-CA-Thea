@@ -1,6 +1,6 @@
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import styles from "./CheckoutSuccess.module.css";
-import Summary from "../../components/Summary";
+import Summary from "../../components/ProductCards/ProductsSummary";
 
 export default function CheckoutSuccess() {
   const purchasedProducts = JSON.parse(sessionStorage.getItem("receipt"));
@@ -24,13 +24,13 @@ export default function CheckoutSuccess() {
         <meta name="description" content="" />
         <title>Summary | Order successful</title>
       </Helmet>
-      <div className={styles.container}>
+      <main className={styles.container}>
         <div className={styles.successMessage}>
           <h1>Thank you for your order</h1>
           <p>TOTAL PAID: kr {paidTotal}</p>
         </div>
         {purchasedProducts ? <Summary purchase={purchasedProducts} /> : null}
-      </div>
+      </main>
     </HelmetProvider>
   );
 }

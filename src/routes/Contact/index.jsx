@@ -9,10 +9,10 @@ export default function Contact() {
         <meta name="description" content="" />
         <title>Contact us | Lazz</title>
       </Helmet>
-      <div className={styles.wrapper}>
+      <main className={styles.wrapper}>
         <h1 className={styles.pageTitle}>Contact us</h1>
         <ContactForm />
-      </div>
+      </main>
     </HelmetProvider>
   );
 }
