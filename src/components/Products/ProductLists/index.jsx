@@ -1,8 +1,6 @@
 import { Link, useLocation, useOutletContext, useParams } from "react-router-dom";
 import styles from "./ProductCards.module.css";
-import Price from "../../Price/index.jsx";
-import Ratings from "../../Ratings/index.jsx";
-import Filters from "../../Filters/index.jsx";
+import {Price, Ratings, Filters} from "../../";
 
 export default function ProductsToDisplay({ tag }) {
   const { products, isLoading, isError } = useOutletContext();

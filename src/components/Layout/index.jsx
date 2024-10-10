@@ -4,7 +4,7 @@ import Header from "./Header/index.jsx";
 import Footer from "./Footer/index.jsx";
 import useFetch from "../../hooks/useFetch.jsx";
 import { ErrorBoundary } from "react-error-boundary";
-import ErrorFallback from "../ErrorFallback/";
+import { ErrorFallback } from "../";
 
 const url = import.meta.env.VITE_API_BASE_URL;
 

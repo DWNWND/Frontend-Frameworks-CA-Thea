@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "./Footer.module.css";
-import SumTotal from "../../SumTotal";
-import Button from "../../Button";
+import { SumTotal, Button } from "../../index.jsx";
 import VisaLogo from "../../../assets/logos/logos_visa.png";
 import KlarnaLogo from "../../../assets/logos/logos_klarna.png";
 import MastercardLogo from "../../../assets/logos/logos_mastercard.png";

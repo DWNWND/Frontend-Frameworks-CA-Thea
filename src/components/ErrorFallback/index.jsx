@@ -1,4 +1,4 @@
-export default function ErrorFallback({ error }) {
+export function ErrorFallback({ error }) {
   return (
     <div role="alert" className="error">
       <p>Something went wrong:</p>

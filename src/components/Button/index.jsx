@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 let newProductArray = [];
 
-export default function Button({ page, product, setCart }) {
+export function Button({ page, product, setCart }) {
   if (page.includes("/product/")) {
     function handleClick() {
       const shoppingCart = JSON.parse(localStorage.getItem("shopping-cart"));

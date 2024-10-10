@@ -4,8 +4,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import useScreenSizeCheck from "../../hooks/useScreenSizeCheck.jsx";
-import ValidationMessage from "../ValidationMessage";
-import Button from "../../components/Button";
+import { Button, ValidationMessage } from "../";
 import styles from "./ContactForm.module.css";
 
 const regEx = import.meta.env.VITE_EMAIL_REGEX;
@@ -19,7 +18,7 @@ const schema = yup
   })
   .required();
 
-export default function ContactForm() {
+export function ContactForm() {
   const isMobile = useScreenSizeCheck();
   const location = useLocation();
   const page = location.pathname;

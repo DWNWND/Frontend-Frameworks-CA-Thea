@@ -37,9 +37,7 @@ function reducer(state, action) {
   }
 }
 
-// export const QuantityContext = createContext();
-
-export default function Quantity({ page, product }) {
+export function Quantity({ page, product }) {
   const { setCart, totalSum, setTotalSum } = useOutletContext();
   const initialState = { product: product, total: totalSum, count: product.quantity };
   const [state, dispatch] = useReducer(reducer, initialState);

@@ -1,6 +1,6 @@
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import styles from "./Contact.module.css";
-import ContactForm from "../../components/ContactForm";
+import { ContactForm } from "../../components/index.jsx";
 
 export function Contact() {
   return (

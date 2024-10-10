@@ -2,10 +2,9 @@ import styles from "./ShoppingCart.module.css";
 import { useLocation, useOutletContext } from "react-router-dom";
 import useScreenSizeCheck from "../../hooks/useScreenSizeCheck";
 import ProductsInCart from "../Products/ProductsInCart";
-import SumTotal from "../SumTotal";
-import Button from "../Button";
+import {SumTotal, Button} from "../";
 
-export default function ShoppingCart() {
+export function ShoppingCart() {
   const { setCart, totalSum, setTotalSum } = useOutletContext();
   const isMobile = useScreenSizeCheck();
   const location = useLocation();

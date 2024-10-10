@@ -1,8 +1,6 @@
 import styles from "./ProductsInCart.module.css";
 import { Link } from "react-router-dom";
-import Price from "../../Price";
-import Ratings from "../../Ratings";
-import Quantity from "../../Quantity";
+import {Price, Ratings, Quantity} from "../../";
 
 
 export default function ProductsInCart({ product, page }) {

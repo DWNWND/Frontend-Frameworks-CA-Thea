@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import styles from "./SumTotal.module.css";
 
-export default function SumTotal({ totalSum, setTotalSum }) {
+export function SumTotal({ totalSum, setTotalSum }) {
   let newShoppingCartArray = JSON.parse(localStorage.getItem("shopping-cart"));
   let currentSumTotal;
 

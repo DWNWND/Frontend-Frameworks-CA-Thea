@@ -1,8 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import styles from "./Summary.module.css";
-import Price from "../../Price";
-import Ratings from "../../Ratings";
-import Button from "../../Button";
+import { Price, Ratings, Button } from "../../";
 import useScreenSizeCheck from "../../../hooks/useScreenSizeCheck";
 
 export default function Summary({ purchase }) {

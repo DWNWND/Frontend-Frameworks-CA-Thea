@@ -4,7 +4,7 @@ import styles from "./Breadcrumbs.module.css";
 import caseFirstLetter from "../../js/caseFirstLetter.js";
 import { ThisProductContext } from "../../routes/ProductSpesific/index.jsx";
 
-export default function BreadCrumbs({ tag }) {
+export function BreadCrumbs({ tag }) {
   const category = caseFirstLetter(tag);
   const thisProduct = useContext(ThisProductContext);
 

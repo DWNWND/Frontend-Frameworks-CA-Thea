@@ -3,7 +3,7 @@ import { useOutletContext, useParams } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import styles from "./ProductSpecific.module.css";
 import useFetch from "../../hooks/useFetch.jsx";
-import BreadCrumbs from "../../components/BreadCrumbs/index.jsx";
+import { BreadCrumbs } from "../../components";
 import SingleProduct from "../../components/Products/SingleProduct/index.jsx";
 
 const url = import.meta.env.VITE_API_BASE_URL;
