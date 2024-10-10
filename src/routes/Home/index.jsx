@@ -4,7 +4,7 @@ import BannerCommercial from "../../components/BannerCommercial";
 import ProductsToDisplay from "../../components/Products/ProductLists";
 import Categories from "../../components/Categories";
 
-export default function Home() {
+export function Home() {
   return (
     <HelmetProvider>
       <Helmet prioritizeSeoTags>

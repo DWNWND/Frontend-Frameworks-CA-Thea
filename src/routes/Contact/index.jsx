@@ -2,7 +2,7 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import styles from "./Contact.module.css";
 import ContactForm from "../../components/ContactForm";
 
-export default function Contact() {
+export function Contact() {
   return (
     <HelmetProvider>
       <Helmet prioritizeSeoTags>

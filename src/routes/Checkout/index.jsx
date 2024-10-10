@@ -2,7 +2,7 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import styles from "./Checkout.module.css";
 import ShoppingCart from "../../components/ShoppingCart";
 
-export default function Checkout() {
+export function Checkout() {
   return (
     <HelmetProvider>
       <Helmet prioritizeSeoTags>

@@ -4,7 +4,7 @@ import styles from "./ProductsList.module.css";
 import ProductsToDisplay from "../../components/Products/ProductLists";
 import caseFirstLetter from "../../js/caseFirstLetter";
 
-export default function ProductsList() {
+export function ProductsList() {
   const location = useLocation();
   const slicedCategory = location.pathname.split("/")[2];
   const category = caseFirstLetter(slicedCategory);

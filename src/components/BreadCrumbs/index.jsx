@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Breadcrumbs.module.css";
 import caseFirstLetter from "../../js/caseFirstLetter.js";
-import { ThisProductContext } from "../../routes/ProductSpecific/index.jsx";
+import { ThisProductContext } from "../../routes/ProductSpesific/index.jsx";
 
 export default function BreadCrumbs({ tag }) {
   const category = caseFirstLetter(tag);
