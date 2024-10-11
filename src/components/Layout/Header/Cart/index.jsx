@@ -1,13 +1,16 @@
 import CartIcon from "../../../../assets/icons/cart.svg";
 import styles from "./Cart.module.css";
+import { useCartStore } from "../../../../stores/useCartStore.js";
 
-export default function Cart({ cart }) {
-  var quantity;
+//"cart" removed from props and changed all "carts" to "cartItems"
+export default function Cart() {
+  var quantity = 0;
   var arr = [];
+  const { cartItems } = useCartStore();
 
   function calculateQuantityInCart() {
-    if (cart && cart.length > 0) {
-      cart.forEach((item) => {
+    if (cartItems && cartItems.length > 0) {
+      cartItems.forEach((item) => {
         arr.push(item.quantity);
       });
       quantity = arr.reduce((a, b) => a + b, 0);
@@ -19,7 +22,7 @@ export default function Cart({ cart }) {
   return (
     <>
       <div className={styles.wrapper}>
-        <div className={`${cart.length > 0 ? styles.full : styles.empty} ${styles.counter}`}>{cart.length > 0 ? quantity : null}</div>
+        <div className={`${cartItems.length > 0 ? styles.full : styles.empty} ${styles.counter}`}>{cartItems.length > 0 ? quantity : null}</div>
         <img src={CartIcon} alt="Shopping cart icon, click to go to shopping cart" />
       </div>
     </>

@@ -1,38 +1,48 @@
 import styles from "./Button.module.css";
 import { Link } from "react-router-dom";
+import { useCartStore } from "../../stores/useCartStore.js";
 
-let newProductArray = [];
+// let newProductArray = [];
 
-export function Button({ page, product, setCart }) {
+//"setCart" removed from props
+export function Button({ page, product }) {
+  const { addItemToCart, clearCart } = useCartStore();
+
+  const onAddToCart = () => {
+    addItemToCart(product);
+  };
+
   if (page.includes("/product/")) {
     function handleClick() {
-      const shoppingCart = JSON.parse(localStorage.getItem("shopping-cart"));
+      onAddToCart();
 
-      if (shoppingCart && shoppingCart.length > 0) {
-        newProductArray = shoppingCart;
-        const duplicates = newProductArray.find((item) => item.id === product.id);
+      // const shoppingCart = JSON.parse(localStorage.getItem("shopping-cart"));
 
-        if (duplicates) {
-          for (let i = 0; i < newProductArray.length; i++) {
-            if (newProductArray[i].id === product.id) {
-              newProductArray[i].quantity++;
-              localStorage.setItem("shopping-cart", JSON.stringify(newProductArray));
-              setCart(newProductArray);
-            }
-          }
-        } else if (!duplicates) {
-          product["quantity"] = 1;
-          newProductArray.push(product);
-          localStorage.setItem("shopping-cart", JSON.stringify(newProductArray));
-          setCart(newProductArray);
-        }
-      } else if (!product.quantity) {
-        product["quantity"] = 1;
-        newProductArray = [];
-        newProductArray.push(product);
-        localStorage.setItem("shopping-cart", JSON.stringify(newProductArray));
-        setCart(newProductArray);
-      }
+      // if (shoppingCart && shoppingCart.length > 0) {
+      //   newProductArray = shoppingCart;
+      //   const duplicates = newProductArray.find((item) => item.id === product.id);
+
+      //   if (duplicates) {
+      //     for (let i = 0; i < newProductArray.length; i++) {
+      //       if (newProductArray[i].id === product.id) {
+      //         newProductArray[i].quantity++;
+      //         localStorage.setItem("shopping-cart", JSON.stringify(newProductArray));
+      //         setCart(newProductArray);
+      //       }
+      //     }
+      //   } else if (!duplicates) {
+      //     product["quantity"] = 1;
+      //     newProductArray.push(product);
+      //     localStorage.setItem("shopping-cart", JSON.stringify(newProductArray));
+      //     setCart(newProductArray);
+      //   }
+      // } else if (!product.quantity) {
+      //   product["quantity"] = 1;
+      //   newProductArray = [];
+      //   newProductArray.push(product);
+      //   localStorage.setItem("shopping-cart", JSON.stringify(newProductArray));
+      //   setCart(newProductArray);
+      // }
     }
 
     return (
@@ -44,10 +54,11 @@ export function Button({ page, product, setCart }) {
 
   if (page.includes("/checkout")) {
     function handleClick() {
-      const shoppingCart = JSON.parse(localStorage.getItem("shopping-cart"));
-      sessionStorage.setItem("receipt", JSON.stringify(shoppingCart));
-      localStorage.removeItem("shopping-cart");
-      setCart([]);
+      clearCart();
+      // const shoppingCart = JSON.parse(localStorage.getItem("shopping-cart"));
+      // sessionStorage.setItem("receipt", JSON.stringify(shoppingCart));
+      // localStorage.removeItem("shopping-cart");
+      // setCart([]);
     }
 
     return (

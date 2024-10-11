@@ -5,11 +5,12 @@ import HamburgerMenu from "./Nav";
 import Cart from "./Cart";
 import styles from "./Header.module.css";
 
-export default function Header({ cart, products }) {
+//cart removed from props
+export default function Header({ products }) {
   function handleClick() {
     sessionStorage.removeItem("receipt");
   }
-  
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -17,9 +18,10 @@ export default function Header({ cart, products }) {
         <Link to="/" className={styles.icons} onClick={() => handleClick()}>
           <img src={LogoIcon} className={styles.logoImg} alt="Lazz logo, click to go to home page" />
         </Link>
-        <Searchbar products={products}/>
+        <Searchbar products={products} />
         <Link to="checkout" className={styles.icons}>
-          <Cart cart={cart} />
+          <Cart />
+          {/* <Cart cart={cart} /> */}
         </Link>
         <HamburgerMenu />
       </div>
