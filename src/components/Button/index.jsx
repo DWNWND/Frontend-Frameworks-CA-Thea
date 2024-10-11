@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import { useCartStore } from "../../stores/useCartStore.js";
 
 export function Button({ page, product }) {
-  const { addItemToCart, clearCart } = useCartStore();
+  const { cartItems, addItemToCart, clearCart } = useCartStore();
 
   const onAddToCart = () => {
     addItemToCart(product);
   };
 
   const onCheckout = () => {
+    sessionStorage.setItem("receipt", JSON.stringify(cartItems));
     clearCart();
   };
 
