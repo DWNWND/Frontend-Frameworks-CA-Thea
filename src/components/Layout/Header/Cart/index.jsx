@@ -2,7 +2,6 @@ import CartIcon from "../../../../assets/icons/cart.svg";
 import styles from "./Cart.module.css";
 import { useCartStore } from "../../../../stores/useCartStore.js";
 
-//"cart" removed from props and changed all "carts" to "cartItems"
 export default function Cart() {
   var quantity = 0;
   var arr = [];

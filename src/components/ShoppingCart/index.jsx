@@ -5,26 +5,12 @@ import { ProductsInCart } from "../Products/index.jsx";
 import { SumTotal, Button } from "../";
 import { useCartStore } from "../../stores/useCartStore.js";
 
-//"setCart" removed from useOutletContext
 export function ShoppingCart() {
   const { totalSum, setTotalSum } = useOutletContext();
   const isMobile = useScreenSizeCheck();
   const location = useLocation();
   const page = location.pathname;
-  // let newProductsArray = [];
-
   const { cartItems } = useCartStore();
-
-
-  // function checkProductQuantity() {
-  //   const shoppingCart = JSON.parse(localStorage.getItem("shopping-cart"));
-  //   if (shoppingCart) {
-  //     newProductsArray = shoppingCart.filter((product) => product.quantity > 0);
-  //     localStorage.setItem("shopping-cart", JSON.stringify(newProductsArray));
-  //   }
-  // }
-
-  // checkProductQuantity();
 
   return (
     <>
@@ -39,7 +25,6 @@ export function ShoppingCart() {
             <>
               <SumTotal totalSum={totalSum} setTotalSum={setTotalSum}></SumTotal>
               <Button page={page}></Button>
-              {/* <Button page={page} setCart={setCart}></Button> */}
             </>
           )}
         </>

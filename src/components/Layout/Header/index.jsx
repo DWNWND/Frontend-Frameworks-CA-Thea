@@ -5,7 +5,6 @@ import HamburgerMenu from "./Nav";
 import Cart from "./Cart";
 import styles from "./Header.module.css";
 
-//cart removed from props
 export default function Header({ products }) {
   function handleClick() {
     sessionStorage.removeItem("receipt");
@@ -21,7 +20,6 @@ export default function Header({ products }) {
         <Searchbar products={products} />
         <Link to="checkout" className={styles.icons}>
           <Cart />
-          {/* <Cart cart={cart} /> */}
         </Link>
         <HamburgerMenu />
       </div>

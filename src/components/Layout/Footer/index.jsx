@@ -15,7 +15,6 @@ function CopyRight() {
   );
 }
 
-//"setCart" removed from props
 export default function Footer({ page, product, totalSum, setTotalSum }) {
   const isMobile = useScreenSizeCheck();
 
@@ -98,7 +97,6 @@ export default function Footer({ page, product, totalSum, setTotalSum }) {
       return (
         <footer className={`${styles.containerMobile} ${styles.footerBackground}`}>
           <Button page={page} product={product} />
-          {/* <Button page={page} product={product} setCart={setCart} /> */}
         </footer>
       );
     }
@@ -108,7 +106,6 @@ export default function Footer({ page, product, totalSum, setTotalSum }) {
           <div className={styles.wrapper}>
             <SumTotal totalSum={totalSum} setTotalSum={setTotalSum} />
             <Button page={page} />
-            {/* <Button page={page} setCart={setCart} /> */}
           </div>
           <CopyRight />
         </footer>

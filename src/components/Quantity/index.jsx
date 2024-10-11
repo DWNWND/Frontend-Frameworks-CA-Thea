@@ -38,15 +38,12 @@ function reducer(state, action) {
   }
 }
 
-//"setCart" removed from useOutletContext
 export function Quantity({ page, product }) {
   const { totalSum, setTotalSum } = useOutletContext();
   const { increaseQuantity, decreaseQuantity } = useCartStore();
 
   const initialState = { product: product, total: totalSum, count: product.quantity };
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  // let newProductsArray = [];
 
   useEffect(() => {
     setTotalSum(state.total);
@@ -65,50 +62,6 @@ export function Quantity({ page, product }) {
   if (page.includes("/checkout")) {
     checkout = true;
   }
-
-  // function addToLocalStorage(product) {
-  //   newProductsArray = JSON.parse(localStorage.getItem("shopping-cart"));
-
-  //   const duplicates = newProductsArray.find((item) => item.id === product.id);
-
-  //   if (duplicates) {
-  //     for (let i = 0; i < newProductsArray.length; i++) {
-  //       if (newProductsArray[i].id === product.id) {
-  //         newProductsArray[i].quantity++;
-  //         localStorage.setItem("shopping-cart", JSON.stringify(newProductsArray));
-  //         setCart(newProductsArray);
-  //       }
-  //     }
-  //   } else {
-  //     throw new Error("Product you want to increment is not found in the cart");
-  //   }
-  // }
-
-  // function removeFromLocalStorage(product) {
-  //   newProductsArray = JSON.parse(localStorage.getItem("shopping-cart"));
-
-  //   const duplicates = newProductsArray.find((item) => item.id === product.id);
-
-  //   if (duplicates) {
-  //     for (let i = 0; i < newProductsArray.length; i++) {
-  //       if (newProductsArray[i].id === product.id) {
-  //         newProductsArray[i].quantity--;
-  //         localStorage.setItem("shopping-cart", JSON.stringify(newProductsArray));
-  //         setCart(newProductsArray);
-  //       }
-
-  //       if (newProductsArray[i].quantity < 1) {
-  //         alert("Removing product from cart");
-  //         const newArr = newProductsArray.filter((product) => product.quantity > 0);
-  //         newProductsArray = newArr;
-  //         localStorage.setItem("shopping-cart", JSON.stringify(newProductsArray));
-  //         setCart(newProductsArray);
-  //       }
-  //     }
-  //   } else {
-  //     throw new Error("Product you want to increment is not found in the cart");
-  //   }
-  // }
 
   return (
     <div className={checkout ? styles.wrapperCheckout : styles.wrapperProductSpesific}>

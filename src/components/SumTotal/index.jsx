@@ -4,8 +4,6 @@ import { useCartStore } from "../../stores/useCartStore.js";
 
 export function SumTotal({ totalSum, setTotalSum }) {
   const { cartItems } = useCartStore();
-
-  // let newShoppingCartArray = JSON.parse(localStorage.getItem("shopping-cart"));
   let currentSumTotal;
 
   if (cartItems) {

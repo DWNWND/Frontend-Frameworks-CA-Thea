@@ -8,7 +8,6 @@ import ProductDescription from "./ProductDescription/index.jsx";
 import ProductReviews from "./ProductReviews/index.jsx";
 import SimilarProducts from "./SimilarProducts/index.jsx";
 
-//"setCart" removed from useOutletContext
 export function SingleProduct({ tag }) {
   const { product } = useOutletContext();
   const thisProduct = useContext(ThisProductContext);
@@ -53,7 +52,6 @@ export function SingleProduct({ tag }) {
               <Price originalPrice={thisProduct.price} discountedPrice={thisProduct.discountedPrice} page={page} view="productSpesificView"></Price>
             </div>
             <Button page={page} product={product}></Button>
-            {/* <Button page={page} product={product} setCart={setCart}></Button> */}
           </div>
         )}
       </div>
