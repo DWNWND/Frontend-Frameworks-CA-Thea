@@ -3,6 +3,8 @@ import { useState, useEffect, createContext } from "react";
 import Header from "./Header/index.jsx";
 import Footer from "./Footer/index.jsx";
 import useFetch from "../../hooks/useFetch.jsx";
+import { ErrorBoundary } from "react-error-boundary";
+import { ErrorFallback } from "../";
 
 const url = import.meta.env.VITE_API_BASE_URL;
 
@@ -42,9 +44,11 @@ export function Layout() {
 
   return (
     <>
-      <Header cart={cart} products={products} />
-      <Outlet context={{ isLoading, isError, products, product, setProduct, cart, setCart, totalSum, setTotalSum, filters, setFilters }} />
-      <Footer page={page} product={product} setCart={setCart} totalSum={totalSum} setTotalSum={setTotalSum} />
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <Header cart={cart} products={products} />
+        <Outlet context={{ isLoading, isError, products, product, setProduct, cart, setCart, totalSum, setTotalSum, filters, setFilters }} />
+        <Footer page={page} product={product} setCart={setCart} totalSum={totalSum} setTotalSum={setTotalSum} />
+      </ErrorBoundary>
     </>
   );
 }

@@ -1,0 +1,57 @@
+.form {
+  margin-bottom: 2rem;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+
+  input {
+    padding: 8px;
+    margin-top: 8px;
+    border-radius: 0;
+  }
+}
+
+.inputLabelForText {
+  color: var(--color-primary);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.inputLabelForCheckbox {
+  color: var(--color-dark-purple);
+  font-size: 1rem;
+  font-weight: 400;
+  /* display: inline; */
+  margin-left: 8px;
+}
+
+.required {
+  font-size: 0.8rem;
+  color: var(--color-dark-secondary);
+  margin-top: 1rem;
+  font-weight: 400;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 2rem;
+  }
+}
+
+.valid {
+  padding: 8px;
+  margin-top: 8px;
+  border: 1px solid var(--color-mid-light-purple);
+  border-radius: 0;
+}
+
+.error {
+  padding: 8px;
+  margin-top: 8px;
+  border: 1px solid var(--color-dark-secondary);
+  border-radius: 0;
+}
+
+.message {
+  height: 6rem;
+}

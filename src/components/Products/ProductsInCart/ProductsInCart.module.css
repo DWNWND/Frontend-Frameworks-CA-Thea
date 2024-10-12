@@ -1,0 +1,56 @@
+.priceRatingContainer,
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.productCard {
+  display: flex;
+  gap: 0.5rem;
+  background-color: var(--color-white);
+  height: 125px;
+  text-decoration: none;
+}
+
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 100px;
+    object-fit: cover;
+    height: 100%;
+  }
+}
+
+.productInfo {
+  padding: 1rem;
+  justify-content: space-between;
+}
+
+.productTitle {
+  text-decoration: none;
+
+  h2 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-black);
+  }
+}
+
+.priceRatingContainer {
+  justify-content: space-around;
+}
+
+.priceRatingQuantityContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.quantityWrapper {
+  justify-self: end;
+  align-self: flex-end;
+}

@@ -1,10 +1,10 @@
 import { useLocation } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import styles from "./ProductsList.module.css";
-import ProductsToDisplay from "../../components/ProductCards";
-import caseFirstLetter from "../../caseFirstLetter";
+import { ProductList } from "../../components/Products/index.jsx";
+import caseFirstLetter from "../../js/caseFirstLetter";
 
-export default function ProductsList() {
+export function ProductsList() {
   const location = useLocation();
   const slicedCategory = location.pathname.split("/")[2];
   const category = caseFirstLetter(slicedCategory);
@@ -15,10 +15,10 @@ export default function ProductsList() {
         <meta name="description" content="" />
         <title>Products | {category} | Lazz</title>
       </Helmet>
-      <div className={styles.wrapper}>
+      <main className={styles.wrapper}>
         <h1>{category}</h1>
-        <ProductsToDisplay />
-      </div>
+        <ProductList />
+      </main>
     </HelmetProvider>
   );
 }
