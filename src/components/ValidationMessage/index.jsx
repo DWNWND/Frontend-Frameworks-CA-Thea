@@ -1,9 +1,5 @@
-import styled from "styled-components";
-
-const Error = styled.p`
-  color: var(--color-dark-secondary);
-`;
+import styles from "./ValidationMessage.module.css";
 
 export function ValidationMessage({ errorMessage }) {
-  return <Error>{errorMessage}</Error>;
+  return <p className={styles.validationMessage}>{errorMessage}</p>;
 }
