@@ -4,11 +4,11 @@ My course assignment for the course Frontend Frameworks, learning to use React.
 
 # LAZZ | e-commerce
 
-<!-- ![app-screenshot](/docs/deployedSiteScreenshot_may2024.png) -->
+![app-screenshot](/src/assets/images/app-screenshot-2024.png)
 
 ## Live app
 
-<!-- This project is deployed on [Netlify](https://dwnwnd.github.io/SemesterProject2_TheaOland/). -->
+This project is deployed on [Netlify](https://lazz.netlify.app/).
 
 ## Course goal
 
