@@ -15,7 +15,6 @@ export function Layout() {
   const { data, isLoading, isError } = useFetch(url);
   const [product, setProduct] = useState({});
   const [totalSum, setTotalSum] = useState(0);
-
   const [products, setProducts] = useState([]);
   const [filters, setFilters] = useState("topSales");
 
