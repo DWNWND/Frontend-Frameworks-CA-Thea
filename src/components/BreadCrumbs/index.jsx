@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import styles from "./Breadcrumbs.module.css";
+import styles from "./BreadCrumbs.module.css";
 import caseFirstLetter from "../../js/caseFirstLetter.js";
 import { ThisProductContext } from "../../routes/ProductSpesific/index.jsx";
 
