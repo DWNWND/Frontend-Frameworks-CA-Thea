@@ -1,6 +1,6 @@
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import styles from "./Checkout.module.css";
 import { ShoppingCart } from "../../components";
+import styles from "./Checkout.module.css";
 
 export function Checkout() {
   return (

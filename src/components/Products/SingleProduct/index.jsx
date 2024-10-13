@@ -9,7 +9,7 @@ import ProductReviews from "./ProductReviews/index.jsx";
 import SimilarProducts from "./SimilarProducts/index.jsx";
 
 export function SingleProduct({ tag }) {
-  const { product, setCart } = useOutletContext();
+  const { product } = useOutletContext();
   const thisProduct = useContext(ThisProductContext);
 
   const location = useLocation();
@@ -51,7 +51,7 @@ export function SingleProduct({ tag }) {
             <div className={styles.infoWrapper}>
               <Price originalPrice={thisProduct.price} discountedPrice={thisProduct.discountedPrice} page={page} view="productSpesificView"></Price>
             </div>
-            <Button page={page} product={product} setCart={setCart}></Button>
+            <Button page={page} product={product}></Button>
           </div>
         )}
       </div>

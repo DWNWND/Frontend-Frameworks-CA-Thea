@@ -3,7 +3,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import * as routes from "./routes";
 
 //recreated router according to this source: https://reactrouter.com/en/main/upgrading/v6-data
-
 const router = createBrowserRouter([
   {
     path: "/",

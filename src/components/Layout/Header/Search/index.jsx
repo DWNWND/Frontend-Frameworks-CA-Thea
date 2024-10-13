@@ -1,33 +1,7 @@
-import styled from "styled-components";
 import styles from "./Search.module.css";
 import SearchIcon from "../../../../assets/icons/search.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
-const SearchForm = styled.form`
-  display: flex;
-  width: 100%;
-  z-index: 100;
-`;
-
-const SearchButton = styled.button`
-  background-color: ${(props) => props.theme.colors.primary};
-  border: none;
-  padding: 0.3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const SearchInput = styled.input`
-  border: none;
-  border-radius: 0;
-  background-color: ${(props) => props.theme.colors.searchbarBackground};
-  color: ${(props) => props.theme.colors.textDarkGray};
-  padding-left: 0.8rem;
-  width: 100%;
-  font-size: 1rem;
-`;
 
 export default function Searchbar({ products = [] }) {
   const [searchQuery, setSearchQuery] = useState("");
@@ -36,12 +10,12 @@ export default function Searchbar({ products = [] }) {
 
   return (
     <>
-      <SearchForm id="searchForm">
-        <SearchInput id="searchInput" type="search" placeholder="Search..." aria-label="Search" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value.trim())} />
-        <SearchButton value="search button" id="searchButton" type="submit" aria-label="Search">
+      <form className={styles.searchForm} id="searchForm">
+        <input className={styles.searchInput} id="searchInput" type="search" placeholder="Search..." aria-label="Search" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value.trim())} />
+        <button className={styles.searchBtn}value="search button" id="searchButton" type="submit" aria-label="Search">
           <img src={SearchIcon} alt="Search icon" />
-        </SearchButton>
-      </SearchForm>
+        </button>
+      </form>
       {filteredProducts.length > 0 && searchQuery.length > 0 && (
         <ul className={styles.searchResults}>
           {filteredProducts.map((product) => {

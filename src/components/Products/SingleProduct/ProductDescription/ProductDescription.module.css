@@ -1,10 +1,3 @@
-/* .extendedInfoContainer {
-  padding: 2rem 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-} */
-
 .infoHeader {
   border-bottom: solid 1px var(--color-mid-gray);
   margin-bottom: 1rem;

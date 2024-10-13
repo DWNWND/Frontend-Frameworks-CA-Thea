@@ -1,3 +1,27 @@
+.searchForm {
+  display: flex;
+  width: 100%;
+  z-index: 100;
+}
+
+.searchInput {
+  border: none;
+  border-radius: 0;
+  background-color: var(--color-light-purple);
+  color: var(--color-dark-gray);
+  padding-left: 0.8rem;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.searchBtn {
+  background-color: var(--color-primary);
+  border: none;
+  padding: 0.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .searchResults {
   position: absolute;
   background-color: var(--color-white);

@@ -15,7 +15,7 @@ function CopyRight() {
   );
 }
 
-export default function Footer({ page, product, setCart, totalSum, setTotalSum }) {
+export default function Footer({ page, product, totalSum, setTotalSum }) {
   const isMobile = useScreenSizeCheck();
 
   function DesktopFooter() {
@@ -96,7 +96,7 @@ export default function Footer({ page, product, setCart, totalSum, setTotalSum }
     if (page.includes("/product/")) {
       return (
         <footer className={`${styles.containerMobile} ${styles.footerBackground}`}>
-          <Button page={page} product={product} setCart={setCart} />
+          <Button page={page} product={product} />
         </footer>
       );
     }
@@ -105,7 +105,7 @@ export default function Footer({ page, product, setCart, totalSum, setTotalSum }
         <footer className={`${styles.containerMobile} ${styles.footerBackground}`}>
           <div className={styles.wrapper}>
             <SumTotal totalSum={totalSum} setTotalSum={setTotalSum} />
-            <Button page={page} setCart={setCart} />
+            <Button page={page} />
           </div>
           <CopyRight />
         </footer>

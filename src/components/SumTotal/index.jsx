@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 import styles from "./SumTotal.module.css";
+import { useCartStore } from "../../stores/useCartStore.js";
 
 export function SumTotal({ totalSum, setTotalSum }) {
-  let newShoppingCartArray = JSON.parse(localStorage.getItem("shopping-cart"));
+  const { cartItems } = useCartStore();
   let currentSumTotal;
 
-  if (newShoppingCartArray) {
-    let destructuredCart = [...newShoppingCartArray];
+  if (cartItems) {
+    let destructuredCart = [...cartItems];
 
     currentSumTotal = destructuredCart.reduce((currentTotal, product) => {
       currentTotal += product.discountedPrice * product.quantity;

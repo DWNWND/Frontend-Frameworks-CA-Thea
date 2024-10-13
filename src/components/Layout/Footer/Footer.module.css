@@ -32,22 +32,10 @@
 }
 
 .wrapper {
-  /* margin-left: auto;
-  margin-right: auto; */
-  /* width: 100%; */
   display: flex;
   padding: 1.5rem;
   justify-content: space-between;
   gap: 1.5rem;
-
-  /* @media screen and (min-width: 768px) {
-    position: relative;
-    border-top: none;
-    padding: 4rem;
-  }
-  @media screen and (min-width: 1210px) {
-    padding: 4rem 0;
-  } */
 }
 
 .desktopFooterColumn {

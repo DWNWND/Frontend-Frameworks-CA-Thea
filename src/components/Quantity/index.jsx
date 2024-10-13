@@ -1,6 +1,7 @@
 import styles from "./Quantity.module.css";
 import { useReducer, useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
+import { useCartStore } from "../../stores/useCartStore.js";
 
 function reducer(state, action) {
   let newProductsArray = [];
@@ -38,64 +39,28 @@ function reducer(state, action) {
 }
 
 export function Quantity({ page, product }) {
-  const { setCart, totalSum, setTotalSum } = useOutletContext();
+  const { totalSum, setTotalSum } = useOutletContext();
+  const { increaseQuantity, decreaseQuantity } = useCartStore();
+
   const initialState = { product: product, total: totalSum, count: product.quantity };
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  let newProductsArray = [];
-
   useEffect(() => {
     setTotalSum(state.total);
-  },);
+  });
 
   let checkout = false;
 
+  const increase = () => {
+    increaseQuantity(product.id);
+  };
+
+  const decrease = () => {
+    decreaseQuantity(product.id);
+  };
+
   if (page.includes("/checkout")) {
     checkout = true;
-  }
-
-  function addToLocalStorage(product) {
-    newProductsArray = JSON.parse(localStorage.getItem("shopping-cart"));
-
-    const duplicates = newProductsArray.find((item) => item.id === product.id);
-
-    if (duplicates) {
-      for (let i = 0; i < newProductsArray.length; i++) {
-        if (newProductsArray[i].id === product.id) {
-          newProductsArray[i].quantity++;
-          localStorage.setItem("shopping-cart", JSON.stringify(newProductsArray));
-          setCart(newProductsArray);
-        }
-      }
-    } else {
-      throw new Error("Product you want to increment is not found in the cart");
-    }
-  }
-
-  function removeFromLocalStorage(product) {
-    newProductsArray = JSON.parse(localStorage.getItem("shopping-cart"));
-
-    const duplicates = newProductsArray.find((item) => item.id === product.id);
-
-    if (duplicates) {
-      for (let i = 0; i < newProductsArray.length; i++) {
-        if (newProductsArray[i].id === product.id) {
-          newProductsArray[i].quantity--;
-          localStorage.setItem("shopping-cart", JSON.stringify(newProductsArray));
-          setCart(newProductsArray);
-        }
-
-        if (newProductsArray[i].quantity < 1) {
-          alert("Removing product from cart");
-          const newArr = newProductsArray.filter((product) => product.quantity > 0);
-          newProductsArray = newArr;
-          localStorage.setItem("shopping-cart", JSON.stringify(newProductsArray));
-          setCart(newProductsArray);
-        }
-      }
-    } else {
-      throw new Error("Product you want to increment is not found in the cart");
-    }
   }
 
   return (
@@ -105,7 +70,7 @@ export function Quantity({ page, product }) {
         <button
           className={styles.minus}
           onClick={() => {
-            dispatch({ type: "decrement" }), removeFromLocalStorage(product);
+            dispatch({ type: "decrement" }), decrease(product);
           }}>
           &#45;
         </button>
@@ -113,7 +78,7 @@ export function Quantity({ page, product }) {
         <button
           className={styles.pluss}
           onClick={() => {
-            dispatch({ type: "increment" }), addToLocalStorage(product);
+            dispatch({ type: "increment" }), increase(product);
           }}>
           &#43;
         </button>
