@@ -3,6 +3,7 @@
 #root {
   width: 100%;
 }
+
 * {
   font-family: "Source Sans 3", sans-serif;
   font-optical-sizing: auto;
@@ -35,7 +36,7 @@ li {
   transition: transform 0.25s;
 }
 
-/* https://github.com/march08/animated-burgers/blob/master/packages/BurgerSqueeze/dist/styles.css */
+/* burger recreated from: https://github.com/march08/animated-burgers/blob/master/packages/BurgerSqueeze/dist/styles.css */
 .burger {
   height: 3em;
   width: 2em;

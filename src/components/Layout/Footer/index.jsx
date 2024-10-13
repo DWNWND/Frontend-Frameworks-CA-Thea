@@ -1,20 +1,27 @@
 import { Link } from "react-router-dom";
 import styles from "./Footer.module.css";
-import SumTotal from "../../SumTotal";
-import Button from "../../Button";
+import { SumTotal, Button } from "../../index.jsx";
 import VisaLogo from "../../../assets/logos/logos_visa.png";
 import KlarnaLogo from "../../../assets/logos/logos_klarna.png";
 import MastercardLogo from "../../../assets/logos/logos_mastercard.png";
 import PaypalLogo from "../../../assets/logos/logos_paypal.png";
 import useScreenSizeCheck from "../../../hooks/useScreenSizeCheck.jsx";
 
-export default function Footer({ page, product, setCart, totalSum, setTotalSum }) {
+function CopyRight() {
+  return (
+    <div className={styles.copyRight}>
+      <p>&copy; 2024 Thea Oland</p>
+    </div>
+  );
+}
+
+export default function Footer({ page, product, totalSum, setTotalSum }) {
   const isMobile = useScreenSizeCheck();
 
   function DesktopFooter() {
     return (
       <footer className={styles.footerBackground}>
-        <div className={styles.container}>
+        <div className={styles.containerDesktop}>
           <div className={styles.desktopFooterColumn}>
             <h3>Customer care</h3>
             <ul className={styles.navLinkLists}>
@@ -80,6 +87,7 @@ export default function Footer({ page, product, setCart, totalSum, setTotalSum }
             </div>
           </div>
         </div>
+        <CopyRight />
       </footer>
     );
   }
@@ -87,29 +95,32 @@ export default function Footer({ page, product, setCart, totalSum, setTotalSum }
   function MobileFooter() {
     if (page.includes("/product/")) {
       return (
-        <footer className={`${styles.container} ${styles.footerBackground}`}>
-          <Button page={page} product={product} setCart={setCart} />
+        <footer className={`${styles.containerMobile} ${styles.footerBackground}`}>
+          <Button page={page} product={product} />
         </footer>
       );
     }
     if (page.includes("/checkout")) {
       return (
-        <footer className={`${styles.container} ${styles.footerBackground}`}>
-          <SumTotal totalSum={totalSum} setTotalSum={setTotalSum} />
-          <Button page={page} setCart={setCart} />
+        <footer className={`${styles.containerMobile} ${styles.footerBackground}`}>
+          <div className={styles.wrapper}>
+            <SumTotal totalSum={totalSum} setTotalSum={setTotalSum} />
+            <Button page={page} />
+          </div>
+          <CopyRight />
         </footer>
       );
     }
     if (page.includes("/success")) {
       return (
-        <footer className={`${styles.container} ${styles.footerBackground}`}>
+        <footer className={`${styles.containerMobile} ${styles.footerBackground}`}>
           <Button page={page} />
         </footer>
       );
     }
     if (page.includes("/contact")) {
       return (
-        <footer className={`${styles.container} ${styles.footerBackground}`}>
+        <footer className={`${styles.containerMobile} ${styles.footerBackground}`}>
           <Button page={page} />
         </footer>
       );

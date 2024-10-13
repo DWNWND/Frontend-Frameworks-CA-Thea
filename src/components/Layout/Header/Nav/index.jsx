@@ -1,28 +1,6 @@
 import { useState, createContext, useContext } from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
 import styles from "./Nav.module.css";
-
-const Nav = styled.nav`
-  background-color: white;
-  position: fixed;
-  top: 65px;
-  left: 0;
-  width: 100%;
-  z-index: 99;
-  transition: all 0.7s ease-in-out;
-`;
-
-const HamburgerMenuBtn = styled.button`
-  background-color: white;
-  border: none;
-  padding: 0 0 0 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-height: 24px;
-  z-index: 100;
-`;
 
 const OpenMenuContext = createContext();
 
@@ -36,12 +14,12 @@ export default function HamburgerMenu() {
   return (
     <>
       <OpenMenuContext.Provider value={{ isMenuOpen, setIsMenuOpen }}>
-        <HamburgerMenuBtn value="button to open and close menu" onClick={() => onHamburgerMenuClick()}>
+        <button className={styles.hamburgerMenuBtn} value="button to open and close menu" onClick={() => onHamburgerMenuClick()}>
           <div className={isMenuOpen ? "burger burger-squeeze open" : "burger burger-squeeze"}>
             <div className={styles.hide}>menu</div>
             <div className="burger-lines"></div>
           </div>
-        </HamburgerMenuBtn>
+        </button>
         <OpenMenu />
       </OpenMenuContext.Provider>
     </>
@@ -56,7 +34,7 @@ function OpenMenu() {
   }
 
   return (
-    <Nav className={isMenuOpen ? styles.active : styles.hidden}>
+    <nav className={`${isMenuOpen ? styles.active : styles.hidden} ${styles.nav}`}>
       <ul className={styles.navContainer}>
         <li>
           <Link to="/" className={styles.navLinkPages} onClick={() => handleClick()}>
@@ -109,6 +87,6 @@ function OpenMenu() {
           </Link>
         </li>
       </ul>
-    </Nav>
+    </nav>
   );
 }

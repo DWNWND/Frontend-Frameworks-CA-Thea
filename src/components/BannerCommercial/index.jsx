@@ -1,6 +1,6 @@
 import styles from "./BannerCommercial.module.css";
 
-export default function BannerCommercial() {
+export function BannerCommercial() {
   return (
     <>
       <section className={styles.section}>

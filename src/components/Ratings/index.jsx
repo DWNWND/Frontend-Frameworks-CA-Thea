@@ -11,7 +11,7 @@ function ReviewLength({ section, reviews }) {
   }
 }
 
-export default function Ratings({ rating, reviews, section }) {
+export function Ratings({ rating, reviews, section }) {
   let stars = "";
 
   for (let i = 0; i < 5; i++) {

@@ -1,7 +1,7 @@
 import { useOutletContext } from "react-router-dom";
 import styles from "./Filters.module.css";
 
-export default function Filters() {
+export function Filters() {
   const { filters, setFilters } = useOutletContext();
 
   return (

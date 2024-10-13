@@ -3,19 +3,23 @@
   background-color: var(--color-white);
 }
 
-.container {
-  position: fixed;
-  bottom: 0;
-  z-index: 99;
-  max-width: 1200px;
+.containerDesktop {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
   padding: 1.5rem;
-  border-top: 1.5px solid var(--color-light-gray);
   display: flex;
   justify-content: space-between;
   gap: 1.5rem;
+}
+
+.containerMobile,
+.containerDesktop {
+  position: fixed;
+  bottom: 0;
+  z-index: 99;
+  max-width: 1200px;
+  width: 100%;
 
   @media screen and (min-width: 768px) {
     position: relative;
@@ -25,6 +29,13 @@
   @media screen and (min-width: 1210px) {
     padding: 4rem 0;
   }
+}
+
+.wrapper {
+  display: flex;
+  padding: 1.5rem;
+  justify-content: space-between;
+  gap: 1.5rem;
 }
 
 .desktopFooterColumn {
@@ -61,4 +72,12 @@
 .paymentOptions {
   display: flex;
   gap: 1.5rem;
+}
+
+.copyRight {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--color-dark-gray);
+  text-align: center;
+  padding-bottom: 1rem;
 }
