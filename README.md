@@ -2,7 +2,6 @@
 
 My course assignment for the course Frontend Frameworks, learning to use React.
 
-
 # LAZZ | e-commerce
 
 <!-- ![app-screenshot](/docs/deployedSiteScreenshot_may2024.png) -->
@@ -21,7 +20,6 @@ The goal of this course was to:
 - [Brief](/docs/Course-Assignment_Noroff-Front-end-Development.pdf)
 
 - [MarkingCriteria](/docs/Marking-Criteria_Noroff-Front-end-Development.pdf)
-
 
 ## Figma Prototype
 
@@ -63,6 +61,12 @@ npm install
  npm run dev
 ```
 
+### Add your own **.env** file based on the example file
+
+1. Make a new file called `.env` in your root folder
+2. Copy the content from `.env.example` into your new `.env`file
+3. Populate the new `.env` file with your api base url and email regex
+
 ## Validation
 
 The web application code has been validated using the following tools:
@@ -70,7 +74,6 @@ The web application code has been validated using the following tools:
 - HTML validity: <https://validator.w3.org/>
 
 - Accessibility: <https://wave.webaim.org/>
-
 
 ## Contact
 
