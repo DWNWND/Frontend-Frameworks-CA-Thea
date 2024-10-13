@@ -1,7 +1,6 @@
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import { BannerCommercial, Categories, ProductList } from "../../components";
 import styles from "./Home.module.css";
-import { BannerCommercial, Categories } from "../../components";
-import { ProductList } from "../../components/Products/index.jsx";
 
 export function Home() {
   return (

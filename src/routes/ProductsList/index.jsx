@@ -1,8 +1,8 @@
 import { useLocation } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import styles from "./ProductsList.module.css";
-import { ProductList } from "../../components/Products/index.jsx";
+import { ProductList } from "../../components";
 import caseFirstLetter from "../../js/caseFirstLetter";
+import styles from "./ProductsList.module.css";
 
 export function ProductsList() {
   const location = useLocation();
